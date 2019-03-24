@@ -26,7 +26,6 @@ public class AlfredStateInventory {
     public static void main(String[] args) {
         // TODO code application logic here
         MainWindow mainW = new MainWindow();
-        mainW.main(args);
         PanelDetails detail = new PanelDetails();
         mainW.addPanel(detail);
         
