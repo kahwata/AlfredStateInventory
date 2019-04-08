@@ -10,7 +10,7 @@ package alfredstateinventory;
  * @author Anthony
  */
 public class InventoryItem {
-    private String itemID;
+    private int itemID;
     private String itemName;
     private boolean itemAvail;
     private String lastSeen;      //date format
@@ -18,11 +18,11 @@ public class InventoryItem {
     private String softwareDates; //date format
     private String versionNum;
     private String buildDate;     //date format
-    private int lifeExpect;    //in years
+    private int lifeExpect;       //in years
     private String location;
     private String itemDesc;
 
-    public InventoryItem (String ID){
+    public InventoryItem (int ID){
         itemID = ID;
         itemName = "";
         itemAvail = true;
@@ -35,7 +35,7 @@ public class InventoryItem {
         location = "SET";
         itemDesc = "Default Description";
     }
-     public InventoryItem(String ID, String name, boolean isAvailible, String seenDate, String purchaseDate, String softDate, String num, String bDate,
+     public InventoryItem(int ID, String name, boolean isAvailible, String seenDate, String purchaseDate, String softDate, String num, String bDate,
             int expectency, String iLocation, String desc) {
         itemID = ID;
         itemName = name;
@@ -50,12 +50,12 @@ public class InventoryItem {
         itemDesc = desc;
     }
     
-    public void setID(String ID) {
+    public void setID(int ID) {
 
         itemID = ID;
     }
 
-    public String getID() {
+    public int getID() {
         return itemID;
     }
 

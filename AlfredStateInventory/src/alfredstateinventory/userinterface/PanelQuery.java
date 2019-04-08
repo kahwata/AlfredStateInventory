@@ -5,6 +5,8 @@
  */
 package alfredstateinventory.userinterface;
 
+import alfredstateinventory.AlfredStateInventory;
+
 /**
  *
  * @author BHAsus
@@ -289,6 +291,11 @@ public class PanelQuery extends javax.swing.JPanel {
         add(txtLocation, gridBagConstraints);
 
         btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 24;
@@ -316,6 +323,11 @@ public class PanelQuery extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         add(filler2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+       // TODO add your handling code here:
+       AlfredStateInventory.switchLayout("PanelHome");
+    }//GEN-LAST:event_btnHomeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
