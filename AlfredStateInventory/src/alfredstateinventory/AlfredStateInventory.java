@@ -17,6 +17,7 @@ import javax.swing.*;
 /**
  *
  * @author BHAsus
+ * @author kahwata
  */
 public class AlfredStateInventory {
 
