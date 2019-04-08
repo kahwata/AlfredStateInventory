@@ -160,9 +160,6 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnRefresh">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="f0" id="Control" palette="2" red="f0" type="palette"/>
-        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/alfredstateinventory/drawable/RefreshIcon.png"/>
         </Property>
@@ -181,9 +178,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnQuery">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="f0" id="Control" palette="2" red="f0" type="palette"/>
-        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/alfredstateinventory/drawable/SearchIcon.png"/>
         </Property>
@@ -202,9 +196,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnNewItem">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="f0" id="Control" palette="2" red="f0" type="palette"/>
-        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/alfredstateinventory/drawable/PlusIcon.png"/>
         </Property>

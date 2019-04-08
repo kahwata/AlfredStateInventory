@@ -6,6 +6,7 @@
 package alfredstateinventory.userinterface;
 
 import alfredstateinventory.AlfredStateInventory;
+import alfredstateinventory.InventoryItem;
 import java.awt.*;
 import java.applet.*;
 import javax.swing.*;
@@ -14,17 +15,22 @@ import javax.swing.BorderFactory;
 import javax.swing.border.*;
 import java.awt.event.*;
 
+
 /**
  *
  * @author BHAsus
  */
 public class PanelHome extends javax.swing.JPanel {
     private int scrollPanelY = 0;
+ 
 
     /**
      * Creates new form Home
      */
     public PanelHome() {
+        initComponents();
+    }
+     public PanelHome(InventoryItem[] itemAry) {
         initComponents();
     }
 
