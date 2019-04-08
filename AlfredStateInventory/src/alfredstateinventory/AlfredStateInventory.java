@@ -8,27 +8,43 @@ package alfredstateinventory;
 import alfredstateinventory.userinterface.MainWindow;
 import alfredstateinventory.userinterface.PanelDetails;
 import alfredstateinventory.userinterface.PanelSignIn;
-import java.awt.CardLayout;
-import javax.swing.JPanel;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import alfredstateinventory.userinterface.PanelHome;
+import alfredstateinventory.userinterface.PanelEdit;
+import alfredstateinventory.userinterface.PanelQuery;
 
-/**
- *
- * @author BHAsus
- */
+
+/*
+@author BrandonHurst
+@author AnthonyKawathy*/
+
 public class AlfredStateInventory {
+private static MainWindow mainW;
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
-        MainWindow mainW = new MainWindow();
-        PanelDetails detail = new PanelDetails();
-        mainW.addPanel(detail);
-        
+       mainW = new MainWindow();
+       switchLayout("PanelSignIn");
     }
     
+    public static void switchLayout (String layout) {
+        if (layout.equals("PanelSignIn")) {
+            PanelSignIn signIn = new PanelSignIn();
+            mainW.addPanel(signIn);
+        } else if (layout.equals("PanelHome")) {
+            PanelHome home = new PanelHome();
+            for (int i = 0; i < 50; i ++)
+                home.populateScrollView("001", "Test Item", true, "3/28/19", "SET 440");
+            mainW.addPanel(home);
+        } else if (layout.equals("PanelDetails")) {
+            PanelDetails details = new PanelDetails();
+            details.populateDetailView("001", "Test Item", true, "3/28/19",  "3/28/19", "3/28/19", "3/28/19", "3/28/19",5, "SET 441", "This item was created for test purposes only" );
+            mainW.addPanel(details);
+        } else if (layout.equals("PanelEdit")) {
+            PanelEdit edit = new PanelEdit();
+            edit.populateEditView("001", "Test Item", true, "3/28/19",  "3/28/19", "3/28/19", "3/28/19", "3/28/19",5, "SET 441", "This item was created for test purposes only" );
+            mainW.addPanel(edit);
+        } else if (layout.equals("PanelQuery")) {
+            PanelQuery query = new PanelQuery();
+            mainW.addPanel(query);
+        }
+    }
 }

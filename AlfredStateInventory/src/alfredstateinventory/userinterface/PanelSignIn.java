@@ -5,6 +5,8 @@
  */
 package alfredstateinventory.userinterface;
 
+import alfredstateinventory.AlfredStateInventory;
+
 /**
  *
  * @author BHAsus
@@ -49,6 +51,11 @@ public class PanelSignIn extends javax.swing.JPanel {
         add(filler1, gridBagConstraints);
 
         jButton1.setText("Sign In");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -60,6 +67,10 @@ public class PanelSignIn extends javax.swing.JPanel {
 
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        AlfredStateInventory.switchLayout("PanelHome");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

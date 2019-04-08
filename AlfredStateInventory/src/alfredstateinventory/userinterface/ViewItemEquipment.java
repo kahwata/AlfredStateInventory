@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package alfredstateinventory.userinterface;
+import alfredstateinventory.AlfredStateInventory;
 
 /**
  *
@@ -28,111 +29,111 @@ public class ViewItemEquipment extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        lblItemIdTitle = new javax.swing.JLabel();
+        lblItemId = new javax.swing.JLabel();
+        lblItemNameTitle = new javax.swing.JLabel();
+        lblItemName = new javax.swing.JLabel();
+        lblItemAvailable = new javax.swing.JLabel();
+        btnAvailable = new javax.swing.JCheckBox();
+        lblLastSeenTitle = new javax.swing.JLabel();
+        lblLastSeen = new javax.swing.JLabel();
+        lblLocationTitle = new javax.swing.JLabel();
+        lblLocation = new javax.swing.JLabel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 32767));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 32767));
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 10), new java.awt.Dimension(0, 10), new java.awt.Dimension(32767, 10));
         filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 10), new java.awt.Dimension(0, 10), new java.awt.Dimension(32767, 10));
-        jLabel21 = new javax.swing.JLabel();
+        btnEdit = new javax.swing.JButton();
 
         setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setText("Item ID");
+        lblItemIdTitle.setText("Item ID");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        add(jLabel1, gridBagConstraints);
+        add(lblItemIdTitle, gridBagConstraints);
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        jLabel6.setText("SRVR_EJ414");
+        lblItemId.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        lblItemId.setText("SRVR_EJ414");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        add(jLabel6, gridBagConstraints);
+        add(lblItemId, gridBagConstraints);
 
-        jLabel2.setText("Item Name");
+        lblItemNameTitle.setText("Item Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        add(jLabel2, gridBagConstraints);
+        add(lblItemNameTitle, gridBagConstraints);
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        jLabel7.setText("Windows Server 2016");
+        lblItemName.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        lblItemName.setText("Windows Server 2016");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        add(jLabel7, gridBagConstraints);
+        add(lblItemName, gridBagConstraints);
 
-        jLabel3.setText("Item Available");
+        lblItemAvailable.setText("Item Available");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        add(jLabel3, gridBagConstraints);
+        add(lblItemAvailable, gridBagConstraints);
 
-        jCheckBox1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        jCheckBox1.setSelected(true);
-        jCheckBox1.setText("Available");
+        btnAvailable.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        btnAvailable.setSelected(true);
+        btnAvailable.setText("Available");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
-        add(jCheckBox1, gridBagConstraints);
+        add(btnAvailable, gridBagConstraints);
 
-        jLabel4.setText("Last Seen");
+        lblLastSeenTitle.setText("Last Seen");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        add(jLabel4, gridBagConstraints);
+        add(lblLastSeenTitle, gridBagConstraints);
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        jLabel8.setText("12: 21, 3/19/19");
+        lblLastSeen.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        lblLastSeen.setText("12: 21, 3/19/19");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        add(jLabel8, gridBagConstraints);
+        add(lblLastSeen, gridBagConstraints);
 
-        jLabel20.setText("Location");
+        lblLocationTitle.setText("Location");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        add(jLabel20, gridBagConstraints);
+        add(lblLocationTitle, gridBagConstraints);
 
-        jLabel19.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        jLabel19.setText("SET 441");
+        lblLocation.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        lblLocation.setText("SET 441");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        add(jLabel19, gridBagConstraints);
+        add(lblLocation, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -150,32 +151,55 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         add(filler4, gridBagConstraints);
 
-        jLabel21.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/GearIcon.png"))); // NOI18N
+        btnEdit.setBackground(java.awt.SystemColor.control);
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/GearIcon.png"))); // NOI18N
+        btnEdit.setBorder(null);
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
-        add(jLabel21, gridBagConstraints);
+        add(btnEdit, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        AlfredStateInventory.switchLayout("PanelDetails");
+    }//GEN-LAST:event_btnEditActionPerformed
+    /**
+     * Description: Populates all fields in current inventory item view
+     * @param itemId
+     * @param itemName
+     * @param available
+     * @param lastSeen
+     * @param location
+     */
+    public void populateItemView(String itemId, String itemName, Boolean available, String lastSeen, String location) {
+        lblItemId.setText(itemId);
+        lblItemName.setText(itemName);
+        btnAvailable.setSelected(available);
+        lblLastSeen.setText(lastSeen);
+        lblLocation.setText(location);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox btnAvailable;
+    private javax.swing.JButton btnEdit;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
     private javax.swing.Box.Filler filler4;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel lblItemAvailable;
+    private javax.swing.JLabel lblItemId;
+    private javax.swing.JLabel lblItemIdTitle;
+    private javax.swing.JLabel lblItemName;
+    private javax.swing.JLabel lblItemNameTitle;
+    private javax.swing.JLabel lblLastSeen;
+    private javax.swing.JLabel lblLastSeenTitle;
+    private javax.swing.JLabel lblLocation;
+    private javax.swing.JLabel lblLocationTitle;
     // End of variables declaration//GEN-END:variables
 }

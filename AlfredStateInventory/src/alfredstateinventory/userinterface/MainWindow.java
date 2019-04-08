@@ -14,15 +14,15 @@ import javax.swing.*;
  * @author BHAsus
  */
 public class MainWindow extends javax.swing.JFrame {
+    private JPanel lastPane;
 
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
+        lastPane = new JPanel();
         initComponents();
     }
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,15 +40,15 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    
     public  void addPanel(JPanel panel) {
          GridBagConstraints gbc = new GridBagConstraints();
+         getContentPane().remove(lastPane);
+         getContentPane().invalidate();
+         getContentPane().validate();
          getContentPane().add(panel, gbc);
          pack();
          setVisible(true);
+         lastPane = panel;
     }
     
 

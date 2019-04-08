@@ -28,90 +28,90 @@ public class PanelQuery extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        lblItemName = new javax.swing.JLabel();
+        lblItemAvailable = new javax.swing.JLabel();
+        lblLastSeen = new javax.swing.JLabel();
+        lblItemDescription = new javax.swing.JLabel();
+        btnAvailable = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtItemDescription = new javax.swing.JTextArea();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(50, 0), new java.awt.Dimension(50, 0), new java.awt.Dimension(50, 32767));
-        jLabel9 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel22 = new javax.swing.JLabel();
+        lblDateOfPurchase = new javax.swing.JLabel();
+        lblSoftwareDates = new javax.swing.JLabel();
+        lblVersionNumber = new javax.swing.JLabel();
+        lblBuildDate = new javax.swing.JLabel();
+        lblLifeExpectancy = new javax.swing.JLabel();
+        lblLocation = new javax.swing.JLabel();
+        btnSearch = new javax.swing.JButton();
+        imgLogo = new javax.swing.JLabel();
         filler5 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         filler7 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 20));
-        jLabel21 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jLabel6 = new javax.swing.JLabel();
+        lblItemId = new javax.swing.JLabel();
+        txtItemId = new javax.swing.JTextField();
+        txtItemName = new javax.swing.JTextField();
+        txtSoftwareDates = new javax.swing.JTextField();
+        txtLastSeen = new javax.swing.JTextField();
+        txtDateOfPurcjase = new javax.swing.JTextField();
+        txtBuildDate = new javax.swing.JTextField();
+        txtVersionNumber = new javax.swing.JTextField();
+        txtLifeExpectancy = new javax.swing.JTextField();
+        txtLocation = new javax.swing.JTextField();
+        btnHome = new javax.swing.JButton();
+        btnStrictSearch = new javax.swing.JCheckBox();
+        lblStrictSearch = new javax.swing.JLabel();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
 
         setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setText("Item Name");
+        lblItemName.setText("Item Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
-        add(jLabel2, gridBagConstraints);
+        add(lblItemName, gridBagConstraints);
 
-        jLabel3.setText("Item Available");
+        lblItemAvailable.setText("Item Available");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 1, 0, 0);
-        add(jLabel3, gridBagConstraints);
+        add(lblItemAvailable, gridBagConstraints);
 
-        jLabel4.setText("Last Seen");
+        lblLastSeen.setText("Last Seen");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
-        add(jLabel4, gridBagConstraints);
+        add(lblLastSeen, gridBagConstraints);
 
-        jLabel5.setText("Item Description");
+        lblItemDescription.setText("Item Description");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        add(jLabel5, gridBagConstraints);
+        add(lblItemDescription, gridBagConstraints);
 
-        jCheckBox1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        jCheckBox1.setText("Available");
+        btnAvailable.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        btnAvailable.setText("Available");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        add(jCheckBox1, gridBagConstraints);
+        add(btnAvailable, gridBagConstraints);
 
         jScrollPane1.setAutoscrolls(true);
         jScrollPane1.setMinimumSize(new java.awt.Dimension(150, 100));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setWrapStyleWord(true);
-        jTextArea1.setBorder(null);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtItemDescription.setColumns(20);
+        txtItemDescription.setLineWrap(true);
+        txtItemDescription.setRows(5);
+        txtItemDescription.setWrapStyleWord(true);
+        txtItemDescription.setBorder(null);
+        jScrollPane1.setViewportView(txtItemDescription);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -126,66 +126,66 @@ public class PanelQuery extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(filler1, gridBagConstraints);
 
-        jLabel9.setText("Date of Purchase");
+        lblDateOfPurchase.setText("Date of Purchase");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
-        add(jLabel9, gridBagConstraints);
+        add(lblDateOfPurchase, gridBagConstraints);
 
-        jLabel12.setText("Software Dates");
+        lblSoftwareDates.setText("Software Dates");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        add(jLabel12, gridBagConstraints);
+        add(lblSoftwareDates, gridBagConstraints);
 
-        jLabel14.setText("Version Number");
+        lblVersionNumber.setText("Version Number");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
-        add(jLabel14, gridBagConstraints);
+        add(lblVersionNumber, gridBagConstraints);
 
-        jLabel16.setText("Build Date");
+        lblBuildDate.setText("Build Date");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
-        add(jLabel16, gridBagConstraints);
+        add(lblBuildDate, gridBagConstraints);
 
-        jLabel18.setText("Life Expectancy");
+        lblLifeExpectancy.setText("Life Expectancy");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        add(jLabel18, gridBagConstraints);
+        add(lblLifeExpectancy, gridBagConstraints);
 
-        jLabel20.setText("Location");
+        lblLocation.setText("Location");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
-        add(jLabel20, gridBagConstraints);
+        add(lblLocation, gridBagConstraints);
 
-        jButton1.setText("Search");
+        btnSearch.setText("Search");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 24;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        add(jButton1, gridBagConstraints);
+        add(btnSearch, gridBagConstraints);
 
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/SmallBanner.png"))); // NOI18N
+        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/SmallBanner.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        add(jLabel22, gridBagConstraints);
+        add(imgLogo, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -199,118 +199,118 @@ public class PanelQuery extends javax.swing.JPanel {
         gridBagConstraints.gridy = 25;
         add(filler7, gridBagConstraints);
 
-        jLabel21.setText("Item ID");
+        lblItemId.setText("Item ID");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
-        add(jLabel21, gridBagConstraints);
+        add(lblItemId, gridBagConstraints);
 
-        jTextField1.setMinimumSize(new java.awt.Dimension(100, 20));
-        jTextField1.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtItemId.setMinimumSize(new java.awt.Dimension(100, 20));
+        txtItemId.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
-        add(jTextField1, gridBagConstraints);
+        add(txtItemId, gridBagConstraints);
 
-        jTextField2.setMinimumSize(new java.awt.Dimension(100, 20));
-        jTextField2.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtItemName.setMinimumSize(new java.awt.Dimension(100, 20));
+        txtItemName.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
-        add(jTextField2, gridBagConstraints);
+        add(txtItemName, gridBagConstraints);
 
-        jTextField3.setMinimumSize(new java.awt.Dimension(100, 20));
-        jTextField3.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtSoftwareDates.setMinimumSize(new java.awt.Dimension(100, 20));
+        txtSoftwareDates.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        add(jTextField3, gridBagConstraints);
+        add(txtSoftwareDates, gridBagConstraints);
 
-        jTextField4.setMinimumSize(new java.awt.Dimension(100, 20));
-        jTextField4.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtLastSeen.setMinimumSize(new java.awt.Dimension(100, 20));
+        txtLastSeen.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
-        add(jTextField4, gridBagConstraints);
+        add(txtLastSeen, gridBagConstraints);
 
-        jTextField5.setMinimumSize(new java.awt.Dimension(100, 20));
-        jTextField5.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtDateOfPurcjase.setMinimumSize(new java.awt.Dimension(100, 20));
+        txtDateOfPurcjase.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
-        add(jTextField5, gridBagConstraints);
+        add(txtDateOfPurcjase, gridBagConstraints);
 
-        jTextField6.setMinimumSize(new java.awt.Dimension(100, 20));
-        jTextField6.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtBuildDate.setMinimumSize(new java.awt.Dimension(100, 20));
+        txtBuildDate.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
-        add(jTextField6, gridBagConstraints);
+        add(txtBuildDate, gridBagConstraints);
 
-        jTextField7.setMinimumSize(new java.awt.Dimension(100, 20));
-        jTextField7.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtVersionNumber.setMinimumSize(new java.awt.Dimension(100, 20));
+        txtVersionNumber.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
-        add(jTextField7, gridBagConstraints);
+        add(txtVersionNumber, gridBagConstraints);
 
-        jTextField8.setMinimumSize(new java.awt.Dimension(100, 20));
-        jTextField8.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtLifeExpectancy.setMinimumSize(new java.awt.Dimension(100, 20));
+        txtLifeExpectancy.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        add(jTextField8, gridBagConstraints);
+        add(txtLifeExpectancy, gridBagConstraints);
 
-        jTextField9.setMinimumSize(new java.awt.Dimension(100, 20));
-        jTextField9.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtLocation.setMinimumSize(new java.awt.Dimension(100, 20));
+        txtLocation.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
-        add(jTextField9, gridBagConstraints);
+        add(txtLocation, gridBagConstraints);
 
-        jButton2.setText("Home");
+        btnHome.setText("Home");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 24;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        add(jButton2, gridBagConstraints);
+        add(btnHome, gridBagConstraints);
 
-        jCheckBox2.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        jCheckBox2.setText("Strict Search On");
-        jCheckBox2.setToolTipText("");
+        btnStrictSearch.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        btnStrictSearch.setText("Strict Search On");
+        btnStrictSearch.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        add(jCheckBox2, gridBagConstraints);
+        add(btnStrictSearch, gridBagConstraints);
 
-        jLabel6.setText("Strict Search");
+        lblStrictSearch.setText("Strict Search");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        add(jLabel6, gridBagConstraints);
+        add(lblStrictSearch, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
@@ -319,38 +319,38 @@ public class PanelQuery extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox btnAvailable;
+    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JCheckBox btnStrictSearch;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler5;
     private javax.swing.Box.Filler filler6;
     private javax.swing.Box.Filler filler7;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel imgLogo;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lblBuildDate;
+    private javax.swing.JLabel lblDateOfPurchase;
+    private javax.swing.JLabel lblItemAvailable;
+    private javax.swing.JLabel lblItemDescription;
+    private javax.swing.JLabel lblItemId;
+    private javax.swing.JLabel lblItemName;
+    private javax.swing.JLabel lblLastSeen;
+    private javax.swing.JLabel lblLifeExpectancy;
+    private javax.swing.JLabel lblLocation;
+    private javax.swing.JLabel lblSoftwareDates;
+    private javax.swing.JLabel lblStrictSearch;
+    private javax.swing.JLabel lblVersionNumber;
+    private javax.swing.JTextField txtBuildDate;
+    private javax.swing.JTextField txtDateOfPurcjase;
+    private javax.swing.JTextArea txtItemDescription;
+    private javax.swing.JTextField txtItemId;
+    private javax.swing.JTextField txtItemName;
+    private javax.swing.JTextField txtLastSeen;
+    private javax.swing.JTextField txtLifeExpectancy;
+    private javax.swing.JTextField txtLocation;
+    private javax.swing.JTextField txtSoftwareDates;
+    private javax.swing.JTextField txtVersionNumber;
     // End of variables declaration//GEN-END:variables
 }
