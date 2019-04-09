@@ -5,8 +5,8 @@
  */
 package alfredstateinventory.userinterface;
 
-import alfredstateinventory.AlfredStateInventory;
-import alfredstateinventory.InventoryItem;
+import alfredstateinventory.java.*;
+import alfredstateinventory.java.InventoryItem;
 import java.awt.*;
 import java.applet.*;
 import javax.swing.*;

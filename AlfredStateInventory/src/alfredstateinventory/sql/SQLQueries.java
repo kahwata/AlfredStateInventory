@@ -56,4 +56,36 @@ public class SQLQueries {
         }
     }
     
+    public void querySearch() {
+          try {
+            SQLConnection sqlC = new SQLConnection();
+            sqlC.init();
+            Connection c = sqlC.getConnection();
+            String statement = "SELECT ItemId, ItemName, ItemAvailable, LastSeen, DateOfPurchase, SoftwareDates, "
+                    + "VersionNumber, BuildDate, LifeExpectancy, Location, ItemDescription\n" +
+                    "FROM Inventory \n" +
+                    "WHERE ItemId LIKE '?' AND ItemName LIKE '?' AND ItemAvailable LIKE '?' AND LastSeen LIKE '?' "
+                    + "AND DateOfPurchase LIKE '?' AND SoftwareDates LIKE '?' AND\n" +
+                    "VersionNumber LIKE '?' AND  BuildDate LIKE '?' AND LifeExpectancy LIKE '?' AND Location LIKE"
+                    + " '?' AND ItemDescription LIKE '?'";
+            PreparedStatement s = c.prepareStatement(statement);
+            s.setString(1, "");
+            s.setString(2, "");
+            s.setString(3, "");
+            s.setString(4, "");
+            s.setString(5, "");
+            s.setString(6, "");
+            s.setString(7, "");
+            s.setString(8, "");
+            s.setString(9, "");
+            s.setString(10, "");
+            s.setString(11, "");
+            s.executeUpdate();
+            c.commit();
+            c.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
 }
