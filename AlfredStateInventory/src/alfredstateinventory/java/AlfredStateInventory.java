@@ -3,14 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package alfredstateinventory;
+package alfredstateinventory.java;
 
-import alfredstateinventory.userinterface.MainWindow;
-import alfredstateinventory.userinterface.PanelDetails;
-import alfredstateinventory.userinterface.PanelSignIn;
-import alfredstateinventory.userinterface.PanelHome;
-import alfredstateinventory.userinterface.PanelEdit;
-import alfredstateinventory.userinterface.PanelQuery;
+import alfredstateinventory.userinterface.*;
+import alfredstateinventory.sql.*;
+import java.sql.*;
 
 
 /*

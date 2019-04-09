@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package alfredstateinventory.userinterface;
-import alfredstateinventory.AlfredStateInventory;
+import alfredstateinventory.java.AlfredStateInventory;
 
 /**
  *
