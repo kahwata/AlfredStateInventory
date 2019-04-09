@@ -5,7 +5,7 @@
  */
 package alfredstateinventory.userinterface;
 import alfredstateinventory.java.*;
-import alfredstateinventory.java.InventoryItem;
+import alfredstateinventory.sql.*;
 
 
 /**
@@ -315,7 +315,12 @@ public class PanelEdit extends javax.swing.JPanel {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+      InventoryItem item = new InventoryItem(Integer.parseInt(txtItemId.getText()));
+      item.setItemName(txtItemName.getText());
+      item.setItemAvailible(btnAvailable.isSelected());
       
+        SQLQueries query = new SQLQueries();
+      query.queryNew(item);
     }//GEN-LAST:event_btnSubmitActionPerformed
 
       /**
@@ -332,9 +337,9 @@ public class PanelEdit extends javax.swing.JPanel {
      * @param location
      * @param description
      */
-    public void populateEditView(String itemId, String itemName, Boolean available, 
+    public void populateEditView(int itemId, String itemName, Boolean available, 
             String lastSeen,String dateOfPurchase, String softwareDates, String versionNum, String buildDate, int lifeExpectancy, String location, String description) {
-        txtItemId.setText(itemId);
+        txtItemId.setText("" + itemId);
         txtItemName.setText(itemName);
         btnAvailable.setSelected(available);
         txtLastSeen.setText(lastSeen);

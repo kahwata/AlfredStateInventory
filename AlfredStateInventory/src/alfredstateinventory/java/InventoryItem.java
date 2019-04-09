@@ -5,6 +5,9 @@
  */
 package alfredstateinventory.java;
 
+import java.time.LocalDate;
+import java.sql.Date;
+
 /**
  *
  * @author Anthony
@@ -13,11 +16,11 @@ public class InventoryItem {
     private int itemID;
     private String itemName;
     private boolean itemAvail;
-    private String lastSeen;      //date format
-    private String dateOfPurchase;//date format
-    private String softwareDates; //date format
+    private LocalDate lastSeen;      //date format
+    private LocalDate dateOfPurchase;//date format
+    private LocalDate softwareDates; //date format
     private String versionNum;
-    private String buildDate;     //date format
+    private LocalDate buildDate;     //date format
     private int lifeExpect;       //in years
     private String location;
     private String itemDesc;
@@ -25,17 +28,32 @@ public class InventoryItem {
     public InventoryItem (int ID){
         itemID = ID;
         itemName = "";
-        itemAvail = true;
-        lastSeen = "";
-        dateOfPurchase = "";
-        softwareDates = "";
+        itemAvail = false;
+        lastSeen = LocalDate.now();
+        dateOfPurchase = LocalDate.now();
+        softwareDates = LocalDate.now();
         versionNum = "";
-        buildDate = "";
+        buildDate = LocalDate.now();
         lifeExpect = 0;
-        location = "SET";
-        itemDesc = "Default Description";
+        location = "";
+        itemDesc = "";
     }
-     public InventoryItem(int ID, String name, boolean isAvailible, String seenDate, String purchaseDate, String softDate, String num, String bDate,
+     public InventoryItem(int ID, String name, boolean isAvailible,java.sql.Date seenDate,java.sql.Date purchaseDate,java.sql.Date softDate, String num, java.sql.Date bDate,
+            int expectency, String iLocation, String desc) {
+        itemID = ID;
+        itemName = name;
+        itemAvail = isAvailible;
+        lastSeen = seenDate.toLocalDate();
+        dateOfPurchase = purchaseDate.toLocalDate();
+        softwareDates = softDate.toLocalDate();
+        versionNum = num;
+        buildDate = bDate.toLocalDate();
+        lifeExpect = expectency;
+        location = iLocation;
+        itemDesc = desc;
+    }
+     
+     public InventoryItem(int ID, String name, boolean isAvailible,LocalDate seenDate,LocalDate purchaseDate,LocalDate softDate, String num,LocalDate bDate,
             int expectency, String iLocation, String desc) {
         itemID = ID;
         itemName = name;
@@ -71,31 +89,31 @@ public class InventoryItem {
         itemAvail = isAvailible;
     }
 
-    public boolean getItemAvailible() {
+    public boolean getItemAvailable() {
         return itemAvail;
     }
 
-    public void setLastSeen(String seenDate) {
+    public void setLastSeen(LocalDate seenDate) {
         lastSeen = seenDate;
     }
 
-    public String getLastSeen() {
+    public LocalDate getLastSeen() {
         return lastSeen;
     }
 
-    public void setDateOfPurchase(String date) {
+    public void setDateOfPurchase(LocalDate date) {
         dateOfPurchase = date;
     }
 
-    public String getDateOfPurchase() {
+    public LocalDate getDateOfPurchase() {
         return dateOfPurchase;
     }
 
-    public void setSoftwareDates(String date) {
+    public void setSoftwareDates(LocalDate date) {
         softwareDates = date;
     }
 
-    public String getSoftwareDate() {
+    public LocalDate getSoftwareDate() {
         return softwareDates;
     }
 
@@ -107,19 +125,19 @@ public class InventoryItem {
         return versionNum;
     }
 
-    public void setBuildDate(String date) {
+    public void setBuildDate(LocalDate date) {
         buildDate = date;
     }
 
-    public String getBuildDate() {
+    public LocalDate getBuildDate() {
         return buildDate;
     }
 
-    public void setLifeExpect(int productLife) {
+    public void setLifeExpectancy(int productLife) {
         lifeExpect = productLife;
     }
 
-    public int getLifeExpectency() {
+    public int getLifeExpectancy() {
         return lifeExpect;
     }
 

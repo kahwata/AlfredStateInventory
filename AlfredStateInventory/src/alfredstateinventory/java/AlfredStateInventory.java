@@ -6,8 +6,10 @@
 package alfredstateinventory.java;
 
 import alfredstateinventory.userinterface.*;
+import java.time.LocalDate;
 import alfredstateinventory.sql.*;
 import java.sql.*;
+import java.util.ArrayList;
 
 
 /*
@@ -16,11 +18,21 @@ import java.sql.*;
 
 public class AlfredStateInventory {
 private static MainWindow mainW;
-public static InventoryItem items[] = new InventoryItem[50];
+public static  ArrayList<InventoryItem> inventory = new ArrayList<>();
 
     public static void main(String[] args) {
        mainW = new MainWindow();
        switchLayout("PanelSignIn");
+       
+       /*
+       SQLQueries query = new SQLQueries();
+       inventory = query.queryAll();
+       
+         for (InventoryItem i: inventory) {
+            System.out.println(i.getID() + "\n" + i.getItemName() + "\n" + i.getItemAvailable() + "\n" + i.getLastSeen() + "\n" + i.getDateOfPurchase()
+             + "\n" + i.getSoftwareDate() + "\n" + i.getVersionNum() + "\n" + i.getBuildDate() + "\n" + i.getLifeExpectancy() + "\n" + i.getLocation()
+                    + "\n" + i.getItemDescription());
+        }*/
     }
     
     public static void switchLayout (String layout) {
@@ -44,7 +56,8 @@ public static InventoryItem items[] = new InventoryItem[50];
         
         else if (layout.equals("PanelEdit")) {
             PanelEdit edit = new PanelEdit();
-            //edit.populateEditView("001", "Test Item", true, "3/28/19",  "3/28/19", "3/28/19", "3/28/19", "3/28/19",5, "SET 441", "This item was created for test purposes only" );
+            edit.populateEditView(2, "Test Item", true, "3/28/19",  "3/28/19", "3/28/19", "3/28/19", "3/28/19",5, "SET 441", "This item was created for test purposes only" );
+            InventoryItem item = new InventoryItem(2, "Test Item", true, LocalDate.now(), LocalDate.now(), LocalDate.now(),"1.01.01" , LocalDate.now() ,5, "SET 441", "This item was created for test purposes only");
             mainW.addPanel(edit);
         } 
         

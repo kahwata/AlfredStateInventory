@@ -40,7 +40,7 @@ public class PanelSignIn extends javax.swing.JPanel {
         layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
         setLayout(layout);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/allfredstateinventory/drawable/logo_alfredstate.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/logo_alfredstate.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
