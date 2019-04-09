@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package alfredstateinventory.userinterface;
-import alfredstateinventory.java.AlfredStateInventory;
+import alfredstateinventory.AlfredStateInventory;
+import alfredstateinventory.InventoryItem;
 
 
 /**
@@ -167,6 +168,11 @@ public class PanelEdit extends javax.swing.JPanel {
         add(lblLocation, gridBagConstraints);
 
         btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 24;
@@ -307,6 +313,10 @@ public class PanelEdit extends javax.swing.JPanel {
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         AlfredStateInventory.switchLayout("PanelHome");
     }//GEN-LAST:event_btnHomeActionPerformed
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+      
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
       /**
      * Description: Populates all fields in current inventory item edit view

@@ -16,6 +16,7 @@ import java.sql.*;
 
 public class AlfredStateInventory {
 private static MainWindow mainW;
+public static InventoryItem items[] = new InventoryItem[50];
 
     public static void main(String[] args) {
        mainW = new MainWindow();
@@ -26,20 +27,28 @@ private static MainWindow mainW;
         if (layout.equals("PanelSignIn")) {
             PanelSignIn signIn = new PanelSignIn();
             mainW.addPanel(signIn);
-        } else if (layout.equals("PanelHome")) {
+        }
+        
+        else if (layout.equals("PanelHome")) {
             PanelHome home = new PanelHome();
             for (int i = 0; i < 50; i ++)
-                home.populateScrollView("001", "Test Item", true, "3/28/19", "SET 440");
+              home.populateScrollView("001", "Test Item", true, "3/28/19", "SET 440");
             mainW.addPanel(home);
-        } else if (layout.equals("PanelDetails")) {
+        } 
+        
+        else if (layout.equals("PanelDetails")) {
             PanelDetails details = new PanelDetails();
-            details.populateDetailView("001", "Test Item", true, "3/28/19",  "3/28/19", "3/28/19", "3/28/19", "3/28/19",5, "SET 441", "This item was created for test purposes only" );
+            //details.populateDetailView("001", "Test Item", true, "3/28/19",  "3/28/19", "3/28/19", "3/28/19", "3/28/19",5, "SET 441", "This item was created for test purposes only" );
             mainW.addPanel(details);
-        } else if (layout.equals("PanelEdit")) {
+        } 
+        
+        else if (layout.equals("PanelEdit")) {
             PanelEdit edit = new PanelEdit();
-            edit.populateEditView("001", "Test Item", true, "3/28/19",  "3/28/19", "3/28/19", "3/28/19", "3/28/19",5, "SET 441", "This item was created for test purposes only" );
+            //edit.populateEditView("001", "Test Item", true, "3/28/19",  "3/28/19", "3/28/19", "3/28/19", "3/28/19",5, "SET 441", "This item was created for test purposes only" );
             mainW.addPanel(edit);
-        } else if (layout.equals("PanelQuery")) {
+        } 
+        
+        else if (layout.equals("PanelQuery")) {
             PanelQuery query = new PanelQuery();
             mainW.addPanel(query);
         }
