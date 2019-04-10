@@ -6,12 +6,16 @@
 package alfredstateinventory.userinterface;
 
 import alfredstateinventory.java.*;
+import alfredstateinventory.sql.SQLQueries;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  *
  * @author BHAsus
  */
 public class PanelQuery extends javax.swing.JPanel {
+    private boolean interactedWithAvailable = false;
 
     /**
      * Creates new form PanelDetails
@@ -34,7 +38,7 @@ public class PanelQuery extends javax.swing.JPanel {
         lblItemAvailable = new javax.swing.JLabel();
         lblLastSeen = new javax.swing.JLabel();
         lblItemDescription = new javax.swing.JLabel();
-        btnAvailable = new javax.swing.JCheckBox();
+        btnNotAvailable = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtItemDescription = new javax.swing.JTextArea();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(50, 0), new java.awt.Dimension(50, 0), new java.awt.Dimension(50, 32767));
@@ -54,7 +58,7 @@ public class PanelQuery extends javax.swing.JPanel {
         txtItemName = new javax.swing.JTextField();
         txtSoftwareDates = new javax.swing.JTextField();
         txtLastSeen = new javax.swing.JTextField();
-        txtDateOfPurcjase = new javax.swing.JTextField();
+        txtDateOfPurchase = new javax.swing.JTextField();
         txtBuildDate = new javax.swing.JTextField();
         txtVersionNumber = new javax.swing.JTextField();
         txtLifeExpectancy = new javax.swing.JTextField();
@@ -63,6 +67,7 @@ public class PanelQuery extends javax.swing.JPanel {
         btnStrictSearch = new javax.swing.JCheckBox();
         lblStrictSearch = new javax.swing.JLabel();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
+        btnAvailable = new javax.swing.JCheckBox();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -97,13 +102,13 @@ public class PanelQuery extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(lblItemDescription, gridBagConstraints);
 
-        btnAvailable.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        btnAvailable.setText("Available");
+        btnNotAvailable.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        btnNotAvailable.setText("Not Available");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        add(btnAvailable, gridBagConstraints);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        add(btnNotAvailable, gridBagConstraints);
 
         jScrollPane1.setAutoscrolls(true);
         jScrollPane1.setMinimumSize(new java.awt.Dimension(150, 100));
@@ -175,6 +180,11 @@ public class PanelQuery extends javax.swing.JPanel {
         add(lblLocation, gridBagConstraints);
 
         btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 24;
@@ -245,14 +255,14 @@ public class PanelQuery extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
         add(txtLastSeen, gridBagConstraints);
 
-        txtDateOfPurcjase.setMinimumSize(new java.awt.Dimension(100, 20));
-        txtDateOfPurcjase.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtDateOfPurchase.setMinimumSize(new java.awt.Dimension(100, 20));
+        txtDateOfPurchase.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
-        add(txtDateOfPurcjase, gridBagConstraints);
+        add(txtDateOfPurchase, gridBagConstraints);
 
         txtBuildDate.setMinimumSize(new java.awt.Dimension(100, 20));
         txtBuildDate.setPreferredSize(new java.awt.Dimension(50, 20));
@@ -322,6 +332,14 @@ public class PanelQuery extends javax.swing.JPanel {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
         add(filler2, gridBagConstraints);
+
+        btnAvailable.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        btnAvailable.setText("Available");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        add(btnAvailable, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
@@ -329,10 +347,38 @@ public class PanelQuery extends javax.swing.JPanel {
        AlfredStateInventory.switchLayout("PanelHome");
     }//GEN-LAST:event_btnHomeActionPerformed
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        ArrayList<String> query = new ArrayList<>();
+        query.add(txtItemId.getText());
+        query.add(txtItemName.getText());
+        
+        if (btnNotAvailable.isSelected() == btnAvailable.isSelected())
+             query.add("");
+        else if (btnAvailable.isSelected())
+            query.add(Boolean.toString(btnAvailable.isSelected()));
+        else if (btnNotAvailable.isSelected())
+            query.add(Boolean.toString(false));
+           
+        query.add(txtLastSeen.getText());
+        query.add(txtDateOfPurchase.getText());
+        query.add(txtSoftwareDates.getText());
+        query.add(txtVersionNumber.getText());
+        query.add(txtBuildDate.getText());
+        query.add(txtLifeExpectancy.getText());
+        query.add(txtLocation.getText());
+        query.add(txtItemDescription.getText());
+      
+        ArrayList<InventoryItem> inventory = new ArrayList<>(); 
+        SQLQueries sql = new SQLQueries();
+        inventory = sql.querySearch(query, btnStrictSearch.isSelected());
+        AlfredStateInventory.displayInventory(inventory);
+    }//GEN-LAST:event_btnSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox btnAvailable;
     private javax.swing.JButton btnHome;
+    private javax.swing.JCheckBox btnNotAvailable;
     private javax.swing.JButton btnSearch;
     private javax.swing.JCheckBox btnStrictSearch;
     private javax.swing.Box.Filler filler1;
@@ -355,7 +401,7 @@ public class PanelQuery extends javax.swing.JPanel {
     private javax.swing.JLabel lblStrictSearch;
     private javax.swing.JLabel lblVersionNumber;
     private javax.swing.JTextField txtBuildDate;
-    private javax.swing.JTextField txtDateOfPurcjase;
+    private javax.swing.JTextField txtDateOfPurchase;
     private javax.swing.JTextArea txtItemDescription;
     private javax.swing.JTextField txtItemId;
     private javax.swing.JTextField txtItemName;

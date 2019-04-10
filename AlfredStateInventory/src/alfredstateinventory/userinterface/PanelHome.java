@@ -35,6 +35,10 @@ public class PanelHome extends javax.swing.JPanel {
      */
     public PanelHome() {
         initComponents();
+        
+        if (!SQLConnection.getAdminAccess()) {
+            btnNewItem.setVisible(false);
+        }
     }
      public PanelHome(InventoryItem[] itemAry) {
         initComponents();
@@ -153,7 +157,7 @@ public class PanelHome extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewItemActionPerformed
-        AlfredStateInventory.switchLayout("PanelEdit");
+        AlfredStateInventory.switchLayout("PanelEdit", "", 1);
     }//GEN-LAST:event_btnNewItemActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed

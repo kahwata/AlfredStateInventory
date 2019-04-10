@@ -5,6 +5,7 @@
  */
 package alfredstateinventory.userinterface;
 import alfredstateinventory.java.*;
+import alfredstateinventory.sql.SQLConnection;
 import java.time.format.DateTimeFormatter;
 
 
@@ -19,6 +20,10 @@ public class PanelDetails extends javax.swing.JPanel {
      */
     public PanelDetails() {
         initComponents();
+        
+        if (!SQLConnection.getAdminAccess()) {
+            btnEdit.setVisible(false);
+        }
     }
 
     /**
@@ -293,7 +298,7 @@ public class PanelDetails extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        AlfredStateInventory.switchLayout("PanelEdit");
+        AlfredStateInventory.switchLayout("PanelEdit", btnEdit.getActionCommand(), 2);
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
@@ -306,8 +311,10 @@ public class PanelDetails extends javax.swing.JPanel {
      */
     public void populateDetailView(InventoryItem item) {
         lblItemId.setText("" + item.getID());
+        btnEdit.setActionCommand("" + item.getID());
         lblItemName.setText(item.getItemName());
         btnAvailable.setSelected(item.getItemAvailable());
+        btnAvailable.setEnabled(false);
         lblLastSeen.setText(item.getLastSeen().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
         lblDateOfPurchase.setText(item.getDateOfPurchase().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
         lblSoftwareDates.setText(item.getSoftwareDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));

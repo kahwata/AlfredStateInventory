@@ -98,8 +98,8 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         add(lblItemAvailable, gridBagConstraints);
 
         btnAvailable.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        btnAvailable.setSelected(true);
         btnAvailable.setText("Available");
+        btnAvailable.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
@@ -186,6 +186,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         btnEdit.setActionCommand("" + inventoryItem.getID());
         lblItemName.setText(inventoryItem.getItemName());
         btnAvailable.setSelected(inventoryItem.getItemAvailable());
+        btnAvailable.setEnabled(false);
         lblLastSeen.setText(inventoryItem.getLastSeen().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
         lblLocation.setText(inventoryItem.getLocation());
     }

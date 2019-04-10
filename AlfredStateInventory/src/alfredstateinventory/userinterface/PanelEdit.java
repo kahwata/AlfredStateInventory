@@ -7,18 +7,32 @@ package alfredstateinventory.userinterface;
 import alfredstateinventory.java.*;
 import alfredstateinventory.sql.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author BHAsus
  */
 public class PanelEdit extends javax.swing.JPanel {
-
+    private boolean newItem;
     /**
      * Creates new form PanelDetails
      */
-    public PanelEdit() {
+    public PanelEdit(Boolean newItem) {
+        this.newItem = newItem;
         initComponents();
+        txtItemId.setEditable(false);
+        if (newItem) {
+            SQLQueries query = new SQLQueries();
+            try {
+                int id = query.queryId();
+                txtItemId.setText("" + id);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Could not get ItemId for new item");
+            }
+            
+        }
     }
 
     /**
@@ -372,8 +386,14 @@ public class PanelEdit extends javax.swing.JPanel {
       item.setItemDescription(txtItemDescription.getText());
       
       SQLQueries query = new SQLQueries();
-      if(query.queryNew(item))
+      if (newItem) {
+        if(query.queryNew(item))
             AlfredStateInventory.switchLayout("PanelHome");
+      } else {
+          if(query.queryEdit(item))
+            AlfredStateInventory.switchLayout("PanelHome");
+      }
+     
     }//GEN-LAST:event_btnSubmitActionPerformed
 
       /**
@@ -390,19 +410,18 @@ public class PanelEdit extends javax.swing.JPanel {
      * @param location
      * @param description
      */
-    public void populateEditView(int itemId, String itemName, Boolean available, 
-            String lastSeen,String dateOfPurchase, String softwareDates, String versionNum, String buildDate, int lifeExpectancy, String location, String description) {
-        txtItemId.setText("" + itemId);
-        txtItemName.setText(itemName);
-        btnAvailable.setSelected(available);
-        txtLastSeen.setText(lastSeen);
-        txtDateOfPurchase.setText(dateOfPurchase);
-        txtSoftwareDates.setText(softwareDates);
-        txtVersionNumber.setText(versionNum);
-        txtBuildDate.setText(buildDate);
-        txtLifeExpectancy.setText("" + lifeExpectancy);
-        txtLocation.setText(location);
-        txtItemDescription.setText(description);
+    public void populateEditView(InventoryItem item) {
+        txtItemId.setText("" + item.getID());
+        txtItemName.setText(item.getItemName());
+        btnAvailable.setSelected(item.getItemAvailable());
+        txtLastSeen.setText(item.getLastSeen().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        txtDateOfPurchase.setText(item.getDateOfPurchase().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        txtSoftwareDates.setText(item.getSoftwareDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        txtVersionNumber.setText(item.getVersionNum());
+        txtBuildDate.setText(item.getBuildDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        txtLifeExpectancy.setText("" + item.getLifeExpectancy());
+        txtLocation.setText(item.getLocation());
+        txtItemDescription.setText(item.getItemDescription());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

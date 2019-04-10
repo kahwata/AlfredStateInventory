@@ -46,11 +46,6 @@ public static  ArrayList<InventoryItem> inventory = new ArrayList<>();
             mainW.addPanel(details);
         } 
         
-        else if (layout.equals("PanelEdit")) {
-            PanelEdit edit = new PanelEdit();
-            mainW.addPanel(edit);
-        } 
-        
         else if (layout.equals("PanelQuery")) {
             PanelQuery query = new PanelQuery();
             mainW.addPanel(query);
@@ -69,7 +64,36 @@ public static  ArrayList<InventoryItem> inventory = new ArrayList<>();
                 JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
                 e.printStackTrace();
             }
-          
-        } 
+        }
     }
+    
+      public static void switchLayout (String layout, String arg, int option) { 
+          
+          if (layout.equals("PanelEdit")) {
+            if (option == 1) {
+                PanelEdit edit = new PanelEdit(true);
+                mainW.addPanel(edit);
+            } else if (option == 2) {
+                PanelEdit edit = new PanelEdit(false);
+                SQLQueries query = new SQLQueries();
+                try {
+                    InventoryItem item = query.querySpecific(Integer.parseInt(arg));
+                    edit.populateEditView(item);
+                    mainW.addPanel(edit);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+                    e.printStackTrace();
+                }
+            }
+        }    
+      }
+      
+      public static void displayInventory(ArrayList <InventoryItem> inventory) {
+            PanelHome home = new PanelHome();
+            SQLQueries query = new SQLQueries();
+            home.populateScrollView(inventory);
+            mainW.addPanel(home);
+      }
+    
+    
 }

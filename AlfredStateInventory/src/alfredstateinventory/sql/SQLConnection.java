@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package alfredstateinventory.sql;
+import alfredstateinventory.userinterface.*;
 import java.sql.*;
 
 /**
@@ -13,14 +14,23 @@ import java.sql.*;
 
 public class SQLConnection {
     private Connection sqlConnection;
+    private static boolean isAdmin = false;
     
     public void init() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            sqlConnection = DriverManager.getConnection("jdbc:mysql://bhprograms.org:3306/bhprogra_SystemAnalysis?zeroDateTimeBehavior=convertToNull", "bhprogra_unix", "linux");
+            sqlConnection = DriverManager.getConnection("jdbc:mysql://bhprograms.org:3306/bhprogra_SystemAnalysis?zeroDateTimeBehavior=convertToNull", PanelSignIn.getUser(), PanelSignIn.getPass());
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public static boolean getAdminAccess() {
+        return isAdmin;
+    }
+    
+    public static void setAdminAccess(boolean adminAccess) {
+        isAdmin = adminAccess;
     }
     
     public Connection getConnection() {
