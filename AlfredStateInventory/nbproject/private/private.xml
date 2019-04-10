@@ -5,10 +5,11 @@
         <group>
             <file>file:/C:/Users/BHAsus/Documents/GitHub/AlfredStateInventoryDesktop/AlfredStateInventory/src/alfredstateinventory/sql/SQLConnection.java</file>
             <file>file:/C:/Users/BHAsus/Documents/GitHub/AlfredStateInventoryDesktop/AlfredStateInventory/src/alfredstateinventory/sql/SQLQueries.java</file>
-            <file>file:/C:/Users/BHAsus/Documents/GitHub/AlfredStateInventoryDesktop/AlfredStateInventory/src/alfredstateinventory/userinterface/PanelSignIn.java</file>
+            <file>file:/C:/Users/BHAsus/Documents/GitHub/AlfredStateInventoryDesktop/AlfredStateInventory/src/alfredstateinventory/userinterface/PanelDetails.java</file>
             <file>file:/C:/Users/BHAsus/Documents/GitHub/AlfredStateInventoryDesktop/AlfredStateInventory/src/alfredstateinventory/java/AlfredStateInventory.java</file>
             <file>file:/C:/Users/BHAsus/Documents/GitHub/AlfredStateInventoryDesktop/AlfredStateInventory/src/alfredstateinventory/java/InventoryItem.java</file>
             <file>file:/C:/Users/BHAsus/Documents/GitHub/AlfredStateInventoryDesktop/AlfredStateInventory/src/alfredstateinventory/userinterface/PanelEdit.java</file>
+            <file>file:/C:/Users/BHAsus/Documents/GitHub/AlfredStateInventoryDesktop/AlfredStateInventory/src/alfredstateinventory/userinterface/ViewItemEquipment.java</file>
         </group>
     </open-files>
 </project-private>

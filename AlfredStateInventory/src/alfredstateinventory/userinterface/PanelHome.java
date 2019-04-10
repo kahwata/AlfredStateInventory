@@ -8,12 +8,18 @@ package alfredstateinventory.userinterface;
 import alfredstateinventory.java.*;
 import alfredstateinventory.java.InventoryItem;
 import java.awt.*;
+import alfredstateinventory.userinterface.*;
+import java.time.LocalDate;
+import alfredstateinventory.sql.*;
+import java.sql.*;
+import java.util.ArrayList;
 import java.applet.*;
 import javax.swing.*;
 import javax.imageio.*;
 import javax.swing.BorderFactory;
 import javax.swing.border.*;
 import java.awt.event.*;
+
 
 
 /**
@@ -161,19 +167,17 @@ public class PanelHome extends javax.swing.JPanel {
     /**
      * Description: Creates an inventory item view, populates it, and adds it
      * to the scroll view using proper grid bag constraints
-     * @param itemId
-     * @param itemName
-     * @param available
-     * @param lastSeen
-     * @param location
+     * @param Inventory
      */
-    public void populateScrollView(String itemId, String itemName, Boolean available, String lastSeen, String location) {
-        ViewItemEquipment inventoryItem = new ViewItemEquipment();
-        inventoryItem.populateItemView(itemId, itemName, available, lastSeen, location);
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridy = scrollPanelY;
-        pnlScrollPanel.add(inventoryItem, gbc);
-        scrollPanelY++;
+    public void populateScrollView(ArrayList<InventoryItem> inventory) {
+        for (InventoryItem i: inventory) {
+            ViewItemEquipment inventoryItem = new ViewItemEquipment();
+            inventoryItem.populateItemView(i);
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.gridy = scrollPanelY;
+            pnlScrollPanel.add(inventoryItem, gbc);
+            scrollPanelY++;
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

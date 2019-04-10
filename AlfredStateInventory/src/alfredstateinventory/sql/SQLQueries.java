@@ -39,7 +39,28 @@ public class SQLQueries {
        return inventory;
     }
     
-    public void queryNew(InventoryItem item) {
+    public InventoryItem querySpecific(int itemID) throws SQLException {
+        ResultSet result = null;
+        try {
+        SQLConnection sqlC = new SQLConnection();
+        sqlC.init();
+        Connection c = sqlC.getConnection();
+        PreparedStatement s = c.prepareStatement("Select * from Inventory WHERE ItemId = ?");
+        s.setInt(1, itemID);
+        result = s.executeQuery();
+        } catch (Exception e) {
+           JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+           e.printStackTrace();
+        }
+        
+        result.next();
+        InventoryItem item = new InventoryItem(result.getInt(1), result.getString(2), result.getBoolean(3),
+            result.getDate(4), result.getDate(5), result.getDate(6), result.getString(7), result.getDate(8),
+            result.getInt(9), result.getString(10), result.getString(11));
+        return item;
+    }
+    
+    public boolean queryNew(InventoryItem item) {
         try {
             SQLConnection sqlC = new SQLConnection();
             sqlC.init();
@@ -62,7 +83,9 @@ public class SQLQueries {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
     
     public void querySearch(InventoryItem item) {

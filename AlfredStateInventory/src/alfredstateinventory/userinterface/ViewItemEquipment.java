@@ -4,7 +4,15 @@
  * and open the template in the editor.
  */
 package alfredstateinventory.userinterface;
-import alfredstateinventory.java.AlfredStateInventory;
+
+import alfredstateinventory.java.*;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
+import alfredstateinventory.userinterface.*;
+import java.time.LocalDate;
+import alfredstateinventory.sql.*;
+import java.sql.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -167,22 +175,19 @@ public class ViewItemEquipment extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        AlfredStateInventory.switchLayout("PanelDetails");
+        AlfredStateInventory.switchLayout("PanelDetails", btnEdit.getActionCommand());
     }//GEN-LAST:event_btnEditActionPerformed
     /**
      * Description: Populates all fields in current inventory item view
-     * @param itemId
-     * @param itemName
-     * @param available
-     * @param lastSeen
-     * @param location
+     * @param inventoryItem
      */
-    public void populateItemView(String itemId, String itemName, Boolean available, String lastSeen, String location) {
-        lblItemId.setText(itemId);
-        lblItemName.setText(itemName);
-        btnAvailable.setSelected(available);
-        lblLastSeen.setText(lastSeen);
-        lblLocation.setText(location);
+    public void populateItemView(InventoryItem inventoryItem) {
+        lblItemId.setText("" + inventoryItem.getID());
+        btnEdit.setActionCommand("" + inventoryItem.getID());
+        lblItemName.setText(inventoryItem.getItemName());
+        btnAvailable.setSelected(inventoryItem.getItemAvailable());
+        lblLastSeen.setText(inventoryItem.getLastSeen().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+        lblLocation.setText(inventoryItem.getLocation());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

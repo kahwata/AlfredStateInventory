@@ -38,6 +38,7 @@ public class InventoryItem {
         location = "";
         itemDesc = "";
     }
+    
      public InventoryItem(int ID, String name, boolean isAvailible,java.sql.Date seenDate,java.sql.Date purchaseDate,java.sql.Date softDate, String num, java.sql.Date bDate,
             int expectency, String iLocation, String desc) {
         itemID = ID;

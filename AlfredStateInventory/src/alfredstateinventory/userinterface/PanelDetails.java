@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package alfredstateinventory.userinterface;
-import alfredstateinventory.java.AlfredStateInventory;
+import alfredstateinventory.java.*;
+import java.time.format.DateTimeFormatter;
 
 
 /**
@@ -301,31 +302,20 @@ public class PanelDetails extends javax.swing.JPanel {
 
      /**
      * Description: Populates all fields in current inventory item view
-     * @param itemId
-     * @param itemName
-     * @param available
-     * @param lastSeen
-     * @param dateOfPurchase
-     * @param softwareDates
-     * @param versionNum
-     * @param buildDate
-     * @param lifeExpectancy
-     * @param location
-     * @param description
+     * @param item
      */
-    public void populateDetailView(String itemId, String itemName, Boolean available, 
-            String lastSeen,String dateOfPurchase, String softwareDates, String versionNum, String buildDate, int lifeExpectancy, String location, String description) {
-        lblItemId.setText(itemId);
-        lblItemName.setText(itemName);
-        btnAvailable.setSelected(available);
-        lblLastSeen.setText(lastSeen);
-        lblDateOfPurchase.setText(dateOfPurchase);
-        lblSoftwareDates.setText(softwareDates);
-        lblVersionNumber.setText(versionNum);
-        lblBuildDate.setText(buildDate);
-        lblLifeExpectancy.setText("" + lifeExpectancy);
-        lblLocation.setText(location);
-        lblItemDescription.setText(description);
+    public void populateDetailView(InventoryItem item) {
+        lblItemId.setText("" + item.getID());
+        lblItemName.setText(item.getItemName());
+        btnAvailable.setSelected(item.getItemAvailable());
+        lblLastSeen.setText(item.getLastSeen().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+        lblDateOfPurchase.setText(item.getDateOfPurchase().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+        lblSoftwareDates.setText(item.getSoftwareDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+        lblVersionNumber.setText(item.getVersionNum());
+        lblBuildDate.setText(item.getBuildDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+        lblLifeExpectancy.setText("" + item.getLifeExpectancy());
+        lblLocation.setText(item.getLocation());
+        lblItemDescription.setText(item.getItemDescription());
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
