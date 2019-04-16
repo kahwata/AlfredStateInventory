@@ -4,18 +4,24 @@
  * and open the template in the editor.
  */
 package alfredstateinventory.userinterface;
+
 import alfredstateinventory.java.*;
 import alfredstateinventory.sql.*;
+import com.google.zxing.WriterException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author BHAsus
  */
 public class PanelEdit extends javax.swing.JPanel {
+
     private boolean newItem;
+
     /**
      * Creates new form PanelDetails
      */
@@ -31,7 +37,20 @@ public class PanelEdit extends javax.swing.JPanel {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Could not get ItemId for new item");
             }
-            
+
+            QRCodeGenerator ab = new QRCodeGenerator();
+            try {
+                int id = query.queryId();
+                String a = String.valueOf(id);
+                String QR_CODE_IMAGE_PATH = a + "QRCode.png";
+                ab.generateQRCodeImage(a, 350, 350, QR_CODE_IMAGE_PATH);
+            } catch (WriterException e) {
+                System.out.println("Could not generate QR Code, WriterException :: " + e.getMessage());
+            } catch (IOException e) {
+                System.out.println("Could not generate QR Code, IOException :: " + e.getMessage());
+            } catch (Exception a) {
+                JOptionPane.showMessageDialog(null, "Could not get ItemId for new item");
+            }
         }
     }
 
@@ -62,7 +81,6 @@ public class PanelEdit extends javax.swing.JPanel {
         imgLogo = new javax.swing.JLabel();
         filler5 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
-        filler7 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 20));
         txtItemId = new javax.swing.JTextField();
         txtItemName = new javax.swing.JTextField();
         txtSoftwareDates = new javax.swing.JTextField();
@@ -78,6 +96,7 @@ public class PanelEdit extends javax.swing.JPanel {
         lblPDFormat = new javax.swing.JLabel();
         lblSDFormat = new javax.swing.JLabel();
         lblBDFormat = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setMinimumSize(new java.awt.Dimension(350, 700));
         setPreferredSize(new java.awt.Dimension(350, 700));
@@ -194,7 +213,7 @@ public class PanelEdit extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 28;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         add(btnSubmit, gridBagConstraints);
@@ -214,10 +233,6 @@ public class PanelEdit extends javax.swing.JPanel {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         add(filler6, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 29;
-        add(filler7, gridBagConstraints);
 
         txtItemId.setMinimumSize(new java.awt.Dimension(300, 20));
         txtItemId.setPreferredSize(new java.awt.Dimension(50, 20));
@@ -318,7 +333,7 @@ public class PanelEdit extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 28;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         add(btnHome, gridBagConstraints);
@@ -366,6 +381,14 @@ public class PanelEdit extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         add(lblBDFormat, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 28;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
+        gridBagConstraints.insets = new java.awt.Insets(4, 0, 2, 0);
+        add(jPanel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
@@ -373,31 +396,34 @@ public class PanelEdit extends javax.swing.JPanel {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-      InventoryItem item = new InventoryItem(Integer.parseInt(txtItemId.getText()));
-      item.setItemName(txtItemName.getText());
-      item.setItemAvailible(btnAvailable.isSelected());
-      item.setLastSeen(LocalDate.parse(txtLastSeen.getText()).plusDays(1));
-      item.setDateOfPurchase(LocalDate.parse(txtDateOfPurchase.getText()).plusDays(1));
-      item.setSoftwareDates(LocalDate.parse(txtSoftwareDates.getText()).plusDays(1));
-      item.setVersionNum(txtVersionNumber.getText());
-      item.setBuildDate(LocalDate.parse(txtBuildDate.getText()).plusDays(1));
-      item.setLifeExpectancy(Integer.parseInt(txtLifeExpectancy.getText()));
-      item.setLocation(txtLocation.getText());
-      item.setItemDescription(txtItemDescription.getText());
-      
-      SQLQueries query = new SQLQueries();
-      if (newItem) {
-        if(query.queryNew(item))
-            AlfredStateInventory.switchLayout("PanelHome");
-      } else {
-          if(query.queryEdit(item))
-            AlfredStateInventory.switchLayout("PanelHome");
-      }
-     
+        InventoryItem item = new InventoryItem(Integer.parseInt(txtItemId.getText()));
+        item.setItemName(txtItemName.getText());
+        item.setItemAvailible(btnAvailable.isSelected());
+        item.setLastSeen(LocalDate.parse(txtLastSeen.getText()).plusDays(1));
+        item.setDateOfPurchase(LocalDate.parse(txtDateOfPurchase.getText()).plusDays(1));
+        item.setSoftwareDates(LocalDate.parse(txtSoftwareDates.getText()).plusDays(1));
+        item.setVersionNum(txtVersionNumber.getText());
+        item.setBuildDate(LocalDate.parse(txtBuildDate.getText()).plusDays(1));
+        item.setLifeExpectancy(Integer.parseInt(txtLifeExpectancy.getText()));
+        item.setLocation(txtLocation.getText());
+        item.setItemDescription(txtItemDescription.getText());
+
+        SQLQueries query = new SQLQueries();
+        if (newItem) {
+            if (query.queryNew(item)) {
+                AlfredStateInventory.switchLayout("PanelHome");
+            }
+        } else {
+            if (query.queryEdit(item)) {
+                AlfredStateInventory.switchLayout("PanelHome");
+            }
+        }
+
     }//GEN-LAST:event_btnSubmitActionPerformed
 
-      /**
+    /**
      * Description: Populates all fields in current inventory item edit view
+     *
      * @param itemId
      * @param itemName
      * @param available
@@ -430,8 +456,8 @@ public class PanelEdit extends javax.swing.JPanel {
     private javax.swing.JButton btnSubmit;
     private javax.swing.Box.Filler filler5;
     private javax.swing.Box.Filler filler6;
-    private javax.swing.Box.Filler filler7;
     private javax.swing.JLabel imgLogo;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBDFormat;
     private javax.swing.JLabel lblBuildDate;

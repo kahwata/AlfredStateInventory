@@ -11,6 +11,15 @@ import alfredstateinventory.sql.*;
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+
 
 
 /*
@@ -24,6 +33,8 @@ public static  ArrayList<InventoryItem> inventory = new ArrayList<>();
     public static void main(String[] args) {
        mainW = new MainWindow();
        switchLayout("PanelSignIn");
+       
+      
     }
     
     public static void switchLayout (String layout) {
