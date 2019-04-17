@@ -317,7 +317,7 @@ public class PanelDetails extends javax.swing.JPanel {
     private void btnQRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQRActionPerformed
       String path = QRCodeGenerator.getDirPath();
       try {
-      QRCodeGenerator.generateQRCodeImage(lblItemId.getText(),  path);
+        QRCodeGenerator.generateQRCodeImage(lblItemId.getText(),  path);
       } catch (Exception e) {
           JOptionPane.showMessageDialog(null,e + ": " +  e.getLocalizedMessage());
       }

@@ -28,7 +28,7 @@ import java.nio.file.Path;
 public class QRCodeGenerator {
 
     public static void generateQRCodeImage(String text, String filePath)
-            throws WriterException, IOException {
+            throws Exception{
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, 500, 500);
 
