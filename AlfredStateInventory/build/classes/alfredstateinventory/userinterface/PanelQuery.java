@@ -6,38 +6,22 @@
 package alfredstateinventory.userinterface;
 
 import alfredstateinventory.java.*;
-import alfredstateinventory.sql.*;
-import com.google.zxing.WriterException;
-import java.io.IOException;
+import alfredstateinventory.sql.SQLQueries;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import javax.swing.JOptionPane;
-import javax.swing.ImageIcon;
+import java.util.ArrayList;
 
 /**
  *
  * @author BHAsus
  */
-public class PanelEdit extends javax.swing.JPanel {
-
-    private boolean newItem;
+public class PanelQuery extends javax.swing.JPanel {
+    private boolean interactedWithAvailable = false;
 
     /**
      * Creates new form PanelDetails
      */
-    public PanelEdit(Boolean newItem) {
-        this.newItem = newItem;
+    public PanelQuery() {
         initComponents();
-        txtItemId.setEditable(false);
-        if (newItem) {
-            SQLQueries query = new SQLQueries();
-            try {
-                int id = query.queryId();
-                txtItemId.setText("" + id);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Could not get ItemId for new item");
-            }
-        }
     }
 
     /**
@@ -54,19 +38,22 @@ public class PanelEdit extends javax.swing.JPanel {
         lblItemAvailable = new javax.swing.JLabel();
         lblLastSeen = new javax.swing.JLabel();
         lblItemDescription = new javax.swing.JLabel();
-        btnAvailable = new javax.swing.JCheckBox();
+        btnNotAvailable = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtItemDescription = new javax.swing.JTextArea();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(50, 0), new java.awt.Dimension(50, 0), new java.awt.Dimension(50, 32767));
         lblDateOfPurchase = new javax.swing.JLabel();
         lblSoftwareDates = new javax.swing.JLabel();
         lblVersionNumber = new javax.swing.JLabel();
         lblBuildDate = new javax.swing.JLabel();
         lblLifeExpectancy = new javax.swing.JLabel();
         lblLocation = new javax.swing.JLabel();
-        btnSubmit = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
         imgLogo = new javax.swing.JLabel();
         filler5 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
+        filler7 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 20));
+        lblItemId = new javax.swing.JLabel();
         txtItemId = new javax.swing.JTextField();
         txtItemName = new javax.swing.JTextField();
         txtSoftwareDates = new javax.swing.JTextField();
@@ -77,58 +64,51 @@ public class PanelEdit extends javax.swing.JPanel {
         txtLifeExpectancy = new javax.swing.JTextField();
         txtLocation = new javax.swing.JTextField();
         btnHome = new javax.swing.JButton();
-        lblItemId1 = new javax.swing.JLabel();
-        lblLSDFormat = new javax.swing.JLabel();
-        lblPDFormat = new javax.swing.JLabel();
-        lblSDFormat = new javax.swing.JLabel();
-        lblBDFormat = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        btnStrictSearch = new javax.swing.JCheckBox();
+        lblStrictSearch = new javax.swing.JLabel();
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
+        btnAvailable = new javax.swing.JCheckBox();
 
-        setMinimumSize(new java.awt.Dimension(350, 700));
-        setPreferredSize(new java.awt.Dimension(350, 700));
         setLayout(new java.awt.GridBagLayout());
 
         lblItemName.setText("Item Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
         add(lblItemName, gridBagConstraints);
 
         lblItemAvailable.setText("Item Available");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 1, 0, 0);
         add(lblItemAvailable, gridBagConstraints);
 
         lblLastSeen.setText("Last Seen");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
         add(lblLastSeen, gridBagConstraints);
 
         lblItemDescription.setText("Item Description");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(lblItemDescription, gridBagConstraints);
 
-        btnAvailable.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        btnAvailable.setText("Available");
+        btnNotAvailable.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        btnNotAvailable.setText("Not Available");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        add(btnAvailable, gridBagConstraints);
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        add(btnNotAvailable, gridBagConstraints);
 
         jScrollPane1.setAutoscrolls(true);
         jScrollPane1.setMinimumSize(new java.awt.Dimension(150, 100));
@@ -142,73 +122,80 @@ public class PanelEdit extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         add(jScrollPane1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 22;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        add(filler1, gridBagConstraints);
 
         lblDateOfPurchase.setText("Date of Purchase");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
         add(lblDateOfPurchase, gridBagConstraints);
 
         lblSoftwareDates.setText("Software Dates");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(lblSoftwareDates, gridBagConstraints);
 
         lblVersionNumber.setText("Version Number");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
         add(lblVersionNumber, gridBagConstraints);
 
         lblBuildDate.setText("Build Date");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
         add(lblBuildDate, gridBagConstraints);
 
         lblLifeExpectancy.setText("Life Expectancy");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(lblLifeExpectancy, gridBagConstraints);
 
         lblLocation.setText("Location");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
         add(lblLocation, gridBagConstraints);
 
-        btnSubmit.setText("Submit");
-        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 29;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        add(btnSubmit, gridBagConstraints);
+        add(btnSearch, gridBagConstraints);
 
         imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/SmallBanner.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(imgLogo, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -219,33 +206,42 @@ public class PanelEdit extends javax.swing.JPanel {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         add(filler6, gridBagConstraints);
-
-        txtItemId.setMinimumSize(new java.awt.Dimension(300, 20));
-        txtItemId.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridy = 25;
+        add(filler7, gridBagConstraints);
+
+        lblItemId.setText("Item ID");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
+        add(lblItemId, gridBagConstraints);
+
+        txtItemId.setMinimumSize(new java.awt.Dimension(100, 20));
+        txtItemId.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
         add(txtItemId, gridBagConstraints);
 
         txtItemName.setMinimumSize(new java.awt.Dimension(100, 20));
         txtItemName.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
         add(txtItemName, gridBagConstraints);
 
         txtSoftwareDates.setMinimumSize(new java.awt.Dimension(100, 20));
         txtSoftwareDates.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         add(txtSoftwareDates, gridBagConstraints);
@@ -253,50 +249,44 @@ public class PanelEdit extends javax.swing.JPanel {
         txtLastSeen.setMinimumSize(new java.awt.Dimension(100, 20));
         txtLastSeen.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
         add(txtLastSeen, gridBagConstraints);
 
-        txtDateOfPurchase.setToolTipText("Format yyyy-");
         txtDateOfPurchase.setMinimumSize(new java.awt.Dimension(100, 20));
         txtDateOfPurchase.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
         add(txtDateOfPurchase, gridBagConstraints);
 
         txtBuildDate.setMinimumSize(new java.awt.Dimension(100, 20));
         txtBuildDate.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 21;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
         add(txtBuildDate, gridBagConstraints);
 
         txtVersionNumber.setMinimumSize(new java.awt.Dimension(100, 20));
         txtVersionNumber.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
         add(txtVersionNumber, gridBagConstraints);
 
         txtLifeExpectancy.setMinimumSize(new java.awt.Dimension(100, 20));
         txtLifeExpectancy.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         add(txtLifeExpectancy, gridBagConstraints);
@@ -304,11 +294,10 @@ public class PanelEdit extends javax.swing.JPanel {
         txtLocation.setMinimumSize(new java.awt.Dimension(100, 20));
         txtLocation.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 25;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 0);
         add(txtLocation, gridBagConstraints);
 
         btnHome.setText("Home");
@@ -319,146 +308,97 @@ public class PanelEdit extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 29;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         add(btnHome, gridBagConstraints);
 
-        lblItemId1.setText("Item ID");
+        btnStrictSearch.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        btnStrictSearch.setText("Strict Search On");
+        btnStrictSearch.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        add(btnStrictSearch, gridBagConstraints);
+
+        lblStrictSearch.setText("Strict Search");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        add(lblItemId1, gridBagConstraints);
+        add(lblStrictSearch, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        add(filler2, gridBagConstraints);
 
-        lblLSDFormat.setFont(new java.awt.Font("Dialog", 2, 10)); // NOI18N
-        lblLSDFormat.setText("yyyy-mm-dd");
+        btnAvailable.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        btnAvailable.setText("Available");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        add(lblLSDFormat, gridBagConstraints);
-
-        lblPDFormat.setFont(new java.awt.Font("Dialog", 2, 10)); // NOI18N
-        lblPDFormat.setText("yyyy-mm-dd");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        add(lblPDFormat, gridBagConstraints);
-
-        lblSDFormat.setFont(new java.awt.Font("Dialog", 2, 10)); // NOI18N
-        lblSDFormat.setText("yyyy-mm-dd");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        add(lblSDFormat, gridBagConstraints);
-
-        lblBDFormat.setFont(new java.awt.Font("Dialog", 2, 10)); // NOI18N
-        lblBDFormat.setText("yyyy-mm-dd");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        add(lblBDFormat, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
-        gridBagConstraints.insets = new java.awt.Insets(4, 0, 2, 0);
-        add(jPanel1, gridBagConstraints);
+        add(btnAvailable, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        AlfredStateInventory.switchLayout("PanelHome");
+       // TODO add your handling code here:
+       AlfredStateInventory.switchLayout("PanelHome");
     }//GEN-LAST:event_btnHomeActionPerformed
 
-    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        InventoryItem item = new InventoryItem(Integer.parseInt(txtItemId.getText()));
-        item.setItemName(txtItemName.getText());
-        item.setItemAvailible(btnAvailable.isSelected());
-        item.setLastSeen(LocalDate.parse(txtLastSeen.getText()).plusDays(1));
-        item.setDateOfPurchase(LocalDate.parse(txtDateOfPurchase.getText()).plusDays(1));
-        item.setSoftwareDates(LocalDate.parse(txtSoftwareDates.getText()).plusDays(1));
-        item.setVersionNum(txtVersionNumber.getText());
-        item.setBuildDate(LocalDate.parse(txtBuildDate.getText()).plusDays(1));
-        item.setLifeExpectancy(Integer.parseInt(txtLifeExpectancy.getText()));
-        item.setLocation(txtLocation.getText());
-        item.setItemDescription(txtItemDescription.getText());
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        ArrayList<String> query = new ArrayList<>();
+        query.add(txtItemId.getText());
+        query.add(txtItemName.getText());
+        
+        if (btnNotAvailable.isSelected() == btnAvailable.isSelected())
+             query.add("");
+        else if (btnAvailable.isSelected())
+            query.add(Boolean.toString(btnAvailable.isSelected()));
+        else if (btnNotAvailable.isSelected())
+            query.add(Boolean.toString(false));
+           
+        query.add(txtLastSeen.getText());
+        query.add(txtDateOfPurchase.getText());
+        query.add(txtSoftwareDates.getText());
+        query.add(txtVersionNumber.getText());
+        query.add(txtBuildDate.getText());
+        query.add(txtLifeExpectancy.getText());
+        query.add(txtLocation.getText());
+        query.add(txtItemDescription.getText());
+      
+        ArrayList<InventoryItem> inventory = new ArrayList<>(); 
+        SQLQueries sql = new SQLQueries();
+        inventory = sql.querySearch(query, btnStrictSearch.isSelected());
+        AlfredStateInventory.displayInventory(inventory);
+    }//GEN-LAST:event_btnSearchActionPerformed
 
-        SQLQueries query = new SQLQueries();
-        if (newItem) {
-            if (query.queryNew(item)) {
-                AlfredStateInventory.switchLayout("PanelHome");
-            }
-        } else {
-            if (query.queryEdit(item)) {
-                AlfredStateInventory.switchLayout("PanelHome");
-            }
-        }
-
-    }//GEN-LAST:event_btnSubmitActionPerformed
-
-    /**
-     * Description: Populates all fields in current inventory item edit view
-     *
-     * @param itemId
-     * @param itemName
-     * @param available
-     * @param lastSeen
-     * @param dateOfPurchase
-     * @param softwareDates
-     * @param versionNum
-     * @param buildDate
-     * @param lifeExpectancy
-     * @param location
-     * @param description
-     */
-    public void populateEditView(InventoryItem item) {
-        txtItemId.setText("" + item.getID());
-        txtItemName.setText(item.getItemName());
-        btnAvailable.setSelected(item.getItemAvailable());
-        txtLastSeen.setText(item.getLastSeen().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        txtDateOfPurchase.setText(item.getDateOfPurchase().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        txtSoftwareDates.setText(item.getSoftwareDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        txtVersionNumber.setText(item.getVersionNum());
-        txtBuildDate.setText(item.getBuildDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        txtLifeExpectancy.setText("" + item.getLifeExpectancy());
-        txtLocation.setText(item.getLocation());
-        txtItemDescription.setText(item.getItemDescription());
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox btnAvailable;
     private javax.swing.JButton btnHome;
-    private javax.swing.JButton btnSubmit;
+    private javax.swing.JCheckBox btnNotAvailable;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JCheckBox btnStrictSearch;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler5;
     private javax.swing.Box.Filler filler6;
+    private javax.swing.Box.Filler filler7;
     private javax.swing.JLabel imgLogo;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblBDFormat;
     private javax.swing.JLabel lblBuildDate;
     private javax.swing.JLabel lblDateOfPurchase;
     private javax.swing.JLabel lblItemAvailable;
     private javax.swing.JLabel lblItemDescription;
-    private javax.swing.JLabel lblItemId1;
+    private javax.swing.JLabel lblItemId;
     private javax.swing.JLabel lblItemName;
-    private javax.swing.JLabel lblLSDFormat;
     private javax.swing.JLabel lblLastSeen;
     private javax.swing.JLabel lblLifeExpectancy;
     private javax.swing.JLabel lblLocation;
-    private javax.swing.JLabel lblPDFormat;
-    private javax.swing.JLabel lblSDFormat;
     private javax.swing.JLabel lblSoftwareDates;
+    private javax.swing.JLabel lblStrictSearch;
     private javax.swing.JLabel lblVersionNumber;
     private javax.swing.JTextField txtBuildDate;
     private javax.swing.JTextField txtDateOfPurchase;
