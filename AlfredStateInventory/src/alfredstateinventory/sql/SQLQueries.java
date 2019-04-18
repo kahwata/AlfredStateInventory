@@ -41,11 +41,20 @@ public class SQLQueries {
         result = s.executeQuery("Select * from Inventory");
         
         while (result.next()) {
-                InventoryItem item = new InventoryItem(result.getInt(1), result.getString(2), result.getBoolean(3),
-                result.getDate(4), result.getDate(5), result.getDate(6), result.getString(7), result.getDate(8),
-                result.getInt(9), result.getString(10), result.getString(11));
-                inventory.add(item);
-            }
+            InventoryItem item = new InventoryItemBuilder(result.getInt(1))
+                .itemName(result.getString(2))
+                .itemAvailable(result.getBoolean(3))
+                .lastSeen(result.getDate(4).toLocalDate())
+                .dateOfPurchase(result.getDate(5).toLocalDate())
+                .softwareDates(result.getDate(6).toLocalDate())
+                .versionNum(result.getString(7))
+                .buildDate(result.getDate(8).toLocalDate())
+                .lifeExpectancy(result.getInt(9))
+                .location(result.getString(10))
+                .itemDescription(result.getString(11))
+                .create();
+            inventory.add(item);
+        }
         
         c.close();
        } catch (Exception e) {
@@ -70,9 +79,18 @@ public class SQLQueries {
         }
         
         result.next();
-        InventoryItem item = new InventoryItem(result.getInt(1), result.getString(2), result.getBoolean(3),
-            result.getDate(4), result.getDate(5), result.getDate(6), result.getString(7), result.getDate(8),
-            result.getInt(9), result.getString(10), result.getString(11));
+        InventoryItem item = new InventoryItemBuilder(result.getInt(1))
+            .itemName(result.getString(2))
+            .itemAvailable(result.getBoolean(3))
+            .lastSeen(result.getDate(4).toLocalDate())
+            .dateOfPurchase(result.getDate(5).toLocalDate())
+            .softwareDates(result.getDate(6).toLocalDate())
+            .versionNum(result.getString(7))
+            .buildDate(result.getDate(8).toLocalDate())
+            .lifeExpectancy(result.getInt(9))
+            .location(result.getString(10))
+            .itemDescription(result.getString(11))
+            .create();
         return item;
     }
     
@@ -242,10 +260,19 @@ public class SQLQueries {
             System.out.println(s.toString());
             result = s.executeQuery();
             while (result.next()) {
-                InventoryItem i = new InventoryItem(result.getInt(1), result.getString(2), result.getBoolean(3),
-                result.getDate(4), result.getDate(5), result.getDate(6), result.getString(7), result.getDate(8),
-                result.getInt(9), result.getString(10), result.getString(11));
-                inventory.add(i);
+                InventoryItem item = new InventoryItemBuilder(result.getInt(1))
+                    .itemName(result.getString(2))
+                    .itemAvailable(result.getBoolean(3))
+                    .lastSeen(result.getDate(4).toLocalDate())
+                    .dateOfPurchase(result.getDate(5).toLocalDate())
+                    .softwareDates(result.getDate(6).toLocalDate())
+                    .versionNum(result.getString(7))
+                    .buildDate(result.getDate(8).toLocalDate())
+                    .lifeExpectancy(result.getInt(9))
+                    .location(result.getString(10))
+                    .itemDescription(result.getString(11))
+                    .create();
+                inventory.add(item);
             }
             c.close();
         } catch (Exception e) {

@@ -382,17 +382,36 @@ public class PanelEdit extends javax.swing.JPanel {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        InventoryItem item = new InventoryItem(Integer.parseInt(txtItemId.getText()));
-        item.setItemName(txtItemName.getText());
-        item.setItemAvailible(btnAvailable.isSelected());
-        item.setLastSeen(LocalDate.parse(txtLastSeen.getText()).plusDays(1));
-        item.setDateOfPurchase(LocalDate.parse(txtDateOfPurchase.getText()).plusDays(1));
-        item.setSoftwareDates(LocalDate.parse(txtSoftwareDates.getText()).plusDays(1));
-        item.setVersionNum(txtVersionNumber.getText());
-        item.setBuildDate(LocalDate.parse(txtBuildDate.getText()).plusDays(1));
-        item.setLifeExpectancy(Integer.parseInt(txtLifeExpectancy.getText()));
-        item.setLocation(txtLocation.getText());
-        item.setItemDescription(txtItemDescription.getText());
+        InventoryItemBuilder itemBuilder = new InventoryItemBuilder(Integer.parseInt(txtItemId.getText()));
+        itemBuilder.itemName(txtItemName.getText());
+        itemBuilder.itemAvailable(btnAvailable.isSelected());
+        
+        try {
+             itemBuilder.lastSeen(LocalDate.parse(txtLastSeen.getText()).plusDays(1));
+        } catch (Exception e) {}
+        
+         try {
+             itemBuilder.dateOfPurchase(LocalDate.parse(txtDateOfPurchase.getText()).plusDays(1));
+        } catch (Exception e) {}
+       
+         try {
+              itemBuilder.softwareDates(LocalDate.parse(txtSoftwareDates.getText()).plusDays(1));
+        } catch (Exception e) {}
+         
+        try {
+            itemBuilder.buildDate(LocalDate.parse(txtBuildDate.getText()).plusDays(1));
+        } catch (Exception e) {}
+        
+         try {
+            itemBuilder.lifeExpectancy(Integer.parseInt(txtLifeExpectancy.getText()));
+        } catch (Exception e) {}
+       
+       
+        itemBuilder.versionNum(txtVersionNumber.getText());
+        itemBuilder.location(txtLocation.getText());
+        itemBuilder.itemDescription(txtItemDescription.getText());
+        
+        InventoryItem item = itemBuilder.create();
 
         SQLQueries query = new SQLQueries();
         if (newItem) {
