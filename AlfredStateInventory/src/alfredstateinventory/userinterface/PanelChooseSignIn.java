@@ -98,8 +98,8 @@ public class PanelChooseSignIn extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSignInActionPerformed
 
     private void btnGuestSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestSignInActionPerformed
-        SignIn.setUser("bhprogra_student");
-        SignIn.setPass("nurights4u");
+        SignIn.setUser(DatabaseConfig.guestUser);
+        SignIn.setPass(DatabaseConfig.guestPass);
         
         try {
             SQLQueries.queryAdminAccess();

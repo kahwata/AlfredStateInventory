@@ -34,7 +34,7 @@ public class SQLConnection {
                 } catch (Exception e) {
                        Class.forName("com.mysql.cj.jdbc.Driver");
                 }
-                sqlConnection = DriverManager.getConnection("jdbc:mysql://bhprograms.org:3306/bhprogra_SystemAnalysis?zeroDateTimeBehavior=convertToNull", SignIn.getUser(), SignIn.getPass());
+                sqlConnection = DriverManager.getConnection(DatabaseConfig.connectionURL, SignIn.getUser(), SignIn.getPass());
             } catch (Exception e) {
                 e.printStackTrace();
                   JOptionPane.showMessageDialog(null, "Connection could not be established: " + e.getMessage());
