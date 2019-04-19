@@ -94,6 +94,19 @@ public class SQLQueries {
         return item;
     }
     
+     public static void queryDelete(int itemID) throws SQLException {
+        try {
+        SQLConnection sqlC = SQLConnection.getInstance();
+        sqlC.init();
+        Connection c = sqlC.getConnection();
+        PreparedStatement s = c.prepareStatement("DELETE from Inventory WHERE ItemId = ?");
+        s.setInt(1, itemID);
+        s.executeUpdate();
+        } catch (Exception e) {
+           throw e;
+        }
+    }
+    
     public static boolean queryNew(InventoryItem item) {
         try {
             SQLConnection sqlC = SQLConnection.getInstance();

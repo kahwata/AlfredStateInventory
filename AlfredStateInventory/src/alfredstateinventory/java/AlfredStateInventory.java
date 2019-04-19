@@ -35,4 +35,12 @@ public static  ArrayList<InventoryItem> inventory = new ArrayList<>();
     public static void main(String[] args) {
         UserInterface UI = UserInterface.getInstance();
     }
+    
+    public static void reInstantiate() {
+        UserInterface.reInstantiate();
+        SignIn.reInstantiate();
+        SQLConnection.reInstantiate();
+        Inventory.reInstantiate();
+        main(new String[0]);
+    }
 }

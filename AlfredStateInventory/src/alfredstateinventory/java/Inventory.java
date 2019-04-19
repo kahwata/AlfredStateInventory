@@ -20,6 +20,10 @@ public class Inventory {
         return instance;
     }
     
+    public static void reInstantiate() {
+        instance = null;
+    }
+    
     public static void addInventoryItem(InventoryItem item) {
         inventory.add(item);
         Collections.sort(inventory);

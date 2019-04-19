@@ -68,6 +68,7 @@ public class PanelHome extends javax.swing.JPanel {
         btnQuery = new javax.swing.JButton();
         btnNewItem = new javax.swing.JButton();
         btnNewExport = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         setMaximumSize(new java.awt.Dimension(2147483647, 200));
@@ -113,6 +114,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         add(lytScrollView, gridBagConstraints);
 
+        btnRefresh.setBackground(java.awt.SystemColor.control);
         btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/RefreshIcon.png"))); // NOI18N
         btnRefresh.setBorder(null);
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -127,6 +129,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 25);
         add(btnRefresh, gridBagConstraints);
 
+        btnQuery.setBackground(java.awt.SystemColor.control);
         btnQuery.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/SearchIcon.png"))); // NOI18N
         btnQuery.setBorder(null);
         btnQuery.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +143,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         add(btnQuery, gridBagConstraints);
 
+        btnNewItem.setBackground(java.awt.SystemColor.control);
         btnNewItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/PlusIcon.png"))); // NOI18N
         btnNewItem.setBorder(null);
         btnNewItem.addActionListener(new java.awt.event.ActionListener() {
@@ -154,8 +158,9 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 50);
         add(btnNewItem, gridBagConstraints);
 
+        btnNewExport.setBackground(java.awt.SystemColor.control);
         btnNewExport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/QRIcon.png"))); // NOI18N
-        btnNewExport.setPreferredSize(new java.awt.Dimension(24, 24));
+        btnNewExport.setPreferredSize(new java.awt.Dimension(20, 20));
         btnNewExport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewExportActionPerformed(evt);
@@ -165,8 +170,24 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 75);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 75);
         add(btnNewExport, gridBagConstraints);
+
+        btnLogOut.setBackground(java.awt.SystemColor.control);
+        btnLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/LogoutIcon.png"))); // NOI18N
+        btnLogOut.setText("Log Out");
+        btnLogOut.setBorder(null);
+        btnLogOut.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        add(btnLogOut, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
@@ -192,6 +213,10 @@ public class PanelHome extends javax.swing.JPanel {
         });
     }//GEN-LAST:event_btnNewExportActionPerformed
 
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        AlfredStateInventory.reInstantiate();
+    }//GEN-LAST:event_btnLogOutActionPerformed
+
     /**
      * Description: Creates an inventory item view, populates it, and adds it
      * to the scroll view using proper grid bag constraints
@@ -209,6 +234,7 @@ public class PanelHome extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnNewExport;
     private javax.swing.JButton btnNewItem;
     private javax.swing.JButton btnQuery;

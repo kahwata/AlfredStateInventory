@@ -25,6 +25,11 @@ public class UserInterface {
         return instance;
     }
     
+    public static void reInstantiate() {
+        instance = null;
+        mainJFrame.dispose();
+    }
+    
      public static void switchLayout (String layout) {
          if (layout.equals("PanelChooseSignIn")) {
             PanelChooseSignIn signIn = new PanelChooseSignIn();

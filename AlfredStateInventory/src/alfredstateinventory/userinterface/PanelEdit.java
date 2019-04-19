@@ -9,8 +9,11 @@ import alfredstateinventory.java.*;
 import alfredstateinventory.sql.*;
 import com.google.zxing.WriterException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
@@ -82,6 +85,7 @@ public class PanelEdit extends javax.swing.JPanel {
         lblSDFormat = new javax.swing.JLabel();
         lblBDFormat = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        btnDelete = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(350, 700));
         setPreferredSize(new java.awt.Dimension(350, 700));
@@ -374,6 +378,21 @@ public class PanelEdit extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.insets = new java.awt.Insets(4, 0, 2, 0);
         add(jPanel1, gridBagConstraints);
+
+        btnDelete.setBackground(java.awt.SystemColor.control);
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/TrashIcon.png"))); // NOI18N
+        btnDelete.setBorder(null);
+        btnDelete.setPreferredSize(new java.awt.Dimension(25, 25));
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
+        add(btnDelete, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
@@ -424,6 +443,15 @@ public class PanelEdit extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        try {
+            SQLQueries.queryDelete(Integer.parseInt(txtItemId.getText()));
+            UserInterface.switchLayout("PanelHome");
+        } catch (SQLException e) {
+             JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
     /**
      * Description: Populates all fields in current inventory item edit view
      *
@@ -455,6 +483,7 @@ public class PanelEdit extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox btnAvailable;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnSubmit;
     private javax.swing.Box.Filler filler5;

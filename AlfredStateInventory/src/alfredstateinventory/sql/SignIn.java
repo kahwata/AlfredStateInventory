@@ -18,6 +18,10 @@ public class SignIn {
         return instance;
     }
     
+    public static void reInstantiate() {
+        instance = null;
+    }
+    
     public static void setUser(String user) {
         username = user;
     }

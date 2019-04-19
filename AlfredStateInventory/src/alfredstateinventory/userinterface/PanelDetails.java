@@ -24,6 +24,7 @@ public class PanelDetails extends javax.swing.JPanel {
         
         if (!SQLConnection.getAdminAccess()) {
             btnEdit.setVisible(false);
+            btnQR.setVisible(false);
         }
     }
 

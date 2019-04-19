@@ -26,6 +26,11 @@ public class SQLConnection {
         return instance;
     }
     
+    public static void reInstantiate() {
+        instance = null;
+        sqlConnection = null;
+    }
+    
     public void init() {
         if (sqlConnection == null) {
             try {
