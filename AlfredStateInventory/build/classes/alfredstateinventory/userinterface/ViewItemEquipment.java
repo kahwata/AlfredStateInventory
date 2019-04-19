@@ -175,7 +175,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        AlfredStateInventory.switchLayout("PanelDetails", btnEdit.getActionCommand());
+        UserInterface.switchLayout("PanelDetails", btnEdit.getActionCommand());
     }//GEN-LAST:event_btnEditActionPerformed
     /**
      * Description: Populates all fields in current inventory item view

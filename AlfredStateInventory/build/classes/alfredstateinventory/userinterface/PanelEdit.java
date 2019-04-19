@@ -9,8 +9,11 @@ import alfredstateinventory.java.*;
 import alfredstateinventory.sql.*;
 import com.google.zxing.WriterException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
@@ -30,9 +33,8 @@ public class PanelEdit extends javax.swing.JPanel {
         initComponents();
         txtItemId.setEditable(false);
         if (newItem) {
-            SQLQueries query = new SQLQueries();
             try {
-                int id = query.queryId();
+                int id = SQLQueries.queryId();
                 txtItemId.setText("" + id);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Could not get ItemId for new item");
@@ -83,6 +85,7 @@ public class PanelEdit extends javax.swing.JPanel {
         lblSDFormat = new javax.swing.JLabel();
         lblBDFormat = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        btnDelete = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(350, 700));
         setPreferredSize(new java.awt.Dimension(350, 700));
@@ -375,37 +378,79 @@ public class PanelEdit extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.insets = new java.awt.Insets(4, 0, 2, 0);
         add(jPanel1, gridBagConstraints);
+
+        btnDelete.setBackground(java.awt.SystemColor.control);
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/TrashIcon.png"))); // NOI18N
+        btnDelete.setBorder(null);
+        btnDelete.setPreferredSize(new java.awt.Dimension(25, 25));
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
+        add(btnDelete, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        AlfredStateInventory.switchLayout("PanelHome");
+        UserInterface.switchLayout("PanelHome");
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        InventoryItem item = new InventoryItem(Integer.parseInt(txtItemId.getText()));
-        item.setItemName(txtItemName.getText());
-        item.setItemAvailible(btnAvailable.isSelected());
-        item.setLastSeen(LocalDate.parse(txtLastSeen.getText()).plusDays(1));
-        item.setDateOfPurchase(LocalDate.parse(txtDateOfPurchase.getText()).plusDays(1));
-        item.setSoftwareDates(LocalDate.parse(txtSoftwareDates.getText()).plusDays(1));
-        item.setVersionNum(txtVersionNumber.getText());
-        item.setBuildDate(LocalDate.parse(txtBuildDate.getText()).plusDays(1));
-        item.setLifeExpectancy(Integer.parseInt(txtLifeExpectancy.getText()));
-        item.setLocation(txtLocation.getText());
-        item.setItemDescription(txtItemDescription.getText());
+        InventoryItemBuilder itemBuilder = new InventoryItemBuilder(Integer.parseInt(txtItemId.getText()));
+        itemBuilder.itemName(txtItemName.getText());
+        itemBuilder.itemAvailable(btnAvailable.isSelected());
+        
+        try {
+             itemBuilder.lastSeen(LocalDate.parse(txtLastSeen.getText()).plusDays(1));
+        } catch (Exception e) {}
+        
+         try {
+             itemBuilder.dateOfPurchase(LocalDate.parse(txtDateOfPurchase.getText()).plusDays(1));
+        } catch (Exception e) {}
+       
+         try {
+              itemBuilder.softwareDates(LocalDate.parse(txtSoftwareDates.getText()).plusDays(1));
+        } catch (Exception e) {}
+         
+        try {
+            itemBuilder.buildDate(LocalDate.parse(txtBuildDate.getText()).plusDays(1));
+        } catch (Exception e) {}
+        
+         try {
+            itemBuilder.lifeExpectancy(Integer.parseInt(txtLifeExpectancy.getText()));
+        } catch (Exception e) {}
+       
+       
+        itemBuilder.versionNum(txtVersionNumber.getText());
+        itemBuilder.location(txtLocation.getText());
+        itemBuilder.itemDescription(txtItemDescription.getText());
+        
+        InventoryItem item = itemBuilder.create();
 
-        SQLQueries query = new SQLQueries();
         if (newItem) {
-            if (query.queryNew(item)) {
-                AlfredStateInventory.switchLayout("PanelHome");
+            if (SQLQueries.queryNew(item)) {
+                UserInterface.switchLayout("PanelHome");
             }
         } else {
-            if (query.queryEdit(item)) {
-                AlfredStateInventory.switchLayout("PanelHome");
+            if (SQLQueries.queryEdit(item)) {
+                UserInterface.switchLayout("PanelHome");
             }
         }
 
     }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        try {
+            SQLQueries.queryDelete(Integer.parseInt(txtItemId.getText()));
+            UserInterface.switchLayout("PanelHome");
+        } catch (SQLException e) {
+             JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * Description: Populates all fields in current inventory item edit view
@@ -438,6 +483,7 @@ public class PanelEdit extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox btnAvailable;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnSubmit;
     private javax.swing.Box.Filler filler5;

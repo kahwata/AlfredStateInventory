@@ -13,14 +13,16 @@ import javax.swing.JOptionPane;
 
 public class SQLQueries {
     
-    public void queryAdminAccess(String username) throws Exception {
+    private SQLQueries(){}
+    
+    public static void queryAdminAccess() throws Exception {
         ResultSet result = null;
         ArrayList<String> permissions = new ArrayList<>();
-            SQLConnection sqlC = new SQLConnection();
+            SQLConnection sqlC = SQLConnection.getInstance();
             sqlC.init();
             Connection c = sqlC.getConnection();
             PreparedStatement s = c.prepareStatement("SELECT PRIVILEGE_TYPE FROM information_schema.SCHEMA_PRIVILEGES WHERE GRANTEE LIKE CONCAT('%', ?, '%')");
-            s.setString(1, username);
+            s.setString(1, SignIn.getUser());
             result = s.executeQuery();
             
             while (result.next()) {
@@ -29,25 +31,32 @@ public class SQLQueries {
               sqlC.setAdminAccess(permissions.contains("CREATE"));
     }
     
-    public ArrayList<InventoryItem> queryAll() {  
+    public static ArrayList<InventoryItem> queryAll() {  
        ResultSet result;
         ArrayList<InventoryItem> inventory = new ArrayList<>();
        try {
            
-        SQLConnection sqlC = new SQLConnection();
+        SQLConnection sqlC = SQLConnection.getInstance();
         sqlC.init();
         Connection c = sqlC.getConnection();
         Statement s = c.createStatement();
         result = s.executeQuery("Select * from Inventory");
         
         while (result.next()) {
-                InventoryItem item = new InventoryItem(result.getInt(1), result.getString(2), result.getBoolean(3),
-                result.getDate(4), result.getDate(5), result.getDate(6), result.getString(7), result.getDate(8),
-                result.getInt(9), result.getString(10), result.getString(11));
-                inventory.add(item);
-            }
-        
-        c.close();
+            InventoryItem item = new InventoryItemBuilder(result.getInt(1))
+                .itemName(result.getString(2))
+                .itemAvailable(result.getBoolean(3))
+                .lastSeen(result.getDate(4).toLocalDate())
+                .dateOfPurchase(result.getDate(5).toLocalDate())
+                .softwareDates(result.getDate(6).toLocalDate())
+                .versionNum(result.getString(7))
+                .buildDate(result.getDate(8).toLocalDate())
+                .lifeExpectancy(result.getInt(9))
+                .location(result.getString(10))
+                .itemDescription(result.getString(11))
+                .create();
+            inventory.add(item);
+        }
        } catch (Exception e) {
            JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
            e.printStackTrace();
@@ -55,10 +64,10 @@ public class SQLQueries {
        return inventory;
     }
     
-    public InventoryItem querySpecific(int itemID) throws SQLException {
+    public static InventoryItem querySpecific(int itemID) throws SQLException {
         ResultSet result = null;
         try {
-        SQLConnection sqlC = new SQLConnection();
+        SQLConnection sqlC = SQLConnection.getInstance();
         sqlC.init();
         Connection c = sqlC.getConnection();
         PreparedStatement s = c.prepareStatement("Select * from Inventory WHERE ItemId = ?");
@@ -70,15 +79,37 @@ public class SQLQueries {
         }
         
         result.next();
-        InventoryItem item = new InventoryItem(result.getInt(1), result.getString(2), result.getBoolean(3),
-            result.getDate(4), result.getDate(5), result.getDate(6), result.getString(7), result.getDate(8),
-            result.getInt(9), result.getString(10), result.getString(11));
+        InventoryItem item = new InventoryItemBuilder(result.getInt(1))
+            .itemName(result.getString(2))
+            .itemAvailable(result.getBoolean(3))
+            .lastSeen(result.getDate(4).toLocalDate())
+            .dateOfPurchase(result.getDate(5).toLocalDate())
+            .softwareDates(result.getDate(6).toLocalDate())
+            .versionNum(result.getString(7))
+            .buildDate(result.getDate(8).toLocalDate())
+            .lifeExpectancy(result.getInt(9))
+            .location(result.getString(10))
+            .itemDescription(result.getString(11))
+            .create();
         return item;
     }
     
-    public boolean queryNew(InventoryItem item) {
+     public static void queryDelete(int itemID) throws SQLException {
         try {
-            SQLConnection sqlC = new SQLConnection();
+        SQLConnection sqlC = SQLConnection.getInstance();
+        sqlC.init();
+        Connection c = sqlC.getConnection();
+        PreparedStatement s = c.prepareStatement("DELETE from Inventory WHERE ItemId = ?");
+        s.setInt(1, itemID);
+        s.executeUpdate();
+        } catch (Exception e) {
+           throw e;
+        }
+    }
+    
+    public static boolean queryNew(InventoryItem item) {
+        try {
+            SQLConnection sqlC = SQLConnection.getInstance();
             sqlC.init();
             Connection c = sqlC.getConnection();
             PreparedStatement s = c.prepareStatement("INSERT INTO Inventory VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -94,7 +125,6 @@ public class SQLQueries {
             s.setString(10, item.getLocation());
             s.setString(11, item.getItemDescription());
             s.executeUpdate();
-            c.close();
             System.out.println("Done");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
@@ -104,9 +134,9 @@ public class SQLQueries {
         return true;
     }
     
-     public boolean queryEdit(InventoryItem item) {
+     public static boolean queryEdit(InventoryItem item) {
         try {
-            SQLConnection sqlC = new SQLConnection();
+            SQLConnection sqlC = SQLConnection.getInstance();
             sqlC.init();
             Connection c = sqlC.getConnection();
             PreparedStatement s = c.prepareStatement("UPDATE Inventory SET ItemName = ?, ItemAvailable = ?, LastSeen = ?, "
@@ -124,7 +154,6 @@ public class SQLQueries {
             s.setString(10, item.getItemDescription());
             s.setInt(11, item.getID());
             s.executeUpdate();
-            c.close();
             System.out.println("Done");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
@@ -134,9 +163,9 @@ public class SQLQueries {
         return true;
     }
     
-    public int queryId() throws SQLException {
+    public static int queryId() throws SQLException {
         ResultSet result = null;
-        SQLConnection sqlC = new SQLConnection();
+        SQLConnection sqlC = SQLConnection.getInstance();
         sqlC.init();
         Connection c = sqlC.getConnection();
         PreparedStatement s = c.prepareStatement("Select MAX(ItemId) AS MaxID FROM Inventory");
@@ -145,11 +174,11 @@ public class SQLQueries {
         return (result.getInt(1) + 1);
     }
     
-    public ArrayList<InventoryItem> querySearch(ArrayList<String> query, boolean strict) {
+    public static ArrayList<InventoryItem> querySearch(ArrayList<String> query, boolean strict) {
           ResultSet result = null;
           ArrayList<InventoryItem> inventory = new ArrayList<>();
           try {
-            SQLConnection sqlC = new SQLConnection();
+            SQLConnection sqlC = SQLConnection.getInstance();
             sqlC.init();
             Connection c = sqlC.getConnection();
             
@@ -242,12 +271,20 @@ public class SQLQueries {
             System.out.println(s.toString());
             result = s.executeQuery();
             while (result.next()) {
-                InventoryItem i = new InventoryItem(result.getInt(1), result.getString(2), result.getBoolean(3),
-                result.getDate(4), result.getDate(5), result.getDate(6), result.getString(7), result.getDate(8),
-                result.getInt(9), result.getString(10), result.getString(11));
-                inventory.add(i);
+                InventoryItem item = new InventoryItemBuilder(result.getInt(1))
+                    .itemName(result.getString(2))
+                    .itemAvailable(result.getBoolean(3))
+                    .lastSeen(result.getDate(4).toLocalDate())
+                    .dateOfPurchase(result.getDate(5).toLocalDate())
+                    .softwareDates(result.getDate(6).toLocalDate())
+                    .versionNum(result.getString(7))
+                    .buildDate(result.getDate(8).toLocalDate())
+                    .lifeExpectancy(result.getInt(9))
+                    .location(result.getString(10))
+                    .itemDescription(result.getString(11))
+                    .create();
+                inventory.add(item);
             }
-            c.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
             e.printStackTrace();
