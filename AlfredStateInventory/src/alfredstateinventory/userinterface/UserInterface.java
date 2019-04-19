@@ -33,8 +33,7 @@ public class UserInterface {
         
         else if (layout.equals("PanelHome")) {
             PanelHome home = new PanelHome();
-            SQLQueries query = new SQLQueries();
-            Inventory.setInventory(query.queryAll());
+            Inventory.setInventory(SQLQueries.queryAll());
             home.populateScrollView(Inventory.getInventoryItems());
             mainJFrame.addPanel(home);
         } 
@@ -54,9 +53,8 @@ public class UserInterface {
     public static void switchLayout (String layout, String arg) {
         if (layout.equals("PanelDetails")) {
             PanelDetails details = new PanelDetails();
-            SQLQueries query = new SQLQueries();
             try {
-                InventoryItem item = query.querySpecific(Integer.parseInt(arg));
+                InventoryItem item = SQLQueries.querySpecific(Integer.parseInt(arg));
                 details.populateDetailView(item);
                 mainJFrame.addPanel(details);
             } catch (Exception e) {
@@ -74,9 +72,8 @@ public class UserInterface {
                 mainJFrame.addPanel(edit);
             } else if (option == 2) {
                 PanelEdit edit = new PanelEdit(false);
-                SQLQueries query = new SQLQueries();
                 try {
-                    InventoryItem item = query.querySpecific(Integer.parseInt(arg));
+                    InventoryItem item = SQLQueries.querySpecific(Integer.parseInt(arg));
                     edit.populateEditView(item);
                     mainJFrame.addPanel(edit);
                 } catch (Exception e) {
@@ -89,7 +86,6 @@ public class UserInterface {
       
       public static void displayInventory(ArrayList <InventoryItem> inventory) {
             PanelHome home = new PanelHome();
-            SQLQueries query = new SQLQueries();
             home.populateScrollView(inventory);
             mainJFrame.addPanel(home);
       }

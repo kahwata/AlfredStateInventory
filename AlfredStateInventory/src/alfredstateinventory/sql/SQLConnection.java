@@ -14,20 +14,32 @@ import javax.swing.JOptionPane;
  */
 
 public class SQLConnection {
-    private Connection sqlConnection;
+    private static Connection sqlConnection;
+    private static SQLConnection instance;
     private static boolean isAdmin = false;
     
+    private SQLConnection(){}
+    
+    public static SQLConnection getInstance() {
+        if (instance == null)
+            instance = new SQLConnection();
+        return instance;
+    }
+    
     public void init() {
-        try {
+        if (sqlConnection == null) {
             try {
-                 Class.forName("com.mysql.jdbc.Driver");
+                try {
+                     Class.forName("com.mysql.jdbc.Driver");
+                } catch (Exception e) {
+                       Class.forName("com.mysql.cj.jdbc.Driver");
+                }
+                sqlConnection = DriverManager.getConnection("jdbc:mysql://bhprograms.org:3306/bhprogra_SystemAnalysis?zeroDateTimeBehavior=convertToNull", SignIn.getUser(), SignIn.getPass());
             } catch (Exception e) {
-                   Class.forName("com.mysql.cj.jdbc.Driver");
+                e.printStackTrace();
+                  JOptionPane.showMessageDialog(null, "Connection could not be established: " + e.getMessage());
+                  sqlConnection = null;
             }
-            sqlConnection = DriverManager.getConnection("jdbc:mysql://bhprograms.org:3306/bhprogra_SystemAnalysis?zeroDateTimeBehavior=convertToNull", PanelSignIn.getUser(), PanelSignIn.getPass());
-        } catch (Exception e) {
-            e.printStackTrace();
-              JOptionPane.showMessageDialog(null, "Connection could not be established: " + e.getMessage());
         }
     }
     

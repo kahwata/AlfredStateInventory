@@ -363,8 +363,7 @@ public class PanelQuery extends javax.swing.JPanel {
         query.add(txtItemDescription.getText());
       
         ArrayList<InventoryItem> inventory = new ArrayList<>(); 
-        SQLQueries sql = new SQLQueries();
-        inventory = sql.querySearch(query, btnStrictSearch.isSelected());
+        inventory = SQLQueries.querySearch(query, btnStrictSearch.isSelected());
         UserInterface.displayInventory(inventory);
     }//GEN-LAST:event_btnSearchActionPerformed
 

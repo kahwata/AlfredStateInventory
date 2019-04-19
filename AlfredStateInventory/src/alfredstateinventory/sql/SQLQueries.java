@@ -13,14 +13,16 @@ import javax.swing.JOptionPane;
 
 public class SQLQueries {
     
-    public void queryAdminAccess(String username) throws Exception {
+    private SQLQueries(){}
+    
+    public static void queryAdminAccess() throws Exception {
         ResultSet result = null;
         ArrayList<String> permissions = new ArrayList<>();
-            SQLConnection sqlC = new SQLConnection();
+            SQLConnection sqlC = SQLConnection.getInstance();
             sqlC.init();
             Connection c = sqlC.getConnection();
             PreparedStatement s = c.prepareStatement("SELECT PRIVILEGE_TYPE FROM information_schema.SCHEMA_PRIVILEGES WHERE GRANTEE LIKE CONCAT('%', ?, '%')");
-            s.setString(1, username);
+            s.setString(1, SignIn.getUser());
             result = s.executeQuery();
             
             while (result.next()) {
@@ -29,12 +31,12 @@ public class SQLQueries {
               sqlC.setAdminAccess(permissions.contains("CREATE"));
     }
     
-    public ArrayList<InventoryItem> queryAll() {  
+    public static ArrayList<InventoryItem> queryAll() {  
        ResultSet result;
         ArrayList<InventoryItem> inventory = new ArrayList<>();
        try {
            
-        SQLConnection sqlC = new SQLConnection();
+        SQLConnection sqlC = SQLConnection.getInstance();
         sqlC.init();
         Connection c = sqlC.getConnection();
         Statement s = c.createStatement();
@@ -55,8 +57,6 @@ public class SQLQueries {
                 .create();
             inventory.add(item);
         }
-        
-        c.close();
        } catch (Exception e) {
            JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
            e.printStackTrace();
@@ -64,10 +64,10 @@ public class SQLQueries {
        return inventory;
     }
     
-    public InventoryItem querySpecific(int itemID) throws SQLException {
+    public static InventoryItem querySpecific(int itemID) throws SQLException {
         ResultSet result = null;
         try {
-        SQLConnection sqlC = new SQLConnection();
+        SQLConnection sqlC = SQLConnection.getInstance();
         sqlC.init();
         Connection c = sqlC.getConnection();
         PreparedStatement s = c.prepareStatement("Select * from Inventory WHERE ItemId = ?");
@@ -94,9 +94,9 @@ public class SQLQueries {
         return item;
     }
     
-    public boolean queryNew(InventoryItem item) {
+    public static boolean queryNew(InventoryItem item) {
         try {
-            SQLConnection sqlC = new SQLConnection();
+            SQLConnection sqlC = SQLConnection.getInstance();
             sqlC.init();
             Connection c = sqlC.getConnection();
             PreparedStatement s = c.prepareStatement("INSERT INTO Inventory VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -112,7 +112,6 @@ public class SQLQueries {
             s.setString(10, item.getLocation());
             s.setString(11, item.getItemDescription());
             s.executeUpdate();
-            c.close();
             System.out.println("Done");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
@@ -122,9 +121,9 @@ public class SQLQueries {
         return true;
     }
     
-     public boolean queryEdit(InventoryItem item) {
+     public static boolean queryEdit(InventoryItem item) {
         try {
-            SQLConnection sqlC = new SQLConnection();
+            SQLConnection sqlC = SQLConnection.getInstance();
             sqlC.init();
             Connection c = sqlC.getConnection();
             PreparedStatement s = c.prepareStatement("UPDATE Inventory SET ItemName = ?, ItemAvailable = ?, LastSeen = ?, "
@@ -142,7 +141,6 @@ public class SQLQueries {
             s.setString(10, item.getItemDescription());
             s.setInt(11, item.getID());
             s.executeUpdate();
-            c.close();
             System.out.println("Done");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
@@ -152,9 +150,9 @@ public class SQLQueries {
         return true;
     }
     
-    public int queryId() throws SQLException {
+    public static int queryId() throws SQLException {
         ResultSet result = null;
-        SQLConnection sqlC = new SQLConnection();
+        SQLConnection sqlC = SQLConnection.getInstance();
         sqlC.init();
         Connection c = sqlC.getConnection();
         PreparedStatement s = c.prepareStatement("Select MAX(ItemId) AS MaxID FROM Inventory");
@@ -163,11 +161,11 @@ public class SQLQueries {
         return (result.getInt(1) + 1);
     }
     
-    public ArrayList<InventoryItem> querySearch(ArrayList<String> query, boolean strict) {
+    public static ArrayList<InventoryItem> querySearch(ArrayList<String> query, boolean strict) {
           ResultSet result = null;
           ArrayList<InventoryItem> inventory = new ArrayList<>();
           try {
-            SQLConnection sqlC = new SQLConnection();
+            SQLConnection sqlC = SQLConnection.getInstance();
             sqlC.init();
             Connection c = sqlC.getConnection();
             
@@ -274,7 +272,6 @@ public class SQLQueries {
                     .create();
                 inventory.add(item);
             }
-            c.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
             e.printStackTrace();

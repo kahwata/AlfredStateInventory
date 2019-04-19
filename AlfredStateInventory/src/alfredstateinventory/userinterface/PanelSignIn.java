@@ -5,7 +5,7 @@
  */
 package alfredstateinventory.userinterface;
 
-import alfredstateinventory.java.AlfredStateInventory;
+import alfredstateinventory.sql.*;
 import alfredstateinventory.sql.SQLQueries;
 import javax.swing.JOptionPane;
 
@@ -14,8 +14,7 @@ import javax.swing.JOptionPane;
  * @author BHAsus
  */
 public class PanelSignIn extends javax.swing.JPanel {
-    private static String username = "";
-    private static String password = "";
+
 
     /**
      * Creates new form PanelSignIn
@@ -114,12 +113,11 @@ public class PanelSignIn extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        username = txtUsername.getText();
-        password = new String(txtPassword.getPassword());
+        SignIn.setUser(txtUsername.getText());
+        SignIn.setPass(new String(txtPassword.getPassword()));
         
         try {
-        SQLQueries query = new SQLQueries();
-        query.queryAdminAccess(username);
+        SQLQueries.queryAdminAccess();
         UserInterface.switchLayout("PanelHome");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Could not determine access level: " + e.getMessage());
@@ -128,13 +126,6 @@ public class PanelSignIn extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public static String getUser() {
-        return username;
-    }
-    
-     public static String getPass() {
-        return password;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;

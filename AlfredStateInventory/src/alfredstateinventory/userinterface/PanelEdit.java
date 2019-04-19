@@ -30,9 +30,8 @@ public class PanelEdit extends javax.swing.JPanel {
         initComponents();
         txtItemId.setEditable(false);
         if (newItem) {
-            SQLQueries query = new SQLQueries();
             try {
-                int id = query.queryId();
+                int id = SQLQueries.queryId();
                 txtItemId.setText("" + id);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Could not get ItemId for new item");
@@ -413,13 +412,12 @@ public class PanelEdit extends javax.swing.JPanel {
         
         InventoryItem item = itemBuilder.create();
 
-        SQLQueries query = new SQLQueries();
         if (newItem) {
-            if (query.queryNew(item)) {
+            if (SQLQueries.queryNew(item)) {
                 UserInterface.switchLayout("PanelHome");
             }
         } else {
-            if (query.queryEdit(item)) {
+            if (SQLQueries.queryEdit(item)) {
                 UserInterface.switchLayout("PanelHome");
             }
         }
