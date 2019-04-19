@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
  
  public class InventoryItemBuilder {
-    private int itemID;
+    private Integer itemID;
     private String itemName = "";
     private boolean itemAvail = false;
     private LocalDate lastSeen = LocalDate.now();      
@@ -17,7 +17,7 @@ import java.time.LocalDate;
     private String location = "";
     private String itemDesc = "";
     
-     public InventoryItemBuilder(int ID) {
+     public InventoryItemBuilder(Integer ID) {
         itemID = ID;
     }
 

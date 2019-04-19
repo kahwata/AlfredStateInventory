@@ -120,7 +120,7 @@ public class PanelSignIn extends javax.swing.JPanel {
         try {
         SQLQueries query = new SQLQueries();
         query.queryAdminAccess(username);
-        AlfredStateInventory.switchLayout("PanelHome");
+        UserInterface.switchLayout("PanelHome");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Could not determine access level: " + e.getMessage());
         }

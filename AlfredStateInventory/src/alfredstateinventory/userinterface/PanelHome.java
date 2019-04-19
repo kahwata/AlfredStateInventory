@@ -157,15 +157,15 @@ public class PanelHome extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewItemActionPerformed
-        AlfredStateInventory.switchLayout("PanelEdit", "", 1);
+        UserInterface.switchLayout("PanelEdit", "", 1);
     }//GEN-LAST:event_btnNewItemActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
-        AlfredStateInventory.switchLayout("PanelHome");
+        UserInterface.switchLayout("PanelHome");
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQueryActionPerformed
-        AlfredStateInventory.switchLayout("PanelQuery");
+        UserInterface.switchLayout("PanelQuery");
     }//GEN-LAST:event_btnQueryActionPerformed
 
     /**

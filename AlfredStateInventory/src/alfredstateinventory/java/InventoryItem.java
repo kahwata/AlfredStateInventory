@@ -12,7 +12,7 @@ import java.sql.Date;
  *
  * @author Anthony
  */
-public class InventoryItem {
+public class InventoryItem implements Comparable<InventoryItem> {
     private int itemID;
     private String itemName;
     private boolean itemAvail;
@@ -21,7 +21,7 @@ public class InventoryItem {
     private LocalDate softwareDates; //date format
     private String versionNum;
     private LocalDate buildDate;     //date format
-    private int lifeExpect;       //in years
+    private Integer lifeExpect;       //in years
     private String location;
     private String itemDesc;
 
@@ -40,7 +40,7 @@ public class InventoryItem {
         itemDesc = desc;
     }
     
-    public int getID() {
+    public Integer getID() {
         return itemID;
     }
     
@@ -82,6 +82,11 @@ public class InventoryItem {
     
     public String getItemDescription() {
         return itemDesc;
+    }
+
+    @Override
+    public int compareTo(InventoryItem o) {
+        return this.getID().compareTo(o.getID());
     }
 }
    

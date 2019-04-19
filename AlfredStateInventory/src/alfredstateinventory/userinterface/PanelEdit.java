@@ -378,7 +378,7 @@ public class PanelEdit extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        AlfredStateInventory.switchLayout("PanelHome");
+        UserInterface.switchLayout("PanelHome");
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
@@ -416,11 +416,11 @@ public class PanelEdit extends javax.swing.JPanel {
         SQLQueries query = new SQLQueries();
         if (newItem) {
             if (query.queryNew(item)) {
-                AlfredStateInventory.switchLayout("PanelHome");
+                UserInterface.switchLayout("PanelHome");
             }
         } else {
             if (query.queryEdit(item)) {
-                AlfredStateInventory.switchLayout("PanelHome");
+                UserInterface.switchLayout("PanelHome");
             }
         }
 

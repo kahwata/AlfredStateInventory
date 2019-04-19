@@ -324,11 +324,11 @@ public class PanelDetails extends javax.swing.JPanel {
     }//GEN-LAST:event_btnQRActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        AlfredStateInventory.switchLayout("PanelHome");
+        UserInterface.switchLayout("PanelHome");
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-       AlfredStateInventory.switchLayout("PanelEdit", btnQR.getActionCommand(), 2);
+       UserInterface.switchLayout("PanelEdit", btnQR.getActionCommand(), 2);
     }//GEN-LAST:event_btnEditActionPerformed
 
      /**
