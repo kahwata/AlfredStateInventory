@@ -16,7 +16,7 @@ public class UserInterface {
     
     private UserInterface() {
         mainJFrame = new MainWindow();
-        switchLayout("PanelSignIn");
+        switchLayout("PanelChooseSignIn");
     }
     
     public static UserInterface getInstance() {
@@ -26,7 +26,12 @@ public class UserInterface {
     }
     
      public static void switchLayout (String layout) {
-        if (layout.equals("PanelSignIn")) {
+         if (layout.equals("PanelChooseSignIn")) {
+            PanelChooseSignIn signIn = new PanelChooseSignIn();
+            mainJFrame.addPanel(signIn);
+        }
+        
+        else if (layout.equals("PanelSignIn")) {
             PanelSignIn signIn = new PanelSignIn();
             mainJFrame.addPanel(signIn);
         }

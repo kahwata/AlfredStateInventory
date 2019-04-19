@@ -35,6 +35,4 @@ public static  ArrayList<InventoryItem> inventory = new ArrayList<>();
     public static void main(String[] args) {
         UserInterface UI = UserInterface.getInstance();
     }
-    
-   
 }
