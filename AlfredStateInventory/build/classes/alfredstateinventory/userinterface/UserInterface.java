@@ -16,7 +16,7 @@ public class UserInterface {
     
     private UserInterface() {
         mainJFrame = new MainWindow();
-        switchLayout("PanelChooseSignIn");
+        switchLayout(new Object[]{"PanelChooseSignIn"});
     }
     
     public static UserInterface getInstance() {
@@ -30,7 +30,8 @@ public class UserInterface {
         mainJFrame.dispose();
     }
     
-     public static void switchLayout (String layout) {
+     public static void switchLayout (Object[] args) {
+         String layout = args[0].toString();
          if (layout.equals("PanelChooseSignIn")) {
             PanelChooseSignIn signIn = new PanelChooseSignIn();
             mainJFrame.addPanel(signIn);
@@ -50,40 +51,34 @@ public class UserInterface {
         
         else if (layout.equals("PanelDetails")) {
             PanelDetails details = new PanelDetails();
-            //details.populateDetailView("001", "Test Item", true, "3/28/19",  "3/28/19", "3/28/19", "3/28/19", "3/28/19",5, "SET 441", "This item was created for test purposes only" );
-            mainJFrame.addPanel(details);
+            
+            if(args.length > 1) {
+               try {
+                   InventoryItem item = SQLQueries.querySpecific(Integer.parseInt(args[1].toString()));
+                   details.populateDetailView(item);
+                   mainJFrame.addPanel(details);
+               } catch (Exception e) {
+                   JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+                   e.printStackTrace();
+               }
+            } else {
+                 mainJFrame.addPanel(details);
+            }
         } 
         
         else if (layout.equals("PanelQuery")) {
             PanelQuery query = new PanelQuery();
             mainJFrame.addPanel(query);
         }
-    }
-    
-    public static void switchLayout (String layout, String arg) {
-        if (layout.equals("PanelDetails")) {
-            PanelDetails details = new PanelDetails();
-            try {
-                InventoryItem item = SQLQueries.querySpecific(Integer.parseInt(arg));
-                details.populateDetailView(item);
-                mainJFrame.addPanel(details);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
-                e.printStackTrace();
-            }
-        }
-    }
-    
-      public static void switchLayout (String layout, String arg, int option) { 
-          
+         
           if (layout.equals("PanelEdit")) {
-            if (option == 1) {
+            if (Integer.parseInt(args[2].toString())== 1) {
                 PanelEdit edit = new PanelEdit(true);
                 mainJFrame.addPanel(edit);
-            } else if (option == 2) {
+            } else if (Integer.parseInt(args[2].toString()) == 2) {
                 PanelEdit edit = new PanelEdit(false);
                 try {
-                    InventoryItem item = SQLQueries.querySpecific(Integer.parseInt(arg));
+                    InventoryItem item = SQLQueries.querySpecific(Integer.parseInt(args[1].toString()));
                     edit.populateEditView(item);
                     mainJFrame.addPanel(edit);
                 } catch (Exception e) {
@@ -92,7 +87,7 @@ public class UserInterface {
                 }
             }
         }    
-      }
+    }
       
       public static void displayInventory(ArrayList <InventoryItem> inventory) {
             PanelHome home = new PanelHome();

@@ -94,7 +94,7 @@ public class PanelChooseSignIn extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
-        UserInterface.switchLayout("PanelSignIn");
+        UserInterface.switchLayout(new Object[]{"PanelSignIn"});
     }//GEN-LAST:event_btnSignInActionPerformed
 
     private void btnGuestSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestSignInActionPerformed
@@ -103,7 +103,7 @@ public class PanelChooseSignIn extends javax.swing.JPanel {
         
         try {
             SQLQueries.queryAdminAccess();
-            UserInterface.switchLayout("PanelHome");
+            UserInterface.switchLayout(new Object[]{"PanelHome"});
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Could not determine access level: " + e.getMessage());
         }

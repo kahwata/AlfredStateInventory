@@ -30,13 +30,29 @@ import java.util.logging.Logger;
  */
 public class PanelHome extends javax.swing.JPanel {
     private int scrollPanelY = 0;
- 
+    public static boolean fieldsSelected[];
 
     /**
      * Creates new form Home
      */
     public PanelHome() {
         initComponents();
+
+                 
+        if (fieldsSelected != null && fieldsSelected.length == 10) {
+            chkItemName.setSelected(fieldsSelected[0]);
+            chkItemAvailable.setSelected(fieldsSelected[1]);
+            chkLastSeen.setSelected(fieldsSelected[2]);
+            chkDateOfPurchase.setSelected(fieldsSelected[3]);
+            chkSoftwareDates.setSelected(fieldsSelected[4]);
+            chkVersionNumber.setSelected(fieldsSelected[5]);
+            chkBuildDate.setSelected(fieldsSelected[6]);
+            chkLifeExpectancy.setSelected(fieldsSelected[7]);
+            chkLocation.setSelected(fieldsSelected[8]);
+            chkItemDescription.setSelected(fieldsSelected[9]);
+        } 
+        
+        setFieldsSelected();
         
         if (!SQLConnection.getAdminAccess()) {
             btnNewItem.setVisible(false);
@@ -45,6 +61,21 @@ public class PanelHome extends javax.swing.JPanel {
     }
      public PanelHome(InventoryItem[] itemAry) {
         initComponents();
+                 
+        if (fieldsSelected != null && fieldsSelected.length == 10) {
+            chkItemName.setSelected(fieldsSelected[0]);
+            chkItemAvailable.setSelected(fieldsSelected[1]);
+            chkLastSeen.setSelected(fieldsSelected[2]);
+            chkDateOfPurchase.setSelected(fieldsSelected[3]);
+            chkSoftwareDates.setSelected(fieldsSelected[4]);
+            chkVersionNumber.setSelected(fieldsSelected[5]);
+            chkBuildDate.setSelected(fieldsSelected[6]);
+            chkLifeExpectancy.setSelected(fieldsSelected[7]);
+            chkLocation.setSelected(fieldsSelected[8]);
+            chkItemDescription.setSelected(fieldsSelected[9]);
+        } 
+        
+        setFieldsSelected();
     }
 
     /**
@@ -62,17 +93,30 @@ public class PanelHome extends javax.swing.JPanel {
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 20));
-        lytScrollView = new javax.swing.JScrollPane();
-        pnlScrollPanel = new javax.swing.JPanel();
         btnRefresh = new javax.swing.JButton();
         btnQuery = new javax.swing.JButton();
         btnNewItem = new javax.swing.JButton();
         btnNewExport = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
+        chkItemName = new javax.swing.JCheckBox();
+        chkItemAvailable = new javax.swing.JCheckBox();
+        chkLastSeen = new javax.swing.JCheckBox();
+        chkDateOfPurchase = new javax.swing.JCheckBox();
+        chkSoftwareDates = new javax.swing.JCheckBox();
+        chkVersionNumber = new javax.swing.JCheckBox();
+        chkBuildDate = new javax.swing.JCheckBox();
+        chkLifeExpectancy = new javax.swing.JCheckBox();
+        chkLocation = new javax.swing.JCheckBox();
+        chkItemDescription = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        pnlScrollPanel = new javax.swing.JScrollPane();
+        pnlInventory = new javax.swing.JPanel();
 
         setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        setMaximumSize(new java.awt.Dimension(2147483647, 200));
+        setMaximumSize(new java.awt.Dimension(2147483647, 500));
+        setMinimumSize(new java.awt.Dimension(1500, 1000));
         setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(1500, 1000));
         setLayout(new java.awt.GridBagLayout());
 
         imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/SmallBanner.png"))); // NOI18N
@@ -95,24 +139,8 @@ public class PanelHome extends javax.swing.JPanel {
         add(filler3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 8;
         add(filler4, gridBagConstraints);
-
-        lytScrollView.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        lytScrollView.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        lytScrollView.setAutoscrolls(true);
-        lytScrollView.setMaximumSize(new java.awt.Dimension(32767, 800));
-        lytScrollView.setName(""); // NOI18N
-        lytScrollView.setPreferredSize(new java.awt.Dimension(500, 300));
-
-        pnlScrollPanel.setMaximumSize(new java.awt.Dimension(500, 500));
-        pnlScrollPanel.setLayout(new java.awt.GridBagLayout());
-        lytScrollView.setViewportView(pnlScrollPanel);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        add(lytScrollView, gridBagConstraints);
 
         btnRefresh.setBackground(java.awt.SystemColor.control);
         btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/RefreshIcon.png"))); // NOI18N
@@ -124,7 +152,7 @@ public class PanelHome extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 25);
         add(btnRefresh, gridBagConstraints);
@@ -139,7 +167,7 @@ public class PanelHome extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         add(btnQuery, gridBagConstraints);
 
@@ -153,13 +181,14 @@ public class PanelHome extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 50);
         add(btnNewItem, gridBagConstraints);
 
         btnNewExport.setBackground(java.awt.SystemColor.control);
         btnNewExport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/QRIcon.png"))); // NOI18N
+        btnNewExport.setBorder(null);
         btnNewExport.setPreferredSize(new java.awt.Dimension(20, 20));
         btnNewExport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +197,7 @@ public class PanelHome extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 75);
         add(btnNewExport, gridBagConstraints);
@@ -188,18 +217,172 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         add(btnLogOut, gridBagConstraints);
+
+        chkItemName.setSelected(true);
+        chkItemName.setText("Item Name");
+        chkItemName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkItemNameActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        add(chkItemName, gridBagConstraints);
+
+        chkItemAvailable.setSelected(true);
+        chkItemAvailable.setText("Item Available");
+        chkItemAvailable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkItemAvailableActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 125, 0, 25);
+        add(chkItemAvailable, gridBagConstraints);
+
+        chkLastSeen.setSelected(true);
+        chkLastSeen.setText("Last Seen");
+        chkLastSeen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkLastSeenActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 235, 0, 25);
+        add(chkLastSeen, gridBagConstraints);
+
+        chkDateOfPurchase.setText("Date of Purchase");
+        chkDateOfPurchase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkDateOfPurchaseActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 356, 0, 56);
+        add(chkDateOfPurchase, gridBagConstraints);
+
+        chkSoftwareDates.setText("Software Dates");
+        chkSoftwareDates.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkSoftwareDatesActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 485, 1, 54);
+        add(chkSoftwareDates, gridBagConstraints);
+
+        chkVersionNumber.setText("Version Number");
+        chkVersionNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkVersionNumberActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 1);
+        add(chkVersionNumber, gridBagConstraints);
+
+        chkBuildDate.setText("Build Date");
+        chkBuildDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkBuildDateActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 126, 0, 16);
+        add(chkBuildDate, gridBagConstraints);
+
+        chkLifeExpectancy.setText("Life Expectancy");
+        chkLifeExpectancy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkLifeExpectancyActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 235, 0, 35);
+        add(chkLifeExpectancy, gridBagConstraints);
+
+        chkLocation.setSelected(true);
+        chkLocation.setText("Location");
+        chkLocation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkLocationActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 356, 0, 36);
+        add(chkLocation, gridBagConstraints);
+
+        chkItemDescription.setText("Description");
+        chkItemDescription.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkItemDescriptionActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 485, 0, 0);
+        add(chkItemDescription, gridBagConstraints);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setText("Select fields to view");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        add(jLabel1, gridBagConstraints);
+
+        pnlScrollPanel.setMaximumSize(new java.awt.Dimension(1350, 750));
+        pnlScrollPanel.setMinimumSize(new java.awt.Dimension(1350, 750));
+        pnlScrollPanel.setName(""); // NOI18N
+        pnlScrollPanel.setPreferredSize(new java.awt.Dimension(1350, 750));
+
+        pnlInventory.setLayout(new java.awt.GridBagLayout());
+        pnlScrollPanel.setViewportView(pnlInventory);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        add(pnlScrollPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
-        UserInterface.switchLayout("PanelHome");
+        UserInterface.switchLayout(new Object[]{"PanelHome"});
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQueryActionPerformed
-        UserInterface.switchLayout("PanelQuery");
+        UserInterface.switchLayout(new Object[]{"PanelQuery"});
     }//GEN-LAST:event_btnQueryActionPerformed
 
     private void btnNewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewItemActionPerformed
-        UserInterface.switchLayout("PanelEdit", "", 1);
+        UserInterface.switchLayout(new Object[]{"PanelEdit", "", 1});
     }//GEN-LAST:event_btnNewItemActionPerformed
 
     private void btnNewExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewExportActionPerformed
@@ -217,6 +400,54 @@ public class PanelHome extends javax.swing.JPanel {
         AlfredStateInventory.reInstantiate();
     }//GEN-LAST:event_btnLogOutActionPerformed
 
+    private void setFieldsSelected() {
+         fieldsSelected = new boolean[] {chkItemName.isSelected(), chkItemAvailable.isSelected(),
+                chkLastSeen.isSelected(), chkDateOfPurchase.isSelected(), chkSoftwareDates.isSelected(),
+                chkVersionNumber.isSelected(), chkBuildDate.isSelected(), chkLifeExpectancy.isSelected(),
+                chkLocation.isSelected(), chkItemDescription.isSelected()};
+
+    }
+    
+    private void chkItemNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkItemNameActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkItemNameActionPerformed
+
+    private void chkItemAvailableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkItemAvailableActionPerformed
+       setFieldsSelected();
+    }//GEN-LAST:event_chkItemAvailableActionPerformed
+
+    private void chkLastSeenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkLastSeenActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkLastSeenActionPerformed
+
+    private void chkDateOfPurchaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkDateOfPurchaseActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkDateOfPurchaseActionPerformed
+
+    private void chkSoftwareDatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSoftwareDatesActionPerformed
+       setFieldsSelected();
+    }//GEN-LAST:event_chkSoftwareDatesActionPerformed
+
+    private void chkVersionNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkVersionNumberActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkVersionNumberActionPerformed
+
+    private void chkBuildDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBuildDateActionPerformed
+       setFieldsSelected();
+    }//GEN-LAST:event_chkBuildDateActionPerformed
+
+    private void chkLifeExpectancyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkLifeExpectancyActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkLifeExpectancyActionPerformed
+
+    private void chkLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkLocationActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkLocationActionPerformed
+
+    private void chkItemDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkItemDescriptionActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkItemDescriptionActionPerformed
+
     /**
      * Description: Creates an inventory item view, populates it, and adds it
      * to the scroll view using proper grid bag constraints
@@ -224,11 +455,11 @@ public class PanelHome extends javax.swing.JPanel {
      */
     public void populateScrollView(ArrayList<InventoryItem> inventory) {
         for (InventoryItem i: inventory) {
-            ViewItemEquipment inventoryItem = new ViewItemEquipment();
+            ViewItemEquipment inventoryItem = new ViewItemEquipment(fieldsSelected);
             inventoryItem.populateItemView(i);
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.gridy = scrollPanelY;
-            pnlScrollPanel.add(inventoryItem, gbc);
+            pnlInventory.add(inventoryItem, gbc);
             scrollPanelY++;
         }
     }
@@ -239,13 +470,24 @@ public class PanelHome extends javax.swing.JPanel {
     private javax.swing.JButton btnNewItem;
     private javax.swing.JButton btnQuery;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JCheckBox chkBuildDate;
+    private javax.swing.JCheckBox chkDateOfPurchase;
+    private javax.swing.JCheckBox chkItemAvailable;
+    private javax.swing.JCheckBox chkItemDescription;
+    private javax.swing.JCheckBox chkItemName;
+    private javax.swing.JCheckBox chkLastSeen;
+    private javax.swing.JCheckBox chkLifeExpectancy;
+    private javax.swing.JCheckBox chkLocation;
+    private javax.swing.JCheckBox chkSoftwareDates;
+    private javax.swing.JCheckBox chkVersionNumber;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
     private javax.swing.Box.Filler filler4;
     private javax.swing.JLabel imgLogo;
-    private javax.swing.JScrollPane lytScrollView;
-    private javax.swing.JPanel pnlScrollPanel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel pnlInventory;
+    private javax.swing.JScrollPane pnlScrollPanel;
     // End of variables declaration//GEN-END:variables
 
 }

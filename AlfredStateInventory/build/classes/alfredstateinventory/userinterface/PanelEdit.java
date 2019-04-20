@@ -396,7 +396,7 @@ public class PanelEdit extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        UserInterface.switchLayout("PanelHome");
+        UserInterface.switchLayout(new Object[]{"PanelHome"});
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
@@ -433,20 +433,19 @@ public class PanelEdit extends javax.swing.JPanel {
 
         if (newItem) {
             if (SQLQueries.queryNew(item)) {
-                UserInterface.switchLayout("PanelHome");
+                UserInterface.switchLayout(new Object[]{"PanelHome"});
             }
         } else {
             if (SQLQueries.queryEdit(item)) {
-                UserInterface.switchLayout("PanelHome");
+                UserInterface.switchLayout(new Object[]{"PanelHome"});
             }
         }
-
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         try {
             SQLQueries.queryDelete(Integer.parseInt(txtItemId.getText()));
-            UserInterface.switchLayout("PanelHome");
+            UserInterface.switchLayout(new Object[]{"PanelHome"});
         } catch (SQLException e) {
              JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
         }

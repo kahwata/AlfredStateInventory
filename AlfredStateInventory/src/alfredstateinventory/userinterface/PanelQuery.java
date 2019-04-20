@@ -338,7 +338,7 @@ public class PanelQuery extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        UserInterface.switchLayout("PanelHome");
+        UserInterface.switchLayout(new Object[]{"PanelHome"});
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed

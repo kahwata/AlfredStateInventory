@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import alfredstateinventory.userinterface.*;
 import java.time.LocalDate;
 import alfredstateinventory.sql.*;
+import static alfredstateinventory.userinterface.PanelHome.fieldsSelected;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -23,8 +24,31 @@ public class ViewItemEquipment extends javax.swing.JPanel {
     /**
      * Creates new form EquipmentViewItem
      */
-    public ViewItemEquipment() {
+    public ViewItemEquipment(boolean fieldsToShow[]) {
         initComponents();
+        if (fieldsSelected != null && fieldsSelected.length == 10) {
+            lblItemNameTitle.setVisible(fieldsToShow[0]);
+            scrlItemName.setVisible(fieldsToShow[0]);
+            lblItemAvailable.setVisible(fieldsToShow[1]);
+            chkAvailable.setVisible(fieldsToShow[1]);
+            lblLastSeenTitle.setVisible(fieldsToShow[2]);
+            scrlLastSeen.setVisible(fieldsToShow[2]);
+            lblDateOfPurchaseTitle.setVisible(fieldsToShow[3]);
+            scrlDateOfPurchase.setVisible(fieldsToShow[3]);
+            lblSoftwareDatesTitle.setVisible(fieldsToShow[4]);
+            scrlSoftwareDates.setVisible(fieldsToShow[4]);
+            lblVersionNumberTitle.setVisible(fieldsToShow[5]);
+            scrlVersionNumber.setVisible(fieldsToShow[5]);
+            lblBuildDateTitle.setVisible(fieldsToShow[6]);
+            scrlBuildDate.setVisible(fieldsToShow[6]);
+            lblLifeExpectancyTitle.setVisible(fieldsToShow[7]);
+            scrlLifeExpectancy.setVisible(fieldsToShow[7]);
+            lblLocationTitle.setVisible(fieldsToShow[8]);
+            scrlLocation.setVisible(fieldsToShow[8]);
+            lblItemDescriptionTitle.setVisible(fieldsToShow[9]);
+            scrlDescription.setVisible(fieldsToShow[9]);
+        }
+        
     }
 
     /**
@@ -38,126 +62,90 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         lblItemIdTitle = new javax.swing.JLabel();
-        lblItemId = new javax.swing.JLabel();
         lblItemNameTitle = new javax.swing.JLabel();
-        lblItemName = new javax.swing.JLabel();
         lblItemAvailable = new javax.swing.JLabel();
-        btnAvailable = new javax.swing.JCheckBox();
         lblLastSeenTitle = new javax.swing.JLabel();
-        lblLastSeen = new javax.swing.JLabel();
         lblLocationTitle = new javax.swing.JLabel();
-        lblLocation = new javax.swing.JLabel();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 32767));
-        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 32767));
-        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 10), new java.awt.Dimension(0, 10), new java.awt.Dimension(32767, 10));
-        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 10), new java.awt.Dimension(0, 10), new java.awt.Dimension(32767, 10));
         btnEdit = new javax.swing.JButton();
+        lblDateOfPurchaseTitle = new javax.swing.JLabel();
+        lblSoftwareDatesTitle = new javax.swing.JLabel();
+        lblVersionNumberTitle = new javax.swing.JLabel();
+        lblBuildDateTitle = new javax.swing.JLabel();
+        lblLifeExpectancyTitle = new javax.swing.JLabel();
+        lblItemDescriptionTitle = new javax.swing.JLabel();
+        lblViewItem = new javax.swing.JLabel();
+        scrlItemName = new javax.swing.JScrollPane();
+        lblItemName = new javax.swing.JTextArea();
+        scrlLastSeen = new javax.swing.JScrollPane();
+        lblLastSeen = new javax.swing.JTextArea();
+        scrlSoftwareDates = new javax.swing.JScrollPane();
+        lblSoftwareDates = new javax.swing.JTextArea();
+        scrlItemId = new javax.swing.JScrollPane();
+        lblItemId = new javax.swing.JTextArea();
+        scrlVersionNumber = new javax.swing.JScrollPane();
+        lblVersionNumber = new javax.swing.JTextArea();
+        scrlBuildDate = new javax.swing.JScrollPane();
+        lblBuildDate = new javax.swing.JTextArea();
+        scrlLifeExpectancy = new javax.swing.JScrollPane();
+        lblLifeExpectancy = new javax.swing.JTextArea();
+        scrlDescription = new javax.swing.JScrollPane();
+        lblDescription = new javax.swing.JTextArea();
+        scrlLocation = new javax.swing.JScrollPane();
+        lblLocation = new javax.swing.JTextArea();
+        scrlDateOfPurchase = new javax.swing.JScrollPane();
+        lblDateOfPurchase = new javax.swing.JTextArea();
+        chkAvailable = new javax.swing.JCheckBox();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 32767));
+        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 50), new java.awt.Dimension(10, 50), new java.awt.Dimension(10, 50));
 
-        setLayout(new java.awt.GridBagLayout());
+        setMaximumSize(new java.awt.Dimension(1325, 100));
+        setMinimumSize(new java.awt.Dimension(1325, 100));
+        setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(1325, 100));
+        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
+        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 5, 0};
+        setLayout(layout);
 
         lblItemIdTitle.setText("Item ID");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         add(lblItemIdTitle, gridBagConstraints);
-
-        lblItemId.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        lblItemId.setText("SRVR_EJ414");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        add(lblItemId, gridBagConstraints);
 
         lblItemNameTitle.setText("Item Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         add(lblItemNameTitle, gridBagConstraints);
-
-        lblItemName.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        lblItemName.setText("Windows Server 2016");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        add(lblItemName, gridBagConstraints);
 
         lblItemAvailable.setText("Item Available");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         add(lblItemAvailable, gridBagConstraints);
-
-        btnAvailable.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        btnAvailable.setText("Available");
-        btnAvailable.setFocusable(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
-        add(btnAvailable, gridBagConstraints);
 
         lblLastSeenTitle.setText("Last Seen");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         add(lblLastSeenTitle, gridBagConstraints);
-
-        lblLastSeen.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        lblLastSeen.setText("12: 21, 3/19/19");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        add(lblLastSeen, gridBagConstraints);
 
         lblLocationTitle.setText("Location");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        add(lblLocationTitle, gridBagConstraints);
-
-        lblLocation.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        lblLocation.setText("SET 441");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        add(lblLocation, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        add(filler1, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 2;
-        add(filler2, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 22;
         gridBagConstraints.gridy = 0;
-        add(filler3, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        add(filler4, gridBagConstraints);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(lblLocationTitle, gridBagConstraints);
 
         btnEdit.setBackground(java.awt.SystemColor.control);
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/GearIcon.png"))); // NOI18N
@@ -168,14 +156,261 @@ public class ViewItemEquipment extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 24;
+        gridBagConstraints.gridy = 2;
+        add(btnEdit, gridBagConstraints);
+
+        lblDateOfPurchaseTitle.setText("Date Of Purchase");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(lblDateOfPurchaseTitle, gridBagConstraints);
+
+        lblSoftwareDatesTitle.setText("Software Dates");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(lblSoftwareDatesTitle, gridBagConstraints);
+
+        lblVersionNumberTitle.setText("Version Number");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 14;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(lblVersionNumberTitle, gridBagConstraints);
+
+        lblBuildDateTitle.setText("Build Date");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(lblBuildDateTitle, gridBagConstraints);
+
+        lblLifeExpectancyTitle.setText("Life Expectancy");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 18;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(lblLifeExpectancyTitle, gridBagConstraints);
+
+        lblItemDescriptionTitle.setText("Description");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 20;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(lblItemDescriptionTitle, gridBagConstraints);
+
+        lblViewItem.setText("View  ");
+        lblViewItem.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 24;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(lblViewItem, gridBagConstraints);
+
+        scrlItemName.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        lblItemName.setEditable(false);
+        lblItemName.setBackground(java.awt.SystemColor.control);
+        lblItemName.setColumns(10);
+        lblItemName.setLineWrap(true);
+        lblItemName.setRows(3);
+        lblItemName.setBorder(null);
+        lblItemName.setMaximumSize(new java.awt.Dimension(20, 40));
+        scrlItemName.setViewportView(lblItemName);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(scrlItemName, gridBagConstraints);
+
+        scrlLastSeen.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        lblLastSeen.setEditable(false);
+        lblLastSeen.setBackground(java.awt.SystemColor.control);
+        lblLastSeen.setColumns(10);
+        lblLastSeen.setLineWrap(true);
+        lblLastSeen.setRows(3);
+        lblLastSeen.setBorder(null);
+        lblLastSeen.setMaximumSize(new java.awt.Dimension(20, 40));
+        scrlLastSeen.setViewportView(lblLastSeen);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(scrlLastSeen, gridBagConstraints);
+
+        scrlSoftwareDates.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        lblSoftwareDates.setEditable(false);
+        lblSoftwareDates.setBackground(java.awt.SystemColor.control);
+        lblSoftwareDates.setColumns(10);
+        lblSoftwareDates.setLineWrap(true);
+        lblSoftwareDates.setRows(3);
+        lblSoftwareDates.setBorder(null);
+        lblSoftwareDates.setMaximumSize(new java.awt.Dimension(20, 40));
+        scrlSoftwareDates.setViewportView(lblSoftwareDates);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(scrlSoftwareDates, gridBagConstraints);
+
+        scrlItemId.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        lblItemId.setEditable(false);
+        lblItemId.setBackground(java.awt.SystemColor.control);
+        lblItemId.setColumns(10);
+        lblItemId.setLineWrap(true);
+        lblItemId.setRows(3);
+        lblItemId.setBorder(null);
+        lblItemId.setMaximumSize(new java.awt.Dimension(20, 40));
+        scrlItemId.setViewportView(lblItemId);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(scrlItemId, gridBagConstraints);
+
+        scrlVersionNumber.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        lblVersionNumber.setEditable(false);
+        lblVersionNumber.setBackground(java.awt.SystemColor.control);
+        lblVersionNumber.setColumns(10);
+        lblVersionNumber.setLineWrap(true);
+        lblVersionNumber.setRows(3);
+        lblVersionNumber.setBorder(null);
+        lblVersionNumber.setMaximumSize(new java.awt.Dimension(20, 40));
+        scrlVersionNumber.setViewportView(lblVersionNumber);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 14;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(scrlVersionNumber, gridBagConstraints);
+
+        scrlBuildDate.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        lblBuildDate.setEditable(false);
+        lblBuildDate.setBackground(java.awt.SystemColor.control);
+        lblBuildDate.setColumns(10);
+        lblBuildDate.setLineWrap(true);
+        lblBuildDate.setRows(3);
+        lblBuildDate.setBorder(null);
+        lblBuildDate.setMaximumSize(new java.awt.Dimension(20, 40));
+        scrlBuildDate.setViewportView(lblBuildDate);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(scrlBuildDate, gridBagConstraints);
+
+        scrlLifeExpectancy.setToolTipText("");
+        scrlLifeExpectancy.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        lblLifeExpectancy.setEditable(false);
+        lblLifeExpectancy.setBackground(java.awt.SystemColor.control);
+        lblLifeExpectancy.setColumns(10);
+        lblLifeExpectancy.setLineWrap(true);
+        lblLifeExpectancy.setRows(3);
+        lblLifeExpectancy.setBorder(null);
+        lblLifeExpectancy.setMaximumSize(new java.awt.Dimension(20, 40));
+        scrlLifeExpectancy.setViewportView(lblLifeExpectancy);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 18;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(scrlLifeExpectancy, gridBagConstraints);
+
+        scrlDescription.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrlDescription.setToolTipText("");
+        scrlDescription.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        lblDescription.setEditable(false);
+        lblDescription.setBackground(java.awt.SystemColor.control);
+        lblDescription.setColumns(10);
+        lblDescription.setLineWrap(true);
+        lblDescription.setRows(3);
+        lblDescription.setWrapStyleWord(true);
+        lblDescription.setBorder(null);
+        lblDescription.setMaximumSize(new java.awt.Dimension(20, 40));
+        scrlDescription.setViewportView(lblDescription);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 20;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(scrlDescription, gridBagConstraints);
+
+        scrlLocation.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        lblLocation.setEditable(false);
+        lblLocation.setBackground(java.awt.SystemColor.control);
+        lblLocation.setColumns(10);
+        lblLocation.setLineWrap(true);
+        lblLocation.setRows(3);
+        lblLocation.setBorder(null);
+        lblLocation.setMaximumSize(new java.awt.Dimension(20, 40));
+        scrlLocation.setViewportView(lblLocation);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 22;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(scrlLocation, gridBagConstraints);
+
+        scrlDateOfPurchase.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        lblDateOfPurchase.setEditable(false);
+        lblDateOfPurchase.setBackground(java.awt.SystemColor.control);
+        lblDateOfPurchase.setColumns(10);
+        lblDateOfPurchase.setLineWrap(true);
+        lblDateOfPurchase.setRows(3);
+        lblDateOfPurchase.setBorder(null);
+        lblDateOfPurchase.setMaximumSize(new java.awt.Dimension(20, 40));
+        scrlDateOfPurchase.setViewportView(lblDateOfPurchase);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(scrlDateOfPurchase, gridBagConstraints);
+
+        chkAvailable.setText("Available");
+        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
-        add(btnEdit, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        add(chkAvailable, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        add(filler1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 26;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        add(filler3, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        UserInterface.switchLayout("PanelDetails", btnEdit.getActionCommand());
+        UserInterface.switchLayout(new Object[]{"PanelDetails", btnEdit.getActionCommand()});
     }//GEN-LAST:event_btnEditActionPerformed
     /**
      * Description: Populates all fields in current inventory item view
@@ -185,27 +420,54 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         lblItemId.setText("" + inventoryItem.getID());
         btnEdit.setActionCommand("" + inventoryItem.getID());
         lblItemName.setText(inventoryItem.getItemName());
-        btnAvailable.setSelected(inventoryItem.getItemAvailable());
-        btnAvailable.setEnabled(false);
+        chkAvailable.setSelected(inventoryItem.getItemAvailable());
+        chkAvailable.setEnabled(false);
         lblLastSeen.setText(inventoryItem.getLastSeen().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+        lblDateOfPurchase.setText(inventoryItem.getDateOfPurchase().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+        lblSoftwareDates.setText(inventoryItem.getSoftwareDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+        lblVersionNumber.setText(inventoryItem.getVersionNum());
+        lblBuildDate.setText(inventoryItem.getBuildDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+        lblLifeExpectancy.setText("" + inventoryItem.getLifeExpectancy());
         lblLocation.setText(inventoryItem.getLocation());
+        lblDescription.setText(inventoryItem.getItemDescription());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox btnAvailable;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JCheckBox chkAvailable;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
-    private javax.swing.Box.Filler filler4;
+    private javax.swing.JTextArea lblBuildDate;
+    private javax.swing.JLabel lblBuildDateTitle;
+    private javax.swing.JTextArea lblDateOfPurchase;
+    private javax.swing.JLabel lblDateOfPurchaseTitle;
+    private javax.swing.JTextArea lblDescription;
     private javax.swing.JLabel lblItemAvailable;
-    private javax.swing.JLabel lblItemId;
+    private javax.swing.JLabel lblItemDescriptionTitle;
+    private javax.swing.JTextArea lblItemId;
     private javax.swing.JLabel lblItemIdTitle;
-    private javax.swing.JLabel lblItemName;
+    private javax.swing.JTextArea lblItemName;
     private javax.swing.JLabel lblItemNameTitle;
-    private javax.swing.JLabel lblLastSeen;
+    private javax.swing.JTextArea lblLastSeen;
     private javax.swing.JLabel lblLastSeenTitle;
-    private javax.swing.JLabel lblLocation;
+    private javax.swing.JTextArea lblLifeExpectancy;
+    javax.swing.JLabel lblLifeExpectancyTitle;
+    private javax.swing.JTextArea lblLocation;
     private javax.swing.JLabel lblLocationTitle;
+    private javax.swing.JTextArea lblSoftwareDates;
+    private javax.swing.JLabel lblSoftwareDatesTitle;
+    private javax.swing.JTextArea lblVersionNumber;
+    private javax.swing.JLabel lblVersionNumberTitle;
+    private javax.swing.JLabel lblViewItem;
+    private javax.swing.JScrollPane scrlBuildDate;
+    private javax.swing.JScrollPane scrlDateOfPurchase;
+    private javax.swing.JScrollPane scrlDescription;
+    private javax.swing.JScrollPane scrlItemId;
+    private javax.swing.JScrollPane scrlItemName;
+    private javax.swing.JScrollPane scrlLastSeen;
+    private javax.swing.JScrollPane scrlLifeExpectancy;
+    private javax.swing.JScrollPane scrlLocation;
+    private javax.swing.JScrollPane scrlSoftwareDates;
+    private javax.swing.JScrollPane scrlVersionNumber;
     // End of variables declaration//GEN-END:variables
 }
