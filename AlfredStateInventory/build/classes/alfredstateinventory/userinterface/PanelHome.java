@@ -37,17 +37,22 @@ public class PanelHome extends javax.swing.JPanel {
      */
     public PanelHome() {
         initComponents();
+
+                 
+        if (fieldsSelected != null && fieldsSelected.length == 10) {
+            chkItemName.setSelected(fieldsSelected[0]);
+            chkItemAvailable.setSelected(fieldsSelected[1]);
+            chkLastSeen.setSelected(fieldsSelected[2]);
+            chkDateOfPurchase.setSelected(fieldsSelected[3]);
+            chkSoftwareDates.setSelected(fieldsSelected[4]);
+            chkVersionNumber.setSelected(fieldsSelected[5]);
+            chkBuildDate.setSelected(fieldsSelected[6]);
+            chkLifeExpectancy.setSelected(fieldsSelected[7]);
+            chkLocation.setSelected(fieldsSelected[8]);
+            chkItemDescription.setSelected(fieldsSelected[9]);
+        } 
         
-        chkItemName.setSelected(fieldsSelected[0]);
-        chkItemAvailable.setSelected(fieldsSelected[1]);
-        chkLastSeen.setSelected(fieldsSelected[2]);
-        chkDateOfPurchase.setSelected(fieldsSelected[3]);
-        chkSoftwareDates.setSelected(fieldsSelected[4]);
-        chkVersionNumber.setSelected(fieldsSelected[5]);
-        chkBuildDate.setSelected(fieldsSelected[6]);
-        chkLifeExpectancy.setSelected(fieldsSelected[7]);
-        chkLocation.setSelected(fieldsSelected[8]);
-        chkItemDescription.setSelected(fieldsSelected[9]);
+        setFieldsSelected();
         
         if (!SQLConnection.getAdminAccess()) {
             btnNewItem.setVisible(false);
@@ -56,6 +61,21 @@ public class PanelHome extends javax.swing.JPanel {
     }
      public PanelHome(InventoryItem[] itemAry) {
         initComponents();
+                 
+        if (fieldsSelected != null && fieldsSelected.length == 10) {
+            chkItemName.setSelected(fieldsSelected[0]);
+            chkItemAvailable.setSelected(fieldsSelected[1]);
+            chkLastSeen.setSelected(fieldsSelected[2]);
+            chkDateOfPurchase.setSelected(fieldsSelected[3]);
+            chkSoftwareDates.setSelected(fieldsSelected[4]);
+            chkVersionNumber.setSelected(fieldsSelected[5]);
+            chkBuildDate.setSelected(fieldsSelected[6]);
+            chkLifeExpectancy.setSelected(fieldsSelected[7]);
+            chkLocation.setSelected(fieldsSelected[8]);
+            chkItemDescription.setSelected(fieldsSelected[9]);
+        } 
+        
+        setFieldsSelected();
     }
 
     /**
@@ -132,7 +152,7 @@ public class PanelHome extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 25);
         add(btnRefresh, gridBagConstraints);
@@ -147,7 +167,7 @@ public class PanelHome extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         add(btnQuery, gridBagConstraints);
 
@@ -161,7 +181,7 @@ public class PanelHome extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 50);
         add(btnNewItem, gridBagConstraints);
@@ -177,7 +197,7 @@ public class PanelHome extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 75);
         add(btnNewExport, gridBagConstraints);
@@ -200,6 +220,11 @@ public class PanelHome extends javax.swing.JPanel {
 
         chkItemName.setSelected(true);
         chkItemName.setText("Item Name");
+        chkItemName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkItemNameActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -208,6 +233,11 @@ public class PanelHome extends javax.swing.JPanel {
 
         chkItemAvailable.setSelected(true);
         chkItemAvailable.setText("Item Available");
+        chkItemAvailable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkItemAvailableActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -217,6 +247,11 @@ public class PanelHome extends javax.swing.JPanel {
 
         chkLastSeen.setSelected(true);
         chkLastSeen.setText("Last Seen");
+        chkLastSeen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkLastSeenActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -225,6 +260,11 @@ public class PanelHome extends javax.swing.JPanel {
         add(chkLastSeen, gridBagConstraints);
 
         chkDateOfPurchase.setText("Date of Purchase");
+        chkDateOfPurchase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkDateOfPurchaseActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -233,6 +273,11 @@ public class PanelHome extends javax.swing.JPanel {
         add(chkDateOfPurchase, gridBagConstraints);
 
         chkSoftwareDates.setText("Software Dates");
+        chkSoftwareDates.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkSoftwareDatesActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -241,6 +286,11 @@ public class PanelHome extends javax.swing.JPanel {
         add(chkSoftwareDates, gridBagConstraints);
 
         chkVersionNumber.setText("Version Number");
+        chkVersionNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkVersionNumberActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -249,6 +299,11 @@ public class PanelHome extends javax.swing.JPanel {
         add(chkVersionNumber, gridBagConstraints);
 
         chkBuildDate.setText("Build Date");
+        chkBuildDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkBuildDateActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -257,6 +312,11 @@ public class PanelHome extends javax.swing.JPanel {
         add(chkBuildDate, gridBagConstraints);
 
         chkLifeExpectancy.setText("Life Expectancy");
+        chkLifeExpectancy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkLifeExpectancyActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -266,6 +326,11 @@ public class PanelHome extends javax.swing.JPanel {
 
         chkLocation.setSelected(true);
         chkLocation.setText("Location");
+        chkLocation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkLocationActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -274,6 +339,11 @@ public class PanelHome extends javax.swing.JPanel {
         add(chkLocation, gridBagConstraints);
 
         chkItemDescription.setText("Description");
+        chkItemDescription.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkItemDescriptionActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -304,7 +374,7 @@ public class PanelHome extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
-        populateScrollView(Inventory.getInventoryItems());
+        UserInterface.switchLayout(new Object[]{"PanelHome"});
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQueryActionPerformed
@@ -330,6 +400,54 @@ public class PanelHome extends javax.swing.JPanel {
         AlfredStateInventory.reInstantiate();
     }//GEN-LAST:event_btnLogOutActionPerformed
 
+    private void setFieldsSelected() {
+         fieldsSelected = new boolean[] {chkItemName.isSelected(), chkItemAvailable.isSelected(),
+                chkLastSeen.isSelected(), chkDateOfPurchase.isSelected(), chkSoftwareDates.isSelected(),
+                chkVersionNumber.isSelected(), chkBuildDate.isSelected(), chkLifeExpectancy.isSelected(),
+                chkLocation.isSelected(), chkItemDescription.isSelected()};
+
+    }
+    
+    private void chkItemNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkItemNameActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkItemNameActionPerformed
+
+    private void chkItemAvailableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkItemAvailableActionPerformed
+       setFieldsSelected();
+    }//GEN-LAST:event_chkItemAvailableActionPerformed
+
+    private void chkLastSeenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkLastSeenActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkLastSeenActionPerformed
+
+    private void chkDateOfPurchaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkDateOfPurchaseActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkDateOfPurchaseActionPerformed
+
+    private void chkSoftwareDatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSoftwareDatesActionPerformed
+       setFieldsSelected();
+    }//GEN-LAST:event_chkSoftwareDatesActionPerformed
+
+    private void chkVersionNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkVersionNumberActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkVersionNumberActionPerformed
+
+    private void chkBuildDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBuildDateActionPerformed
+       setFieldsSelected();
+    }//GEN-LAST:event_chkBuildDateActionPerformed
+
+    private void chkLifeExpectancyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkLifeExpectancyActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkLifeExpectancyActionPerformed
+
+    private void chkLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkLocationActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkLocationActionPerformed
+
+    private void chkItemDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkItemDescriptionActionPerformed
+        setFieldsSelected();
+    }//GEN-LAST:event_chkItemDescriptionActionPerformed
+
     /**
      * Description: Creates an inventory item view, populates it, and adds it
      * to the scroll view using proper grid bag constraints
@@ -337,10 +455,6 @@ public class PanelHome extends javax.swing.JPanel {
      */
     public void populateScrollView(ArrayList<InventoryItem> inventory) {
         for (InventoryItem i: inventory) {
-            fieldsSelected = new boolean[] {chkItemName.isSelected(), chkItemAvailable.isSelected(),
-                chkLastSeen.isSelected(), chkDateOfPurchase.isSelected(), chkSoftwareDates.isSelected(),
-                chkVersionNumber.isSelected(), chkBuildDate.isSelected(), chkLifeExpectancy.isSelected(),
-                chkLocation.isSelected(), chkItemDescription.isSelected()};
             ViewItemEquipment inventoryItem = new ViewItemEquipment(fieldsSelected);
             inventoryItem.populateItemView(i);
             GridBagConstraints gbc = new GridBagConstraints();

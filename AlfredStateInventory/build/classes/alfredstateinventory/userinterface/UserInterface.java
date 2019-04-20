@@ -87,6 +87,7 @@ public class UserInterface {
                 }
             }
         }    
+          mainJFrame.repaint();
     }
       
       public static void displayInventory(ArrayList <InventoryItem> inventory) {

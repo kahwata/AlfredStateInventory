@@ -103,10 +103,12 @@ public class PanelChooseSignIn extends javax.swing.JPanel {
         
         try {
             SQLQueries.queryAdminAccess();
-            UserInterface.switchLayout(new Object[]{"PanelHome"});
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Could not determine access level: " + e.getMessage());
         }
+        UserInterface.switchLayout(new Object[]{"PanelHome"});
+        
     }//GEN-LAST:event_btnGuestSignInActionPerformed
 
 

@@ -114,7 +114,7 @@ public class PanelHome extends javax.swing.JPanel {
 
         setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         setMaximumSize(new java.awt.Dimension(2147483647, 500));
-        setMinimumSize(new java.awt.Dimension(1500, 1000));
+        setMinimumSize(new java.awt.Dimension(0, 0));
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1500, 1000));
         setLayout(new java.awt.GridBagLayout());
@@ -360,10 +360,11 @@ public class PanelHome extends javax.swing.JPanel {
         add(jLabel1, gridBagConstraints);
 
         pnlScrollPanel.setMaximumSize(new java.awt.Dimension(1350, 750));
-        pnlScrollPanel.setMinimumSize(new java.awt.Dimension(1350, 750));
+        pnlScrollPanel.setMinimumSize(null);
         pnlScrollPanel.setName(""); // NOI18N
         pnlScrollPanel.setPreferredSize(new java.awt.Dimension(1350, 750));
 
+        pnlInventory.setName(""); // NOI18N
         pnlInventory.setLayout(new java.awt.GridBagLayout());
         pnlScrollPanel.setViewportView(pnlInventory);
 

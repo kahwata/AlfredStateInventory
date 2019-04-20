@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import alfredstateinventory.userinterface.*;
 import java.time.LocalDate;
 import alfredstateinventory.sql.*;
+import static alfredstateinventory.userinterface.PanelHome.fieldsSelected;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -24,27 +25,29 @@ public class ViewItemEquipment extends javax.swing.JPanel {
      * Creates new form EquipmentViewItem
      */
     public ViewItemEquipment(boolean fieldsToShow[]) {
-                initComponents();
-        lblItemNameTitle.setVisible(fieldsToShow[0]);
-        scrlItemName.setVisible(fieldsToShow[0]);
-        lblItemAvailable.setVisible(fieldsToShow[1]);
-        chkAvailable.setVisible(fieldsToShow[1]);
-        lblLastSeenTitle.setVisible(fieldsToShow[2]);
-        scrlLastSeen.setVisible(fieldsToShow[2]);
-        lblDateOfPurchaseTitle.setVisible(fieldsToShow[3]);
-        scrlDateOfPurchase.setVisible(fieldsToShow[3]);
-        lblSoftwareDatesTitle.setVisible(fieldsToShow[4]);
-        scrlSoftwareDates.setVisible(fieldsToShow[4]);
-        lblVersionNumberTitle.setVisible(fieldsToShow[5]);
-        scrlVersionNumber.setVisible(fieldsToShow[5]);
-        lblBuildDateTitle.setVisible(fieldsToShow[6]);
-        scrlBuildDate.setVisible(fieldsToShow[6]);
-        lblLifeExpectancyTitle.setVisible(fieldsToShow[7]);
-        scrlLifeExpectancy.setVisible(fieldsToShow[7]);
-        lblLocationTitle.setVisible(fieldsToShow[8]);
-        scrlLocation.setVisible(fieldsToShow[8]);
-        lblItemDescriptionTitle.setVisible(fieldsToShow[9]);
-        scrlDescription.setVisible(fieldsToShow[9]);
+        initComponents();
+        if (fieldsSelected != null && fieldsSelected.length == 10) {
+            lblItemNameTitle.setVisible(fieldsToShow[0]);
+            scrlItemName.setVisible(fieldsToShow[0]);
+            lblItemAvailable.setVisible(fieldsToShow[1]);
+            chkAvailable.setVisible(fieldsToShow[1]);
+            lblLastSeenTitle.setVisible(fieldsToShow[2]);
+            scrlLastSeen.setVisible(fieldsToShow[2]);
+            lblDateOfPurchaseTitle.setVisible(fieldsToShow[3]);
+            scrlDateOfPurchase.setVisible(fieldsToShow[3]);
+            lblSoftwareDatesTitle.setVisible(fieldsToShow[4]);
+            scrlSoftwareDates.setVisible(fieldsToShow[4]);
+            lblVersionNumberTitle.setVisible(fieldsToShow[5]);
+            scrlVersionNumber.setVisible(fieldsToShow[5]);
+            lblBuildDateTitle.setVisible(fieldsToShow[6]);
+            scrlBuildDate.setVisible(fieldsToShow[6]);
+            lblLifeExpectancyTitle.setVisible(fieldsToShow[7]);
+            scrlLifeExpectancy.setVisible(fieldsToShow[7]);
+            lblLocationTitle.setVisible(fieldsToShow[8]);
+            scrlLocation.setVisible(fieldsToShow[8]);
+            lblItemDescriptionTitle.setVisible(fieldsToShow[9]);
+            scrlDescription.setVisible(fieldsToShow[9]);
+        }
         
     }
 
