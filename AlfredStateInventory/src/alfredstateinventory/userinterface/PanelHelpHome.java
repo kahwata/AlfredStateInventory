@@ -31,21 +31,26 @@ public class PanelHelpHome extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
-        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
-        jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
+        jTextArea2 = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        jLabel8 = new javax.swing.JLabel();
+        jTextArea5 = new javax.swing.JTextArea();
+        jLabel9 = new javax.swing.JLabel();
+        jTextArea6 = new javax.swing.JTextArea();
+        jLabel10 = new javax.swing.JLabel();
+        jTextArea7 = new javax.swing.JTextArea();
+        jLabel11 = new javax.swing.JLabel();
+        jTextArea8 = new javax.swing.JTextArea();
         jTextArea4 = new javax.swing.JTextArea();
 
+        setMinimumSize(new java.awt.Dimension(800, 1200));
+        setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(800, 1200));
         setLayout(new java.awt.GridBagLayout());
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -54,57 +59,45 @@ public class PanelHelpHome extends javax.swing.JPanel {
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel2.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         add(jLabel2, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("Home Screen Help");
+        jLabel1.setText("Navigating the Home Screen");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         add(jLabel1, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Pictured: Annotated Home Screen");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(jLabel3, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        add(filler1, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        add(filler2, gridBagConstraints);
-
-        jScrollPane1.setBorder(null);
 
         jTextArea1.setEditable(false);
         jTextArea1.setBackground(java.awt.SystemColor.control);
         jTextArea1.setColumns(20);
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(2);
-        jTextArea1.setText("To create a new item, click the New Item button (Fig. 3). This will immediately take you to a screen for creating a new item. For more information on creating items, see the \"Creating Items\" help article. ");
+        jTextArea1.setText("To select which fields you would like displayed, simply click which fields you would like to see, then refresh the layout (See Refreshing earlier in this article). Before starting a query, you should select what fields you want displayed. ");
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setBorder(null);
-        jScrollPane1.setViewportView(jTextArea1);
-
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        add(jScrollPane1, gridBagConstraints);
+        add(jTextArea1, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("Creating New Items");
+        jLabel4.setText("Selecting Fields");
         jLabel4.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         add(jLabel4, gridBagConstraints);
 
@@ -112,29 +105,11 @@ public class PanelHelpHome extends javax.swing.JPanel {
         jLabel5.setText("Figures Listed");
         jLabel5.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         add(jLabel5, gridBagConstraints);
-
-        jScrollPane2.setBorder(null);
-
-        jTextArea2.setEditable(false);
-        jTextArea2.setBackground(java.awt.SystemColor.control);
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(7);
-        jTextArea2.setText("Fig. 1: Log-out button\nFig. 2: Export QR button\nFig. 3: New Item button\nFig. 4: Refresh button\nFig. 5: Search button\nFig. 6: View Item buttons\nFig. 7: Field selector checkboxes");
-        jTextArea2.setBorder(null);
-        jScrollPane2.setViewportView(jTextArea2);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        add(jScrollPane2, gridBagConstraints);
-
-        jScrollPane3.setBorder(null);
 
         jTextArea3.setEditable(false);
         jTextArea3.setBackground(java.awt.SystemColor.control);
@@ -144,19 +119,30 @@ public class PanelHelpHome extends javax.swing.JPanel {
         jTextArea3.setText("To log out, simply click the Log-out button (Fig. 1) in the top right corner of the home screen. This will take you to a screen allowing you to either login as a guest, or login as an admin given the proper credentials.");
         jTextArea3.setWrapStyleWord(true);
         jTextArea3.setBorder(null);
-        jScrollPane3.setViewportView(jTextArea3);
-
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        add(jScrollPane3, gridBagConstraints);
+        add(jTextArea3, gridBagConstraints);
+
+        jTextArea2.setEditable(false);
+        jTextArea2.setBackground(java.awt.SystemColor.control);
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(7);
+        jTextArea2.setText("Fig. 1: Log-out button\nFig. 2: Export QR button, requires admin login\nFig. 3: New Item button, requires admin login\nFig. 4: Refresh button\nFig. 5: Search button\nFig. 6: View Item buttons\nFig. 7: Field selector checkboxes");
+        jTextArea2.setBorder(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        add(jTextArea2, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Logging Out");
         jLabel6.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         add(jLabel6, gridBagConstraints);
@@ -165,48 +151,138 @@ public class PanelHelpHome extends javax.swing.JPanel {
         jLabel7.setText("Exporting QR Codes");
         jLabel7.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         add(jLabel7, gridBagConstraints);
 
-        jScrollPane4.setBorder(null);
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setText("Creating New Items");
+        jLabel8.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        add(jLabel8, gridBagConstraints);
+
+        jTextArea5.setEditable(false);
+        jTextArea5.setBackground(java.awt.SystemColor.control);
+        jTextArea5.setColumns(20);
+        jTextArea5.setLineWrap(true);
+        jTextArea5.setRows(2);
+        jTextArea5.setText("To create a new item, click the New Item button (Fig. 3). This will immediately take you to a screen for creating a new item. For more information on creating items, see the \"Creating Items\" help article. ");
+        jTextArea5.setWrapStyleWord(true);
+        jTextArea5.setBorder(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        add(jTextArea5, gridBagConstraints);
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setText("Refreshing");
+        jLabel9.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        add(jLabel9, gridBagConstraints);
+
+        jTextArea6.setEditable(false);
+        jTextArea6.setBackground(java.awt.SystemColor.control);
+        jTextArea6.setColumns(20);
+        jTextArea6.setLineWrap(true);
+        jTextArea6.setRows(2);
+        jTextArea6.setText("To refresh your selection, simply click Refresh button (Fig. 4). This will reset the layout to show all inventory items, using the selected fields.  For more information on choosing fields, see \"Selecting Fields\" later in this article.");
+        jTextArea6.setWrapStyleWord(true);
+        jTextArea6.setBorder(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        add(jTextArea6, gridBagConstraints);
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setText("Starting a Query");
+        jLabel10.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        add(jLabel10, gridBagConstraints);
+
+        jTextArea7.setEditable(false);
+        jTextArea7.setBackground(java.awt.SystemColor.control);
+        jTextArea7.setColumns(20);
+        jTextArea7.setLineWrap(true);
+        jTextArea7.setRows(2);
+        jTextArea7.setText("By executing a query, you can choose what inventory items are displayed.  To start a query, click the Search button (Fig. 5). For more instructions on how to preform a query, see the \"Executing a query\" help article. ");
+        jTextArea7.setWrapStyleWord(true);
+        jTextArea7.setBorder(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        add(jTextArea7, gridBagConstraints);
+
+        jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel11.setText("Viewing an Item");
+        jLabel11.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        add(jLabel11, gridBagConstraints);
+
+        jTextArea8.setEditable(false);
+        jTextArea8.setBackground(java.awt.SystemColor.control);
+        jTextArea8.setColumns(20);
+        jTextArea8.setLineWrap(true);
+        jTextArea8.setRows(2);
+        jTextArea8.setText("To view an item, click the View Item button (Fig. 6) to the right of the object you wish to see. This will launch a screen with all pertinent information about the item. If you have admin access, you can also save a QR code or edit an item's information from this screen.");
+        jTextArea8.setWrapStyleWord(true);
+        jTextArea8.setBorder(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        add(jTextArea8, gridBagConstraints);
 
         jTextArea4.setEditable(false);
         jTextArea4.setBackground(java.awt.SystemColor.control);
         jTextArea4.setColumns(20);
         jTextArea4.setLineWrap(true);
         jTextArea4.setRows(4);
-        jTextArea4.setText("To export a QR code repreenting each inventory item, click the Export QR button (Fig. 2). This will prompt you to choose a location for saving the QR codes as PNG files. Once the directory location is chosen, all QR codes will be saved in that directory with a file name prefacing their ID. By default, the home screen shows all inventory items. To export a specific group of inventory items, preform a query and then click the Export QR button. For instructions on performing a query, see \"Executing a Query\" later in this help article.");
+        jTextArea4.setText("To export a QR code repreenting each inventory item, click the Export QR button (Fig. 2). This will prompt you to choose a location for saving the QR codes as PNG files. Once the directory location is chosen, all QR codes will be saved in that directory with a file name prefacing their ID. By default, the home screen shows all inventory items. To export a specific group of inventory items, preform a query and then click the Export QR button. For instructions on performing a query, see \"Starting a Query\" later in this help article. ");
         jTextArea4.setWrapStyleWord(true);
         jTextArea4.setBorder(null);
-        jScrollPane4.setViewportView(jTextArea4);
-
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        add(jScrollPane4, gridBagConstraints);
+        add(jTextArea4, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.Box.Filler filler1;
-    private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea jTextArea6;
+    private javax.swing.JTextArea jTextArea7;
+    private javax.swing.JTextArea jTextArea8;
     // End of variables declaration//GEN-END:variables
 }

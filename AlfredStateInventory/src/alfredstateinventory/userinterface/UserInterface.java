@@ -9,6 +9,7 @@ import alfredstateinventory.java.InventoryItem;
 import alfredstateinventory.sql.SQLQueries;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import java.awt.Component;
 
 public class UserInterface {
     private static UserInterface instance;
@@ -86,7 +87,17 @@ public class UserInterface {
                     e.printStackTrace();
                 }
             }
-        }    
+        }
+          
+          else if (layout.equals("PanelHelpCenter")) {
+              PanelHelpCenter helpCenter = new PanelHelpCenter();
+              
+              if (args.length > 1)
+                  helpCenter.populateHelpArticle(args[1].toString());
+              else
+                  helpCenter.populateHelpArticle("");
+              mainJFrame.addPanel(helpCenter);
+          }
           mainJFrame.repaint();
     }
       

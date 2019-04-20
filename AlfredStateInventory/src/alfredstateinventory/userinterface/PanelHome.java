@@ -115,6 +115,7 @@ public class PanelHome extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btnHelpCenter = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         setMaximumSize(new java.awt.Dimension(2147483647, 500));
@@ -228,6 +229,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 0, 0, 0);
         add(btnLogOut, gridBagConstraints);
 
         chkItemName.setSelected(true);
@@ -429,6 +431,23 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         add(jLabel5, gridBagConstraints);
+
+        btnHelpCenter.setBackground(java.awt.SystemColor.control);
+        btnHelpCenter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/HelpIcon.png"))); // NOI18N
+        btnHelpCenter.setText("Help Center");
+        btnHelpCenter.setBorder(null);
+        btnHelpCenter.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnHelpCenter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHelpCenterActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        add(btnHelpCenter, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
@@ -506,6 +525,10 @@ public class PanelHome extends javax.swing.JPanel {
         setFieldsSelected();
     }//GEN-LAST:event_chkItemDescriptionActionPerformed
 
+    private void btnHelpCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpCenterActionPerformed
+        UserInterface.switchLayout(new Object[]{"PanelHelpCenter", ""});
+    }//GEN-LAST:event_btnHelpCenterActionPerformed
+
     /**
      * Description: Creates an inventory item view, populates it, and adds it
      * to the scroll view using proper grid bag constraints
@@ -520,9 +543,11 @@ public class PanelHome extends javax.swing.JPanel {
             pnlInventory.add(inventoryItem, gbc);
             scrollPanelY++;
         }
+      
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHelpCenter;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnNewExport;
     private javax.swing.JButton btnNewItem;
