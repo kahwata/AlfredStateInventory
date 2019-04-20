@@ -99,7 +99,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 50), new java.awt.Dimension(10, 50), new java.awt.Dimension(10, 50));
 
         setMaximumSize(new java.awt.Dimension(1325, 100));
-        setMinimumSize(new java.awt.Dimension(1325, 100));
+        setMinimumSize(new java.awt.Dimension(0, 0));
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1325, 100));
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();

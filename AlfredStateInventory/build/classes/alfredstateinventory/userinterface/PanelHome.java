@@ -111,10 +111,14 @@ public class PanelHome extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         pnlScrollPanel = new javax.swing.JScrollPane();
         pnlInventory = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         setMaximumSize(new java.awt.Dimension(2147483647, 500));
-        setMinimumSize(new java.awt.Dimension(1500, 1000));
+        setMinimumSize(new java.awt.Dimension(0, 0));
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1500, 1000));
         setLayout(new java.awt.GridBagLayout());
@@ -123,6 +127,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(imgLogo, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -136,6 +141,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         add(filler3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -153,8 +159,9 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 25);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 58);
         add(btnRefresh, gridBagConstraints);
 
         btnQuery.setBackground(java.awt.SystemColor.control);
@@ -168,7 +175,9 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
         add(btnQuery, gridBagConstraints);
 
         btnNewItem.setBackground(java.awt.SystemColor.control);
@@ -182,8 +191,9 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 50);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 110);
         add(btnNewItem, gridBagConstraints);
 
         btnNewExport.setBackground(java.awt.SystemColor.control);
@@ -196,10 +206,11 @@ public class PanelHome extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 75);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 174);
         add(btnNewExport, gridBagConstraints);
 
         btnLogOut.setBackground(java.awt.SystemColor.control);
@@ -215,6 +226,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         add(btnLogOut, gridBagConstraints);
 
@@ -228,6 +240,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(chkItemName, gridBagConstraints);
 
@@ -241,6 +254,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 125, 0, 25);
         add(chkItemAvailable, gridBagConstraints);
@@ -255,6 +269,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 235, 0, 25);
         add(chkLastSeen, gridBagConstraints);
@@ -268,6 +283,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 356, 0, 56);
         add(chkDateOfPurchase, gridBagConstraints);
@@ -281,6 +297,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(1, 485, 1, 54);
         add(chkSoftwareDates, gridBagConstraints);
@@ -294,6 +311,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 1);
         add(chkVersionNumber, gridBagConstraints);
@@ -307,6 +325,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 126, 0, 16);
         add(chkBuildDate, gridBagConstraints);
@@ -320,6 +339,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 235, 0, 35);
         add(chkLifeExpectancy, gridBagConstraints);
@@ -334,6 +354,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 356, 0, 36);
         add(chkLocation, gridBagConstraints);
@@ -347,6 +368,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 485, 0, 0);
         add(chkItemDescription, gridBagConstraints);
@@ -356,21 +378,57 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
         add(jLabel1, gridBagConstraints);
 
         pnlScrollPanel.setMaximumSize(new java.awt.Dimension(1350, 750));
-        pnlScrollPanel.setMinimumSize(new java.awt.Dimension(1350, 750));
+        pnlScrollPanel.setMinimumSize(null);
         pnlScrollPanel.setName(""); // NOI18N
         pnlScrollPanel.setPreferredSize(new java.awt.Dimension(1350, 750));
 
+        pnlInventory.setName(""); // NOI18N
         pnlInventory.setLayout(new java.awt.GridBagLayout());
         pnlScrollPanel.setViewportView(pnlInventory);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
         add(pnlScrollPanel, gridBagConstraints);
+
+        jLabel2.setText("Export QR");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 160);
+        add(jLabel2, gridBagConstraints);
+
+        jLabel3.setText("Refresh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 50);
+        add(jLabel3, gridBagConstraints);
+
+        jLabel4.setText("New Item");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 100);
+        add(jLabel4, gridBagConstraints);
+
+        jLabel5.setText("Search");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        add(jLabel5, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
@@ -486,6 +544,10 @@ public class PanelHome extends javax.swing.JPanel {
     private javax.swing.Box.Filler filler4;
     private javax.swing.JLabel imgLogo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel pnlInventory;
     private javax.swing.JScrollPane pnlScrollPanel;
     // End of variables declaration//GEN-END:variables
