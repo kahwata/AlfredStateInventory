@@ -215,7 +215,7 @@ public class PanelQuery extends javax.swing.JPanel {
         add(lblItemId, gridBagConstraints);
 
         txtItemId.setMinimumSize(new java.awt.Dimension(100, 20));
-        txtItemId.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtItemId.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -224,7 +224,7 @@ public class PanelQuery extends javax.swing.JPanel {
         add(txtItemId, gridBagConstraints);
 
         txtItemName.setMinimumSize(new java.awt.Dimension(100, 20));
-        txtItemName.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtItemName.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
@@ -233,7 +233,7 @@ public class PanelQuery extends javax.swing.JPanel {
         add(txtItemName, gridBagConstraints);
 
         txtSoftwareDates.setMinimumSize(new java.awt.Dimension(100, 20));
-        txtSoftwareDates.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtSoftwareDates.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
@@ -242,7 +242,7 @@ public class PanelQuery extends javax.swing.JPanel {
         add(txtSoftwareDates, gridBagConstraints);
 
         txtLastSeen.setMinimumSize(new java.awt.Dimension(100, 20));
-        txtLastSeen.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtLastSeen.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
@@ -251,7 +251,7 @@ public class PanelQuery extends javax.swing.JPanel {
         add(txtLastSeen, gridBagConstraints);
 
         txtDateOfPurchase.setMinimumSize(new java.awt.Dimension(100, 20));
-        txtDateOfPurchase.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtDateOfPurchase.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
@@ -260,7 +260,7 @@ public class PanelQuery extends javax.swing.JPanel {
         add(txtDateOfPurchase, gridBagConstraints);
 
         txtBuildDate.setMinimumSize(new java.awt.Dimension(100, 20));
-        txtBuildDate.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtBuildDate.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 7;
@@ -269,7 +269,7 @@ public class PanelQuery extends javax.swing.JPanel {
         add(txtBuildDate, gridBagConstraints);
 
         txtVersionNumber.setMinimumSize(new java.awt.Dimension(100, 20));
-        txtVersionNumber.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtVersionNumber.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
@@ -278,7 +278,7 @@ public class PanelQuery extends javax.swing.JPanel {
         add(txtVersionNumber, gridBagConstraints);
 
         txtLifeExpectancy.setMinimumSize(new java.awt.Dimension(100, 20));
-        txtLifeExpectancy.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtLifeExpectancy.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
@@ -287,7 +287,7 @@ public class PanelQuery extends javax.swing.JPanel {
         add(txtLifeExpectancy, gridBagConstraints);
 
         txtLocation.setMinimumSize(new java.awt.Dimension(100, 20));
-        txtLocation.setPreferredSize(new java.awt.Dimension(50, 20));
+        txtLocation.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 9;
