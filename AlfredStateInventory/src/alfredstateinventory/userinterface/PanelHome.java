@@ -149,8 +149,8 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.gridy = 8;
         add(filler4, gridBagConstraints);
 
+        btnRefresh.setBackground(java.awt.SystemColor.control);
         btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/RefreshIcon.png"))); // NOI18N
-        btnRefresh.setToolTipText("Refresh List");
         btnRefresh.setBorder(null);
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,8 +165,8 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 58);
         add(btnRefresh, gridBagConstraints);
 
+        btnQuery.setBackground(java.awt.SystemColor.control);
         btnQuery.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/SearchIcon.png"))); // NOI18N
-        btnQuery.setToolTipText("Search items");
         btnQuery.setBorder(null);
         btnQuery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,8 +181,8 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
         add(btnQuery, gridBagConstraints);
 
+        btnNewItem.setBackground(java.awt.SystemColor.control);
         btnNewItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/PlusIcon.png"))); // NOI18N
-        btnNewItem.setToolTipText("Add an item");
         btnNewItem.setBorder(null);
         btnNewItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,8 +197,9 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 110);
         add(btnNewItem, gridBagConstraints);
 
+        btnNewExport.setBackground(java.awt.SystemColor.control);
         btnNewExport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/QRIcon.png"))); // NOI18N
-        btnNewExport.setToolTipText("Export QR codes for items listed");
+        btnNewExport.setToolTipText("");
         btnNewExport.setBorder(null);
         btnNewExport.setPreferredSize(new java.awt.Dimension(20, 20));
         btnNewExport.addActionListener(new java.awt.event.ActionListener() {
@@ -214,9 +215,9 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 174);
         add(btnNewExport, gridBagConstraints);
 
+        btnLogOut.setBackground(java.awt.SystemColor.control);
         btnLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/LogoutIcon.png"))); // NOI18N
         btnLogOut.setText("Log Out");
-        btnLogOut.setToolTipText("Log out of system");
         btnLogOut.setBorder(null);
         btnLogOut.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -432,9 +433,9 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         add(lblSearchTitle, gridBagConstraints);
 
+        btnHelpCenter.setBackground(java.awt.SystemColor.control);
         btnHelpCenter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/HelpIcon.png"))); // NOI18N
         btnHelpCenter.setText("Help Center");
-        btnHelpCenter.setToolTipText("View the help center");
         btnHelpCenter.setBorder(null);
         btnHelpCenter.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnHelpCenter.addActionListener(new java.awt.event.ActionListener() {

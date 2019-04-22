@@ -379,10 +379,10 @@ public class PanelEdit extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(4, 0, 2, 0);
         add(jPanel1, gridBagConstraints);
 
+        btnDelete.setBackground(java.awt.SystemColor.control);
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/TrashIcon.png"))); // NOI18N
-        btnDelete.setText("Delete Item");
-        btnDelete.setToolTipText("Remove this item");
         btnDelete.setBorder(null);
+        btnDelete.setPreferredSize(new java.awt.Dimension(25, 25));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
