@@ -147,8 +147,8 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         add(lblLocationTitle, gridBagConstraints);
 
-        btnEdit.setBackground(java.awt.SystemColor.control);
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/GearIcon.png"))); // NOI18N
+        btnEdit.setToolTipText("View details for this item");
         btnEdit.setBorder(null);
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
