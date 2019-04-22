@@ -66,7 +66,7 @@ public class PanelHelpCenter extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         add(pnlCurrentTopic, gridBagConstraints);
 
-        comboArticles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Navigating the Home Screen" }));
+        comboArticles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introduction", "Navigating the Home Screen" }));
         comboArticles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboArticlesActionPerformed(evt);
@@ -117,7 +117,7 @@ public class PanelHelpCenter extends javax.swing.JPanel {
         gbc.anchor = GridBagConstraints.NORTHWEST;
         gbc.gridy = 1;
           
-        if (articleToView.isBlank()) {
+        if (articleToView.isBlank() || articleToView.equals("Introduction")) {
             PanelHelpCenterDefault article = new PanelHelpCenterDefault();
             pnlCurrentTopic.add(article, gbc);
         } else if (articleToView.equals("Navigating the Home Screen")) {
@@ -171,7 +171,6 @@ public class PanelHelpCenter extends javax.swing.JPanel {
     private javax.swing.JButton btnHome;
     private javax.swing.JComboBox<String> comboArticles;
     private javax.swing.JLabel imgLogo;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTopics;
     private javax.swing.JLabel lblTopics1;
     private javax.swing.JPanel pnlCurrentTopic;

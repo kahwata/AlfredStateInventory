@@ -32,10 +32,7 @@ public class PanelHome extends javax.swing.JPanel {
     private int scrollPanelY = 0;
     public static boolean fieldsSelected[];
 
-    /**
-     * Creates new form Home
-     */
-    public PanelHome() {
+   public PanelHome() {
         initComponents();
 
                  
@@ -57,8 +54,11 @@ public class PanelHome extends javax.swing.JPanel {
         if (!SQLConnection.getAdminAccess()) {
             btnNewItem.setVisible(false);
             btnNewExport.setVisible(false);
+            lblExportTitle.setVisible(false);
+            lblNewTitle.setVisible(false);
         }
     }
+   
      public PanelHome(InventoryItem[] itemAry) {
         initComponents();
                  
@@ -111,10 +111,11 @@ public class PanelHome extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         pnlScrollPanel = new javax.swing.JScrollPane();
         pnlInventory = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblExportTitle = new javax.swing.JLabel();
+        lblRefreshTitle = new javax.swing.JLabel();
+        lblNewTitle = new javax.swing.JLabel();
+        lblSearchTitle = new javax.swing.JLabel();
+        btnHelpCenter = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         setMaximumSize(new java.awt.Dimension(2147483647, 500));
@@ -198,6 +199,7 @@ public class PanelHome extends javax.swing.JPanel {
 
         btnNewExport.setBackground(java.awt.SystemColor.control);
         btnNewExport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/QRIcon.png"))); // NOI18N
+        btnNewExport.setToolTipText("");
         btnNewExport.setBorder(null);
         btnNewExport.setPreferredSize(new java.awt.Dimension(20, 20));
         btnNewExport.addActionListener(new java.awt.event.ActionListener() {
@@ -228,6 +230,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 0, 0, 0);
         add(btnLogOut, gridBagConstraints);
 
         chkItemName.setSelected(true);
@@ -398,37 +401,54 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         add(pnlScrollPanel, gridBagConstraints);
 
-        jLabel2.setText("Export QR");
+        lblExportTitle.setText("Export QR");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 160);
-        add(jLabel2, gridBagConstraints);
+        add(lblExportTitle, gridBagConstraints);
 
-        jLabel3.setText("Refresh");
+        lblRefreshTitle.setText("Refresh");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 50);
-        add(jLabel3, gridBagConstraints);
+        add(lblRefreshTitle, gridBagConstraints);
 
-        jLabel4.setText("New Item");
+        lblNewTitle.setText("New Item");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 100);
-        add(jLabel4, gridBagConstraints);
+        add(lblNewTitle, gridBagConstraints);
 
-        jLabel5.setText("Search");
+        lblSearchTitle.setText("Search");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        add(jLabel5, gridBagConstraints);
+        add(lblSearchTitle, gridBagConstraints);
+
+        btnHelpCenter.setBackground(java.awt.SystemColor.control);
+        btnHelpCenter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/HelpIcon.png"))); // NOI18N
+        btnHelpCenter.setText("Help Center");
+        btnHelpCenter.setBorder(null);
+        btnHelpCenter.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnHelpCenter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHelpCenterActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        add(btnHelpCenter, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
@@ -506,6 +526,10 @@ public class PanelHome extends javax.swing.JPanel {
         setFieldsSelected();
     }//GEN-LAST:event_chkItemDescriptionActionPerformed
 
+    private void btnHelpCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpCenterActionPerformed
+        UserInterface.switchLayout(new Object[]{"PanelHelpCenter", ""});
+    }//GEN-LAST:event_btnHelpCenterActionPerformed
+
     /**
      * Description: Creates an inventory item view, populates it, and adds it
      * to the scroll view using proper grid bag constraints
@@ -520,9 +544,11 @@ public class PanelHome extends javax.swing.JPanel {
             pnlInventory.add(inventoryItem, gbc);
             scrollPanelY++;
         }
+      
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHelpCenter;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnNewExport;
     private javax.swing.JButton btnNewItem;
@@ -544,10 +570,10 @@ public class PanelHome extends javax.swing.JPanel {
     private javax.swing.Box.Filler filler4;
     private javax.swing.JLabel imgLogo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lblExportTitle;
+    private javax.swing.JLabel lblNewTitle;
+    private javax.swing.JLabel lblRefreshTitle;
+    private javax.swing.JLabel lblSearchTitle;
     private javax.swing.JPanel pnlInventory;
     private javax.swing.JScrollPane pnlScrollPanel;
     // End of variables declaration//GEN-END:variables
