@@ -131,12 +131,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnRefresh">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="f0" id="Control" palette="2" red="f0" type="palette"/>
-        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/alfredstateinventory/drawable/RefreshIcon.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Refresh List"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -152,12 +150,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnQuery">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="f0" id="Control" palette="2" red="f0" type="palette"/>
-        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/alfredstateinventory/drawable/SearchIcon.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Search items"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -173,12 +169,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnNewItem">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="f0" id="Control" palette="2" red="f0" type="palette"/>
-        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/alfredstateinventory/drawable/PlusIcon.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Add new item"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -194,13 +188,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnNewExport">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="f0" id="Control" palette="2" red="f0" type="palette"/>
-        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/alfredstateinventory/drawable/QRIcon.png"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="toolTipText" type="java.lang.String" value="Export QR codes of items listed"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -219,13 +210,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnLogOut">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="f0" id="Control" palette="2" red="f0" type="palette"/>
-        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/alfredstateinventory/drawable/LogoutIcon.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Log Out"/>
+        <Property name="toolTipText" type="java.lang.String" value="Log out of the system"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -459,13 +448,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnHelpCenter">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="f0" id="Control" palette="2" red="f0" type="palette"/>
-        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/alfredstateinventory/drawable/HelpIcon.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Help Center"/>
+        <Property name="toolTipText" type="java.lang.String" value="View the help center"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>

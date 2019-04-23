@@ -147,8 +147,8 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         add(lblLocationTitle, gridBagConstraints);
 
-        btnEdit.setBackground(java.awt.SystemColor.control);
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/GearIcon.png"))); // NOI18N
+        btnEdit.setToolTipText("Veiw item details");
         btnEdit.setBorder(null);
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,6 +348,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         lblDescription.setRows(3);
         lblDescription.setWrapStyleWord(true);
         lblDescription.setBorder(null);
+        lblDescription.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblDescription.setMaximumSize(new java.awt.Dimension(20, 40));
         scrlDescription.setViewportView(lblDescription);
 
