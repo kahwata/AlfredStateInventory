@@ -66,7 +66,7 @@ public class PanelHelpCenter extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         add(pnlCurrentTopic, gridBagConstraints);
 
-        comboArticles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introduction", "Navigating the Home Screen", "Navigating the Search Screen", "Navigating the New Screen", "Navigating the Detail Screen", "Navigating the Edit Screen" }));
+        comboArticles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introduction", "Navigating the Home Screen", "Navigating the Search Screen", "Navigating the New Screen", "Navigating the Detail Screen", "Navigating the Edit Screen", "How To: Create a New Item", "How To: Edit an Item", "How To: Delete an Item", "How To: Search for Items", "How To: Export Items" }));
         comboArticles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboArticlesActionPerformed(evt);
@@ -135,8 +135,22 @@ public class PanelHelpCenter extends javax.swing.JPanel {
         } else if (articleToView.equals("Navigating the New Screen")) {
             PanelHelpNew article = new PanelHelpNew();
             pnlCurrentTopic.add(article, gbc);
-        } 
-        
+        } else if (articleToView.equals("How To: Create a New Item")) {
+            PanelHelpNewTutorial article = new PanelHelpNewTutorial();
+            pnlCurrentTopic.add(article, gbc);
+        } else if (articleToView.equals("How To: Edit an Item")) {
+            PanelHelpEditTutorial article = new PanelHelpEditTutorial();
+            pnlCurrentTopic.add(article, gbc);
+        } else if (articleToView.equals("How To: Delete an Item")) {
+            PanelHelpDelTutorial article = new PanelHelpDelTutorial();
+            pnlCurrentTopic.add(article, gbc);
+        } else if (articleToView.equals("How To: Search for Items")) {
+            PanelHelpQueryTutorial article = new PanelHelpQueryTutorial();
+            pnlCurrentTopic.add(article, gbc);
+        } else if (articleToView.equals("How To: Export Items")) {
+            PanelHelpExportTutorial article = new PanelHelpExportTutorial();
+            pnlCurrentTopic.add(article, gbc);
+        }
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

@@ -24,7 +24,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="How To: Create a New Item"/>
+        <Property name="text" type="java.lang.String" value="How To: Edit an Item"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -51,7 +51,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="You now will be redirected back to the home screen, with your new item created"/>
+        <Property name="text" type="java.lang.String" value="You now will be redirected back to the home screen, with your item updated"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Constraints>
@@ -79,7 +79,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="To create a new item, login with admin credentials and click the button highlighted in the following picture"/>
+        <Property name="text" type="java.lang.String" value="Find the item desired and click the View button"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Constraints>
@@ -92,7 +92,7 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/alfredstateinventory/drawable/TutorialNewItem_Step1.png"/>
+          <Image iconType="3" name="/alfredstateinventory/drawable/TutorialEditItem_Step1.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="verticalAlignment" type="int" value="1"/>
@@ -128,7 +128,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Now that you&apos;re on the new item screen, enter the item info keeping format in mind"/>
+        <Property name="text" type="java.lang.String" value="From the view screen, click the Edit Item button"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Constraints>
@@ -141,7 +141,7 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/alfredstateinventory/drawable/TutorialNewItem_Step4.png"/>
+          <Image iconType="3" name="/alfredstateinventory/drawable/TutorialEditItem_Step4.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="verticalAlignment" type="int" value="1"/>
@@ -162,7 +162,7 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/alfredstateinventory/drawable/TutorialNewItem_Step2.png"/>
+          <Image iconType="3" name="/alfredstateinventory/drawable/TutorialEditItem_Step2.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="verticalAlignment" type="int" value="1"/>
@@ -198,7 +198,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Once your information is entered, hit submit"/>
+        <Property name="text" type="java.lang.String" value="Edit the information as you desire, then click submit"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Constraints>
@@ -211,7 +211,7 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/alfredstateinventory/drawable/TutorialNewItem_Step3.png"/>
+          <Image iconType="3" name="/alfredstateinventory/drawable/TutorialEditItem_Step3.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="verticalAlignment" type="int" value="1"/>
