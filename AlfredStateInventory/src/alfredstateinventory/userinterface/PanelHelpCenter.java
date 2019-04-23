@@ -66,7 +66,7 @@ public class PanelHelpCenter extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         add(pnlCurrentTopic, gridBagConstraints);
 
-        comboArticles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introduction", "Navigating the Home Screen" }));
+        comboArticles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Introduction", "Navigating the Home Screen", "Navigating the Search Screen", "Navigating the Detail Screen" }));
         comboArticles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboArticlesActionPerformed(evt);
@@ -122,6 +122,12 @@ public class PanelHelpCenter extends javax.swing.JPanel {
             pnlCurrentTopic.add(article, gbc);
         } else if (articleToView.equals("Navigating the Home Screen")) {
             PanelHelpHome article = new PanelHelpHome();
+            pnlCurrentTopic.add(article, gbc);
+        } else if (articleToView.equals("Navigating the Search Screen")) {
+            PanelHelpQuery article = new PanelHelpQuery();
+            pnlCurrentTopic.add(article, gbc);
+        } else if (articleToView.equals("Navigating the Detail Screen")) {
+            PanelHelpDetail article = new PanelHelpDetail();
             pnlCurrentTopic.add(article, gbc);
         } 
         

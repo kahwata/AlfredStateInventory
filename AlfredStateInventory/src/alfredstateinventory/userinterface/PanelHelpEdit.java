@@ -9,12 +9,12 @@ package alfredstateinventory.userinterface;
  *
  * @author BHAsus
  */
-public class PanelHelpQuery extends javax.swing.JPanel {
+public class PanelHelpEdit extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelHelpQuery
      */
-    public PanelHelpQuery() {
+    public PanelHelpEdit() {
         initComponents();
     }
 
@@ -39,7 +39,9 @@ public class PanelHelpQuery extends javax.swing.JPanel {
         jTextArea4 = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jTextArea5 = new javax.swing.JTextArea();
-        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 100), new java.awt.Dimension(0, 100), new java.awt.Dimension(32767, 100));
+        jLabel9 = new javax.swing.JLabel();
+        jTextArea6 = new javax.swing.JTextArea();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 100), new java.awt.Dimension(0, 100), new java.awt.Dimension(32767, 100));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Figures Listed");
@@ -71,14 +73,15 @@ public class PanelHelpQuery extends javax.swing.JPanel {
         setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("Navigating the Search Screen");
+        jLabel1.setText("Navigating the Edit Screen");
+        jLabel1.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         add(jLabel1, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setText("Pictured: Annotated Query Screen");
+        jLabel3.setText("Pictured: Annotated Detail Screen");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -112,7 +115,7 @@ public class PanelHelpQuery extends javax.swing.JPanel {
         jTextArea4.setBackground(java.awt.SystemColor.control);
         jTextArea4.setColumns(20);
         jTextArea4.setRows(1);
-        jTextArea4.setText("Fig. 1: Strict Search checkbox");
+        jTextArea4.setText("Fig. 1: Delete button");
         jTextArea4.setBorder(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -122,37 +125,65 @@ public class PanelHelpQuery extends javax.swing.JPanel {
         add(jTextArea4, gridBagConstraints);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setText("Selecting Fields");
+        jLabel8.setText("Editing");
         jLabel8.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         add(jLabel8, gridBagConstraints);
 
         jTextArea5.setEditable(false);
         jTextArea5.setBackground(java.awt.SystemColor.control);
-        jTextArea5.setColumns(20);
+        jTextArea5.setColumns(2);
         jTextArea5.setLineWrap(true);
         jTextArea5.setRows(2);
-        jTextArea5.setText("In the pictured layout we can see all searchable fields for an inventory item. If a field is left blank, it will return an item regardless of the corresponding field, if all fields are blank it will simply return every item. By default, if information is entered into a field, it will return inventory items who's corresponding field contains the information entered. If Strict Search (Fig. 1) is checked, it will return fields who exactly match the information entered. Simply click \"Search\" to preform the query, or \"Home\" to disregard a query.");
+        jTextArea5.setTabSize(2);
+        jTextArea5.setText("In order to edit an item, you simply change the fields as you desire and hit submit. To return home without saving any changes, simply hit Home. If you do not follow the formatting rules listed for each date (yyyy-dd-mm, eg: 2019-31-01 for January 31st 2019) then an error message may be generated and displayed. Besides enforced and explicitly listed standards, company standards should be refered to when editing or creating fields. ");
+        jTextArea5.setToolTipText("");
         jTextArea5.setWrapStyleWord(true);
         jTextArea5.setBorder(null);
         jTextArea5.setPreferredSize(new java.awt.Dimension(200, 100));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         add(jTextArea5, gridBagConstraints);
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setText("Deletion");
+        jLabel9.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        add(filler2, gridBagConstraints);
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        add(jLabel9, gridBagConstraints);
+
+        jTextArea6.setEditable(false);
+        jTextArea6.setBackground(java.awt.SystemColor.control);
+        jTextArea6.setColumns(2);
+        jTextArea6.setLineWrap(true);
+        jTextArea6.setRows(2);
+        jTextArea6.setTabSize(2);
+        jTextArea6.setText("To delete an item, simply click the Delete button (Fig. 1). If it succeeds, you will be redirected to the homescreen. Otherwise, you will be given an error message detailing what has happened.");
+        jTextArea6.setToolTipText("");
+        jTextArea6.setWrapStyleWord(true);
+        jTextArea6.setBorder(null);
+        jTextArea6.setPreferredSize(new java.awt.Dimension(200, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        add(jTextArea6, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        add(filler1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.Box.Filler filler2;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -160,9 +191,11 @@ public class PanelHelpQuery extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea jTextArea6;
     // End of variables declaration//GEN-END:variables
 }
