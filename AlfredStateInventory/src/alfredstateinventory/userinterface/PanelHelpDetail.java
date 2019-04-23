@@ -41,7 +41,7 @@ public class PanelHelpDetail extends javax.swing.JPanel {
         jTextArea5 = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jTextArea6 = new javax.swing.JTextArea();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 100), new java.awt.Dimension(0, 100), new java.awt.Dimension(32767, 100));
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 20));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Figures Listed");
@@ -69,7 +69,6 @@ public class PanelHelpDetail extends javax.swing.JPanel {
 
         setMinimumSize(new java.awt.Dimension(500, 781));
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(500, 781));
         setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -89,7 +88,7 @@ public class PanelHelpDetail extends javax.swing.JPanel {
         add(jLabel3, gridBagConstraints);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/HelpCenter_Query.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/HelpCenter_Detail.png"))); // NOI18N
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel2.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
@@ -177,12 +176,12 @@ public class PanelHelpDetail extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
-        add(filler1, gridBagConstraints);
+        add(filler2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

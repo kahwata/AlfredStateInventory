@@ -41,7 +41,6 @@ public class PanelHelpEdit extends javax.swing.JPanel {
         jTextArea5 = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jTextArea6 = new javax.swing.JTextArea();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 100), new java.awt.Dimension(0, 100), new java.awt.Dimension(32767, 100));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Figures Listed");
@@ -69,7 +68,6 @@ public class PanelHelpEdit extends javax.swing.JPanel {
 
         setMinimumSize(new java.awt.Dimension(500, 781));
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(500, 781));
         setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -90,7 +88,7 @@ public class PanelHelpEdit extends javax.swing.JPanel {
         add(jLabel3, gridBagConstraints);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/HelpCenter_Query.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/HelpCenter_Edit.png"))); // NOI18N
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel2.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
@@ -139,7 +137,7 @@ public class PanelHelpEdit extends javax.swing.JPanel {
         jTextArea5.setLineWrap(true);
         jTextArea5.setRows(2);
         jTextArea5.setTabSize(2);
-        jTextArea5.setText("In order to edit an item, you simply change the fields as you desire and hit submit. To return home without saving any changes, simply hit Home. If you do not follow the formatting rules listed for each date (yyyy-dd-mm, eg: 2019-31-01 for January 31st 2019) then an error message may be generated and displayed. Besides enforced and explicitly listed standards, company standards should be refered to when editing or creating fields. ");
+        jTextArea5.setText("In order to edit an item, you simply change the fields as you desire and hit submit. To return home without saving any changes, simply hit Home. If you do not follow the formatting rules listed for each date (yyyy-mm-dd, eg: 2019-01-31 for January 31st 2019) then an error message may be generated and displayed. Besides enforced and explicitly listed standards, company standards should be refered to when editing or creating fields. ");
         jTextArea5.setToolTipText("");
         jTextArea5.setWrapStyleWord(true);
         jTextArea5.setBorder(null);
@@ -175,15 +173,10 @@ public class PanelHelpEdit extends javax.swing.JPanel {
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         add(jTextArea6, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
-        add(filler1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

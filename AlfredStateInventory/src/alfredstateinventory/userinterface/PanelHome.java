@@ -149,6 +149,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.gridy = 8;
         add(filler4, gridBagConstraints);
 
+        btnRefresh.setBackground(java.awt.SystemColor.control);
         btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/RefreshIcon.png"))); // NOI18N
         btnRefresh.setToolTipText("Refresh List");
         btnRefresh.setBorder(null);
@@ -165,6 +166,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 58);
         add(btnRefresh, gridBagConstraints);
 
+        btnQuery.setBackground(java.awt.SystemColor.control);
         btnQuery.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/SearchIcon.png"))); // NOI18N
         btnQuery.setToolTipText("Search items");
         btnQuery.setBorder(null);
@@ -181,6 +183,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
         add(btnQuery, gridBagConstraints);
 
+        btnNewItem.setBackground(java.awt.SystemColor.control);
         btnNewItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/PlusIcon.png"))); // NOI18N
         btnNewItem.setToolTipText("Add new item");
         btnNewItem.setBorder(null);
@@ -214,6 +217,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 174);
         add(btnNewExport, gridBagConstraints);
 
+        btnLogOut.setBackground(java.awt.SystemColor.control);
         btnLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/LogoutIcon.png"))); // NOI18N
         btnLogOut.setText("Log Out");
         btnLogOut.setToolTipText("Log out of the system");
@@ -432,6 +436,7 @@ public class PanelHome extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         add(lblSearchTitle, gridBagConstraints);
 
+        btnHelpCenter.setBackground(java.awt.SystemColor.control);
         btnHelpCenter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/HelpIcon.png"))); // NOI18N
         btnHelpCenter.setText("Help Center");
         btnHelpCenter.setToolTipText("View the help center");
