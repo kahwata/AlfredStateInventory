@@ -33,6 +33,7 @@ public class PanelEdit extends javax.swing.JPanel {
         initComponents();
         txtItemId.setEditable(false);
         if (newItem) {
+            btnDelete.setVisible(false);
             try {
                 int id = SQLQueries.queryId();
                 txtItemId.setText("" + id);
@@ -379,6 +380,7 @@ public class PanelEdit extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(4, 0, 2, 0);
         add(jPanel1, gridBagConstraints);
 
+        btnDelete.setBackground(java.awt.SystemColor.control);
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/TrashIcon.png"))); // NOI18N
         btnDelete.setText("Delete Item");
         btnDelete.setToolTipText("Remove this item");

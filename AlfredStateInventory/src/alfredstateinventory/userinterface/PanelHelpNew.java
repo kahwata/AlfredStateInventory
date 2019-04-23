@@ -9,12 +9,12 @@ package alfredstateinventory.userinterface;
  *
  * @author BHAsus
  */
-public class PanelHelpEdit extends javax.swing.JPanel {
+public class PanelHelpNew extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelHelpQuery
      */
-    public PanelHelpEdit() {
+    public PanelHelpNew() {
         initComponents();
     }
 
@@ -35,10 +35,6 @@ public class PanelHelpEdit extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextArea4 = new javax.swing.JTextArea();
-        jLabel8 = new javax.swing.JLabel();
-        jTextArea5 = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jTextArea6 = new javax.swing.JTextArea();
 
@@ -66,13 +62,11 @@ public class PanelHelpEdit extends javax.swing.JPanel {
         jTextArea3.setWrapStyleWord(true);
         jTextArea3.setBorder(null);
 
-        setMinimumSize(new java.awt.Dimension(500, 800));
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(366, 1100));
         setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("Navigating the Edit Screen");
+        jLabel1.setText("Navigating the New Screen");
         jLabel1.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -80,7 +74,7 @@ public class PanelHelpEdit extends javax.swing.JPanel {
         add(jLabel1, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setText("Pictured: Annotated Edit Screen");
+        jLabel3.setText("Pictured: Annotated New Screen");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -89,67 +83,18 @@ public class PanelHelpEdit extends javax.swing.JPanel {
         add(jLabel3, gridBagConstraints);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/HelpCenter_Edit.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/HelpCenter_New.png"))); // NOI18N
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel2.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
+        gridBagConstraints.insets = new java.awt.Insets(0, 19, 0, 19);
         add(jLabel2, gridBagConstraints);
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel7.setText("Figures Listed");
-        jLabel7.setToolTipText("");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        add(jLabel7, gridBagConstraints);
-
-        jTextArea4.setEditable(false);
-        jTextArea4.setBackground(java.awt.SystemColor.control);
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(1);
-        jTextArea4.setText("Fig. 1: Delete button");
-        jTextArea4.setBorder(null);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        add(jTextArea4, gridBagConstraints);
-
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setText("Editing");
-        jLabel8.setToolTipText("");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        add(jLabel8, gridBagConstraints);
-
-        jTextArea5.setEditable(false);
-        jTextArea5.setBackground(java.awt.SystemColor.control);
-        jTextArea5.setColumns(2);
-        jTextArea5.setLineWrap(true);
-        jTextArea5.setRows(7);
-        jTextArea5.setTabSize(2);
-        jTextArea5.setText("In order to edit an item, you simply change the fields as you desire and hit submit. To return home without saving any changes, simply hit Home. If you do not follow the formatting rules listed for each date (yyyy-mm-dd, eg: 2019-01-31 for January 31st 2019) then an error message may be generated and displayed. Besides enforced and explicitly listed standards, company standards should be refered to when editing or creating fields. ");
-        jTextArea5.setToolTipText("");
-        jTextArea5.setWrapStyleWord(true);
-        jTextArea5.setBorder(null);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        add(jTextArea5, gridBagConstraints);
-
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel9.setText("Deletion");
+        jLabel9.setText("Creating a New Item");
         jLabel9.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -159,15 +104,14 @@ public class PanelHelpEdit extends javax.swing.JPanel {
 
         jTextArea6.setEditable(false);
         jTextArea6.setBackground(java.awt.SystemColor.control);
-        jTextArea6.setColumns(2);
+        jTextArea6.setColumns(6);
         jTextArea6.setLineWrap(true);
-        jTextArea6.setRows(2);
+        jTextArea6.setRows(3);
         jTextArea6.setTabSize(2);
-        jTextArea6.setText("To delete an item, simply click the Delete button (Fig. 1). If it succeeds, you will be redirected to the homescreen. Otherwise, you will be given an error message detailing what has happened.");
+        jTextArea6.setText("To create a new item, simply fill out the fields as desired and hit \"Submit\". For date fields, make sure to use the format \"yyyy-mm-dd\" (Eg: 2019-01-31 for January 31st 2019 as shown under each date field's label. If there are any issues with creation, a proper error message will be displayed. If you wish to cancel, hit \"Home\" and you will return to the Home screen without creating an item.");
         jTextArea6.setToolTipText("");
         jTextArea6.setWrapStyleWord(true);
         jTextArea6.setBorder(null);
-        jTextArea6.setPreferredSize(new java.awt.Dimension(200, 100));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -182,13 +126,9 @@ public class PanelHelpEdit extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea jTextArea5;
     private javax.swing.JTextArea jTextArea6;
     // End of variables declaration//GEN-END:variables
 }

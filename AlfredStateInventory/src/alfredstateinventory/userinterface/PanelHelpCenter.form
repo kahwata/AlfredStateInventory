@@ -65,12 +65,13 @@
     <Component class="javax.swing.JComboBox" name="comboArticles">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
+          <StringArray count="6">
             <StringItem index="0" value="Introduction"/>
             <StringItem index="1" value="Navigating the Home Screen"/>
             <StringItem index="2" value="Navigating the Search Screen"/>
-            <StringItem index="3" value="Navigating the Detail Screen"/>
-            <StringItem index="4" value="Navigating the Edit Screen"/>
+            <StringItem index="3" value="Navigating the New Screen"/>
+            <StringItem index="4" value="Navigating the Detail Screen"/>
+            <StringItem index="5" value="Navigating the Edit Screen"/>
           </StringArray>
         </Property>
       </Properties>

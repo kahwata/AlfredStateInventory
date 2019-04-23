@@ -147,6 +147,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         add(lblLocationTitle, gridBagConstraints);
 
+        btnEdit.setBackground(java.awt.SystemColor.control);
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/GearIcon.png"))); // NOI18N
         btnEdit.setToolTipText("Veiw item details");
         btnEdit.setBorder(null);
@@ -224,6 +225,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         lblItemName.setColumns(10);
         lblItemName.setLineWrap(true);
         lblItemName.setRows(3);
+        lblItemName.setWrapStyleWord(true);
         lblItemName.setBorder(null);
         lblItemName.setMaximumSize(new java.awt.Dimension(20, 40));
         scrlItemName.setViewportView(lblItemName);
@@ -241,6 +243,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         lblLastSeen.setColumns(10);
         lblLastSeen.setLineWrap(true);
         lblLastSeen.setRows(3);
+        lblLastSeen.setWrapStyleWord(true);
         lblLastSeen.setBorder(null);
         lblLastSeen.setMaximumSize(new java.awt.Dimension(20, 40));
         scrlLastSeen.setViewportView(lblLastSeen);
@@ -258,6 +261,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         lblSoftwareDates.setColumns(10);
         lblSoftwareDates.setLineWrap(true);
         lblSoftwareDates.setRows(3);
+        lblSoftwareDates.setWrapStyleWord(true);
         lblSoftwareDates.setBorder(null);
         lblSoftwareDates.setMaximumSize(new java.awt.Dimension(20, 40));
         scrlSoftwareDates.setViewportView(lblSoftwareDates);
@@ -275,6 +279,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         lblItemId.setColumns(10);
         lblItemId.setLineWrap(true);
         lblItemId.setRows(3);
+        lblItemId.setWrapStyleWord(true);
         lblItemId.setBorder(null);
         lblItemId.setMaximumSize(new java.awt.Dimension(20, 40));
         scrlItemId.setViewportView(lblItemId);
@@ -292,6 +297,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         lblVersionNumber.setColumns(10);
         lblVersionNumber.setLineWrap(true);
         lblVersionNumber.setRows(3);
+        lblVersionNumber.setWrapStyleWord(true);
         lblVersionNumber.setBorder(null);
         lblVersionNumber.setMaximumSize(new java.awt.Dimension(20, 40));
         scrlVersionNumber.setViewportView(lblVersionNumber);
@@ -309,6 +315,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         lblBuildDate.setColumns(10);
         lblBuildDate.setLineWrap(true);
         lblBuildDate.setRows(3);
+        lblBuildDate.setWrapStyleWord(true);
         lblBuildDate.setBorder(null);
         lblBuildDate.setMaximumSize(new java.awt.Dimension(20, 40));
         scrlBuildDate.setViewportView(lblBuildDate);
@@ -327,6 +334,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         lblLifeExpectancy.setColumns(10);
         lblLifeExpectancy.setLineWrap(true);
         lblLifeExpectancy.setRows(3);
+        lblLifeExpectancy.setWrapStyleWord(true);
         lblLifeExpectancy.setBorder(null);
         lblLifeExpectancy.setMaximumSize(new java.awt.Dimension(20, 40));
         scrlLifeExpectancy.setViewportView(lblLifeExpectancy);
@@ -349,7 +357,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         lblDescription.setWrapStyleWord(true);
         lblDescription.setBorder(null);
         lblDescription.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblDescription.setMaximumSize(new java.awt.Dimension(20, 30));
+        lblDescription.setMaximumSize(new java.awt.Dimension(20, 40));
         scrlDescription.setViewportView(lblDescription);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -365,6 +373,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         lblLocation.setColumns(10);
         lblLocation.setLineWrap(true);
         lblLocation.setRows(3);
+        lblLocation.setWrapStyleWord(true);
         lblLocation.setBorder(null);
         lblLocation.setMaximumSize(new java.awt.Dimension(20, 40));
         scrlLocation.setViewportView(lblLocation);
@@ -382,6 +391,7 @@ public class ViewItemEquipment extends javax.swing.JPanel {
         lblDateOfPurchase.setColumns(10);
         lblDateOfPurchase.setLineWrap(true);
         lblDateOfPurchase.setRows(3);
+        lblDateOfPurchase.setWrapStyleWord(true);
         lblDateOfPurchase.setBorder(null);
         lblDateOfPurchase.setMaximumSize(new java.awt.Dimension(20, 40));
         scrlDateOfPurchase.setViewportView(lblDateOfPurchase);

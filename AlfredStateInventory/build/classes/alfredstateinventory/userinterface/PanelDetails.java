@@ -247,6 +247,7 @@ public class PanelDetails extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(lblLocationTitle, gridBagConstraints);
 
+        btnQR.setBackground(java.awt.SystemColor.control);
         btnQR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/QRIcon.png"))); // NOI18N
         btnQR.setText("Export QR");
         btnQR.setToolTipText("Export QR code for this item");
@@ -301,6 +302,7 @@ public class PanelDetails extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         add(btnHome, gridBagConstraints);
 
+        btnEdit.setBackground(java.awt.SystemColor.control);
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alfredstateinventory/drawable/GearIcon.png"))); // NOI18N
         btnEdit.setText("Edit item");
         btnEdit.setToolTipText("Edit details for this item");
