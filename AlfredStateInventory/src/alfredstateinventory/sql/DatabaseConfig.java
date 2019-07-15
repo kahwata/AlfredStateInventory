@@ -6,8 +6,9 @@
 package alfredstateinventory.sql;
 
 public interface DatabaseConfig {
-    public String connectionURL = "jdbc:mysql://bhprograms.org:3306/bhprogra_SystemAnalysis?zeroDateTimeBehavior=convertToNull";
-    public String guestUser = "bhprogra_student";
-    public String guestPass = "nurights4u";
+    public String connectionURL = "jdbc:mysql://136.224.172.35/citinventory?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    public String guestUser = "guest";
+    public String guestPass = "citinventory2019";
     
 }
+
